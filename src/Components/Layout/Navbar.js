@@ -1,67 +1,66 @@
-  import React, { useState } from 'react'
-import { Typography ,AppBar,Toolbar,Button,IconButton,Menu,MenuItem, ListItemText,Drawer,List,ListItem} from "@material-ui/core";
+import React, { useState } from 'react'
+import { Typography, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
-import  MoreIcon from '@material-ui/icons/MoreVert'
-import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
- 
-const DrawerWidth=200
+import MoreIcon from '@material-ui/icons/MoreVert'
+
+const DrawerWidth = 200
 const useStyles = makeStyles((theme) => ({
-  root:{
-  paddingLeft:DrawerWidth
+  root: {
+    paddingLeft: DrawerWidth
   },
-  content:{
-    padding:theme.spacing(3)
+  content: {
+    padding: theme.spacing(3)
   },
-  appBar:{
-    zIndex: theme.zIndex.drawer +1, 
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
   },
-  sectionDesktop:{
-    display:"none",
-    [theme.breakpoints.up("md")]:{
-      display:"flex",  
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     }
   },
-  MobileDesktop:{
-    display:"none",
-    [theme.breakpoints.down("md")]:{
-      display:"flex",  
+  MobileDesktop: {
+    display: "none",
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
     }
   },
-  drawer:{
-    width:170
+  drawer: {
+    width: 170
 
   },
-  }));
+}));
 
-  const Navbar = () => {
-      const classes = useStyles();
-      const [mobileelment, setMobileelment] = useState(null)
-      const [Open, setOpen] = useState(false)
-      const isMobileMenuOpen =Boolean(mobileelment)
-      const openMobileMenu =(event) => {
-          setMobileelment(event.currentTarget)
-      }
-      const CloseMobileMenu =() => {
-        setMobileelment(null)
-      }
-                              // FOR MOBILE RESPONSIVE
-      const MobileMenu=(
-        <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Home">Home</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >About</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Login</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >SignUp</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Jobs</MenuItem>
-          <MenuItem onClick= {()=> setOpen(true)}  >a</MenuItem>
+const Navbar = () => {
+  const classes = useStyles();
+  const [mobileelment, setMobileelment] = useState(null)
+  const [Open, setOpen] = useState(false)
+  const isMobileMenuOpen = Boolean(mobileelment)
+  const openMobileMenu = (event) => {
+    setMobileelment(event.currentTarget)
+  }
+  const CloseMobileMenu = () => {
+    setMobileelment(null)
+  }
+  // FOR MOBILE RESPONSIVE
+  const MobileMenu = (
+    <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Candidates">Candidates</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >Interviews</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Assessments</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Settings</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >Jobs</MenuItem>
+      <MenuItem onClick={() => setOpen(true)}  >a</MenuItem>
 
-        </Menu>
-      )
+    </Menu>
+  )
 
-      return (
-          <>
-          <div className={classes.root}>
-          {/* <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
+  return (
+    <>
+      <div className={classes.root}>
+        {/* <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
             <List disablePadding className={classes.drawer}>
               <Toolbar/>
               <ListItem button>
@@ -84,26 +83,26 @@ const useStyles = makeStyles((theme) => ({
               </ListItem>
             </List>
           </Drawer> */}
-            <AppBar color="secondary" position="fixed" className={classes.appBar}>
-       <Toolbar>
-       <Typography variant="h6" style={{flexGrow:1}}> Hr Portal</Typography>
-       <div className={classes.sectionDesktop}>
-        <Button color="inherit" component={Link} to='/Home'>Home</Button>
-       <Button color="inherit" component={Link} to='/About'>About</Button>
-       <Button color="inherit" component={Link} to='/Login'>Login</Button>
-       <Button color="inherit" component={Link} to='SignUp'>Sign Up</Button>
-       <Button color="inherit" component={Link} to='/Jobs'>Jobs</Button>
-       </div>
-       <div className={classes.MobileDesktop} >
-         <IconButton color="inherit" onClick={openMobileMenu}  >
-         <MoreIcon  />
-       </IconButton>
-       </div>
-       </Toolbar>
-     </AppBar>
-     <main className ={classes.content}>
-       <Toolbar/>
-       {/* <Typography variant="h2">A. P. J. Abdul Kalam</Typography>
+        <AppBar color="secondary" position="fixed" className={classes.appBar}>
+          <Toolbar>
+            <Typography variant="h6" style={{ flexGrow: 1 }}> Hr Portal</Typography>
+            <div className={classes.sectionDesktop}>
+              <Button color="inherit" component={Link} to='/Candidates'>Candidates</Button>
+              <Button color="inherit" component={Link} to='/About'>Interviews</Button>
+              <Button color="inherit" component={Link} to='/Login'>Assessments</Button>
+              <Button color="inherit" component={Link} to='/Jobs'>Settings</Button>
+              <Button color="inherit" component={Link} to='SignUp'>Jobs</Button>
+            </div>
+            <div className={classes.MobileDesktop} >
+              <IconButton color="inherit" onClick={openMobileMenu}  >
+                <MoreIcon />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+        <main className={classes.content}>
+          <Toolbar />
+          {/* <Typography variant="h2">A. P. J. Abdul Kalam</Typography>
        <Typography>
          
 From Wikipedia, the free encyclopedia
@@ -162,12 +161,11 @@ Kalam was elected as the 11th president of India in 2002 with the support of bot
 
 While delivering a lecture at the Indian Institute of Management Shillong, Kalam collapsed and died from an apparent cardiac arrest on 27 July 2015, aged 83.[7] Thousands, including national-level dignitaries, attended the funeral ceremony held in his hometown of Rameswaram, where he was buried with full state honours.[8]
        </Typography> */}
-     </main>
-     {MobileMenu}
-     </div>
-          </>
-      )
-  }
-  
-  export default Navbar
-  
+        </main>
+        {MobileMenu}
+      </div>
+    </>
+  )
+}
+
+export default Navbar
