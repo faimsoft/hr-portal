@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Typography ,AppBar,Toolbar,Button,IconButton,Menu,MenuItem, ListItemText,Drawer,List,ListItem} from "@material-ui/core";
+import { Typography ,AppBar,Toolbar,Button,IconButton,Menu,MenuItem, ListItemText,Drawer,List,ListItem,Collapse} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import  MoreIcon from '@material-ui/icons/MoreVert'
 import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
- 
+ import { ExpandLess, ExpandMore } from '@mui/icons-material';
+
 const DrawerWidth=200
 
 const useStyles = makeStyles((theme) => ({
@@ -33,12 +34,17 @@ const useStyles = makeStyles((theme) => ({
     width:170
 
   },
+  nestedItem: {
+        paddingLeft: theme.spacing(8),
+    },
   }));
 
 const Sidebar = () => {
       const classes = useStyles();
       const [mobileelment, setMobileelment] = useState(null)
       const [Open, setOpen] = useState(false)
+      const [from, setFrom] = useState(false)
+
       const isMobileMenuOpen =Boolean(mobileelment)
       const openMobileMenu =(event) => {
           setMobileelment(event.currentTarget)
@@ -81,9 +87,27 @@ const Sidebar = () => {
               <ListItem button>
                 <ListItemText primary="Fifth Item" />
               </ListItem>
-              <ListItem button>
-                <ListItemText primary="Sixth Item" />
+              <ListItem button onClick={() => setFrom(!from)}>
+                <ListItemText primary="Sixth Item"  />
+                 {from ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
+              {/* collapse */}
+              <Collapse in={from}>
+                            <List disablePadding>
+                                <ListItem className={classes.nestedItem} button>
+                                    <ListItemText >list one</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem} button>
+                                    <ListItemText > one</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem} button>
+                                    <ListItemText > Two</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem} button >
+                                    <ListItemText > Three</ListItemText>
+                                </ListItem>
+                            </List>
+                        </Collapse>
             </List>
           </Drawer>
         </div>
