@@ -47,7 +47,7 @@ const Navbar = () => {
   // FOR MOBILE RESPONSIVE
   const MobileMenu = (
     <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
-      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Candidates">Candidates</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/CandiDR">Candidates</MenuItem>
       <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >Interviews</MenuItem>
       <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Assessments</MenuItem>
       <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Settings</MenuItem>
@@ -83,11 +83,11 @@ const Navbar = () => {
               </ListItem>
             </List>
           </Drawer> */}
-        <AppBar color="secondary" position="fixed" className={classes.appBar}>
+        <AppBar color="primary" position="fixed" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h6" style={{ flexGrow: 1 }}> Hr Portal</Typography>
             <div className={classes.sectionDesktop}>
-              <Button color="inherit" component={Link} to='/Candidates'>Candidates</Button>
+              <Button color="inherit" component={Link} to='/CandiDR'>Candidates</Button>
               <Button color="inherit" component={Link} to='/About'>Interviews</Button>
               <Button color="inherit" component={Link} to='/Login'>Assessments</Button>
               <Button color="inherit" component={Link} to='/Jobs'>Settings</Button>

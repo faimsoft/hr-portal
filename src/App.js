@@ -4,7 +4,6 @@ import "./styles/App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from "./Components/Layout/Navbar";
-import Candidates from "./Components/pages/Candidates";
 import About from "./Components/pages/About";
 import Login from "./Components/pages/Login";
 import SignUp from "./Components/pages/SignUp";
@@ -12,6 +11,15 @@ import Jobs from './Components/pages/Jobs'
 // drawer pages
 import FirstElement from "./Components/Drawer/Drawer_Pages/FirstElement";
 import SecondElement from "./Components/Drawer/Drawer_Pages/SecondElement";
+
+// Candidates
+import Candidates from "./Components/pages/Candidates";
+// Formdata
+import Formdata from "./Components/Candidates/Formdata/Formdata";
+import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
+import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,8 +56,15 @@ function App() {
           <Route exact path='/SecondElement' component={SecondElement}>
             <SecondElement />
           </Route>
-
-
+          <Route exact path='/Formdata' component={Formdata}>
+            <Formdata />
+          </Route>
+          <Route exact path='/CandiDR' component={CandiDR}>
+            <CandiDR />
+          </Route>
+          <Route exact path='/CreatCandidate' component={CreatCandidate}>
+            <CreatCandidate />
+          </Route>
         </Switch>
       </container>
     </BrowserRouter>
