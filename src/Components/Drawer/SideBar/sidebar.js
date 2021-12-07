@@ -72,12 +72,28 @@ const Sidebar = () => {
           <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
             <List disablepadding className={classes.drawer}>
               <Toolbar/>
-              <ListItem button component={Link} to='./FirstElement'>
-                <ListItemText primary="First Item" />
+              <ListItem button component={Link} to='./Career_Site'>
+                <ListItemText primary="Career Site" />
               </ListItem>
-              <ListItem button component={Link} to='./SecondElement'>
-                <ListItemText primary="Second Item" />
+              <ListItem button  onClick={() => setFrom(!from)}>
+                <ListItemText primary="Institute Setting" />
+                {from ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
+               {/* collapse */}
+              <Collapse in={from}>
+                            <List disablePadding>
+                                <ListItem className={classes.nestedItem}  component={Link} to='./Deparments' button>
+                                    <ListItemText >Departments</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/Designations' button>
+                                    <ListItemText > Designation</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem} component={Link} to='/Degree' button>
+                                    <ListItemText > Degree</ListItemText>
+                                </ListItem>
+                              
+                            </List>
+                        </Collapse>
               <ListItem button>
                 <ListItemText primary="Third Item" />
               </ListItem>
@@ -87,27 +103,11 @@ const Sidebar = () => {
               <ListItem button>
                 <ListItemText primary="Fifth Item" />
               </ListItem>
-              <ListItem button onClick={() => setFrom(!from)}>
-                <ListItemText primary="Sixth Item"  />
-                 {from ? <ExpandLess /> : <ExpandMore />}
+              <ListItem button >
+                <ListItemText primary="sixth item"  />
+                 
               </ListItem>
-              {/* collapse */}
-              <Collapse in={from}>
-                            <List disablePadding>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText > one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText > Two</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button >
-                                    <ListItemText > Three</ListItemText>
-                                </ListItem>
-                            </List>
-                        </Collapse>
+             
             </List>
           </Drawer>
         </div>

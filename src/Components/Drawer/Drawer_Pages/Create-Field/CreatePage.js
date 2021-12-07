@@ -5,16 +5,16 @@ import { Toolbar} from "@material-ui/core";
 import Autocomplete from '@mui/material/Autocomplete';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from "@material-ui/core/styles";
-import Sidebar from '../sidebar';
+import Sidebar from '../../SideBar/sidebar';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+import {Typography} from "@material-ui/core"
+
 
 
 const useStyles = makeStyles((theme) => ({
-   create:{
-       paddingLeft:250,
-       paddingRight:10
-   },
-   center:{
-       paddingLeft:340
+   buttonSize:{
+     width:200
    }
 
 }))
@@ -23,9 +23,12 @@ const CreatePage = () => {
               const classes = useStyles();
 
     return (
-        <div  className={classes.center}  >
-                    <Sidebar/>
-            <Box  className={classes.create}
+        <div  align="center"  >
+                <Sidebar/>
+                <Toolbar/>
+                <Typography  variant="h4" align="center"> Create Field</Typography>
+                <Toolbar/>
+            <Box 
                   component={Paper}  
                   component="form"
                          sx={{
@@ -34,24 +37,37 @@ const CreatePage = () => {
       noValidate
       autoComplete="off"
                  >
-                <Toolbar/>
-                <h1>Create Field</h1>
+                
             <Autocomplete
                 disablePortal
                 id="combo-box-demo"
                 options={top100Films}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="Movie" />}
+                renderInput={(params) => <TextField {...params} label="Select The Data Type" />}
                 />
                 <Toolbar/>
                  <TextField
                     required
                     id="outlined-required"
-                    label="Required"
-                    defaultValue="1 World"
+                    required="required"
+                    label="Type The Name Of The Field"
+                    defaultValue="required"
                     />
-                
-            </Box>
+            </Box>                        
+            <Toolbar/>
+
+            <div  align="center">
+              <Button className={classes.buttonSize} color="primary" component={Link} to='/' variant="contained" disableElevation >
+                    Create 
+            </Button>
+            </div>
+            {/* <div align="centter">
+              <Typography  align="center">
+               <Button className={classes.createbutton} color="primary" component={Link} to='/' variant="contained" disableElevation >
+                    Create 
+            </Button>
+            </Typography>
+            </div> */}
+            
         </div>
     )
 }

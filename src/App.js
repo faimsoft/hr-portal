@@ -4,15 +4,25 @@ import "./styles/App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from "./Components/Layout/Navbar";
-import Candidates from "./Components/pages/Candidates";
 import About from "./Components/pages/About";
 import Login from "./Components/pages/Login";
 import SignUp from "./Components/pages/SignUp";
 import Jobs from './Components/pages/Jobs'
 // drawer pages
-import FirstElement from "./Components/Drawer/Drawer_Pages/FirstElement";
-import SecondElement from "./Components/Drawer/Drawer_Pages/SecondElement";
-import CreatePage from './Components/Drawer/Drawer_Pages/CreatePage'
+import Career_Site from "./Components/Drawer/Drawer_Pages/Career_Site/Career_Site";
+import Deparments from "./Components/Drawer/Drawer_Pages/Institute_Setting/Deparments";
+import CreatePage from './Components/Drawer/Drawer_Pages/Create-Field/CreatePage'
+import Designations from './Components/Drawer/Drawer_Pages/Institute_Setting/Designations'
+import Degree from "./Components/Drawer/Drawer_Pages/Institute_Setting/Degree"
+// Candidates
+import Candidates from "./Components/pages/Candidates";
+// Formdata
+import Formdata from "./Components/Candidates/Formdata/Formdata";
+import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
+import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
+
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100vw",
@@ -42,14 +52,29 @@ function App() {
           <Route exact path='/Jobs' component={Jobs}>
             <Jobs />
           </Route>
-          <Route exact path='/FirstElement' component={FirstElement}>
-            <FirstElement />
+          <Route exact path='/Career_Site' component={Career_Site}>
+            <Career_Site />
           </Route>
-          <Route exact path='/SecondElement' component={SecondElement}>
-            <SecondElement />
+          <Route exact path='/Deparments' component={Deparments}>
+            <Deparments />
           </Route>
           <Route exact path='/CreatePage' component={CreatePage}>
             <CreatePage />
+            </Route>
+          <Route exact path='/Formdata' component={Formdata}>
+            <Formdata />
+          </Route>
+          <Route exact path='/CandiDR' component={CandiDR}>
+            <CandiDR />
+          </Route>
+          <Route exact path='/CreatCandidate' component={CreatCandidate}>
+            <CreatCandidate />
+          </Route>
+          <Route exact path='/Designations' component={Designations}>
+            <Designations />
+          </Route>
+          <Route exact path='/Degree' component={Degree}>
+            <Degree />
           </Route>
         </Switch>
       </container>
