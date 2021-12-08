@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Typography ,AppBar,Toolbar,Button,IconButton,Menu,MenuItem, ListItemText,Drawer,List,ListItem} from "@material-ui/core";
+import { Typography ,AppBar,Toolbar,Button,IconButton,Menu,MenuItem, ListItemText,Drawer,List,ListItem,Collapse} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import  MoreIcon from '@material-ui/icons/MoreVert'
 import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
- 
+ import { ExpandLess, ExpandMore } from '@mui/icons-material';
+
 const DrawerWidth=200
 
 const useStyles = makeStyles((theme) => ({
@@ -33,12 +34,17 @@ const useStyles = makeStyles((theme) => ({
     width:170
 
   },
+  nestedItem: {
+        paddingLeft: theme.spacing(8),
+    },
   }));
 
 const Sidebar = () => {
       const classes = useStyles();
       const [mobileelment, setMobileelment] = useState(null)
       const [Open, setOpen] = useState(false)
+      const [from, setFrom] = useState(false)
+
       const isMobileMenuOpen =Boolean(mobileelment)
       const openMobileMenu =(event) => {
           setMobileelment(event.currentTarget)
@@ -66,12 +72,28 @@ const Sidebar = () => {
           <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
             <List disablepadding className={classes.drawer}>
               <Toolbar/>
-              <ListItem button component={Link} to='./FirstElement'>
-                <ListItemText primary="First Item" />
+              <ListItem button component={Link} to='./Career_Site'>
+                <ListItemText primary="Career Site" />
               </ListItem>
-              <ListItem button component={Link} to='./SecondElement'>
-                <ListItemText primary="Second Item" />
+              <ListItem button  onClick={() => setFrom(!from)}>
+                <ListItemText primary="Institute Setting" />
+                {from ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
+               {/* collapse */}
+              <Collapse in={from}>
+                            <List disablePadding>
+                                <ListItem className={classes.nestedItem}  component={Link} to='./Deparments' button>
+                                    <ListItemText >Departments</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/Designations' button>
+                                    <ListItemText > Designation</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem} component={Link} to='/Degree' button>
+                                    <ListItemText > Degree</ListItemText>
+                                </ListItem>
+                              
+                            </List>
+                        </Collapse>
               <ListItem button>
                 <ListItemText primary="Third Item" />
               </ListItem>
@@ -81,9 +103,11 @@ const Sidebar = () => {
               <ListItem button>
                 <ListItemText primary="Fifth Item" />
               </ListItem>
-              <ListItem button>
-                <ListItemText primary="Sixth Item" />
+              <ListItem button >
+                <ListItemText primary="sixth item"  />
+                 
               </ListItem>
+             
             </List>
           </Drawer>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../Drawer/sidebar'
+import Sidebar from '../Drawer/SideBar/sidebar'
 import {Box,Typography} from "@material-ui/core"
 
 

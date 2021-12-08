@@ -9,9 +9,11 @@ import Login from "./Components/pages/Login";
 import SignUp from "./Components/pages/SignUp";
 import Jobs from './Components/pages/Jobs'
 // drawer pages
-import FirstElement from "./Components/Drawer/Drawer_Pages/FirstElement";
-import SecondElement from "./Components/Drawer/Drawer_Pages/SecondElement";
-
+import Career_Site from "./Components/Drawer/Drawer_Pages/Career_Site/Career_Site";
+import Deparments from "./Components/Drawer/Drawer_Pages/Institute_Setting/Deparments";
+import CreatePage from './Components/Drawer/Drawer_Pages/Create-Field/CreatePage'
+import Designations from './Components/Drawer/Drawer_Pages/Institute_Setting/Designations'
+import Degree from "./Components/Drawer/Drawer_Pages/Institute_Setting/Degree"
 // Candidates
 import Candidates from "./Components/pages/Candidates";
 // Formdata
@@ -52,11 +54,14 @@ function App() {
           <Route exact path='/Jobs' component={Jobs}>
             <Jobs />
           </Route>
-          <Route exact path='/FirstElement' component={FirstElement}>
-            <FirstElement />
+          <Route exact path='/Career_Site' component={Career_Site}>
+            <Career_Site />
           </Route>
-          <Route exact path='/SecondElement' component={SecondElement}>
-            <SecondElement />
+          <Route exact path='/Deparments' component={Deparments}>
+            <Deparments />
+          </Route>
+          <Route exact path='/CreatePage' component={CreatePage}>
+            <CreatePage />
           </Route>
           <Route exact path='/Formdata' component={Formdata}>
             <Formdata />
@@ -72,6 +77,12 @@ function App() {
           </Route>
           <Route exact path='/Cdsingleview' component={Cdsingleview}>
             <Cdsingleview />
+          </Route>
+          <Route exact path='/Designations' component={Designations}>
+            <Designations />
+          </Route>
+          <Route exact path='/Degree' component={Degree}>
+            <Degree />
           </Route>
         </Switch>
       </container>
