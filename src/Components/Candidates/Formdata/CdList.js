@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
 
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     }
 
 }));
-function Formdata() {
+function CdList() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -37,12 +38,9 @@ function Formdata() {
     const loadUsers = async () => {
         const res = await axios.get("https://jsonplaceholder.typicode.com/users");
         setUsers(res.data);
-
     };
-
     useEffect(() => {
         loadUsers();
-        console.warn("users")
     }, [])
 
     const onChangePage = (event, nextPage) => {
@@ -52,7 +50,6 @@ function Formdata() {
     const onChangeRowsPerPage = (event) => {
         setRowsPerPage(event.target.value);
     }
-
     const [currency, setCurrency] = React.useState('EUR');
 
     const clickhandleChange = (e) => {
@@ -60,6 +57,7 @@ function Formdata() {
     };
     return (
         <>
+
             <Grid container spacing={2}    >
                 <div style={{ flexGrow: 1 }}></div>
                 <Grid item xs={2}  >
@@ -121,7 +119,7 @@ function Formdata() {
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
                                 <TableCell>Name</TableCell>
-                                <TableCell>Associated Job</TableCell>
+                                <TableCell>Latest Job Applied</TableCell>
                                 <TableCell>Status</TableCell>
                                 <TableCell>Sourced from</TableCell>
                                 <TableCell>Phone</TableCell>
@@ -130,14 +128,14 @@ function Formdata() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((users) => (
+                            {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => (
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3">{users.name}</TableCell>
-                                    <TableCell>{users.email}</TableCell>
-                                    <TableCell>{users.website}</TableCell>
-                                    <TableCell>{users.company.name}</TableCell>
-                                    <TableCell>{users.phone}</TableCell>
+                                    <TableCell variant="h3">{user.name}</TableCell>
+                                    <TableCell>{user.email}</TableCell>
+                                    <TableCell>{user.website}</TableCell>
+                                    <TableCell>{user.company.name}</TableCell>
+                                    <TableCell>{user.phone}</TableCell>
                                     <TableCell><Button variant="text"><EditIcon color="primary" /></Button></TableCell>
                                     <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
@@ -165,7 +163,8 @@ function Formdata() {
     )
 }
 
-export default Formdata
+export default CdList
+
 
 
 
@@ -205,61 +204,3 @@ const countries = [
         phone: '387',
     },
 ]
-
-
-
-
-
-// function Cdsingleview() {
-//     const [currency, setCurrency] = React.useState('Afghanistan');
-
-//     const clickhandleChange = (value) => {
-//         console.log('select', value);
-//         setCurrency(value)
-//     };
-
-
-//     return (
-//         SelectOption('Countries', currency, countries, clickhandleChange)
-//     )
-// }
-
-// export default Cdsingleview
-
-
-// const countries = [
-//     { code: 'AD', label: 'Andorra', phone: '376' },
-//     {
-//         code: 'AE',
-//         label: 'United Arab Emirates',
-//         phone: '971',
-//     },
-//     { code: 'AF', label: 'Afghanistan', phone: '93' },
-//     {
-//         code: 'AG',
-//         label: 'Antigua and Barbuda',
-//         phone: '1-268',
-//     },
-//     { code: 'AI', label: 'Anguilla', phone: '1-264' },
-//     { code: 'AL', label: 'Albania', phone: '355' },
-//     { code: 'AM', label: 'Armenia', phone: '374' },
-//     { code: 'AO', label: 'Angola', phone: '244' },
-//     { code: 'AQ', label: 'Antarctica', phone: '672' },
-//     { code: 'AR', label: 'Argentina', phone: '54' },
-//     { code: 'AS', label: 'American Samoa', phone: '1-684' },
-//     { code: 'AT', label: 'Austria', phone: '43' },
-//     {
-//         code: 'AU',
-//         label: 'Australia',
-//         phone: '61',
-//         suggested: true,
-//     },
-//     { code: 'AW', label: 'Aruba', phone: '297' },
-//     { code: 'AX', label: 'Alland Islands', phone: '358' },
-//     { code: 'AZ', label: 'Azerbaijan', phone: '994' },
-//     {
-//         code: 'BA',
-//         label: 'Bosnia and Herzegovina',
-//         phone: '387',
-//     },
-// ]

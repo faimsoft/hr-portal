@@ -18,6 +18,8 @@ import Candidates from "./Components/pages/Candidates";
 import Formdata from "./Components/Candidates/Formdata/Formdata";
 import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
 import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
+import CdList from "./Components/Candidates/Formdata/CdList";
+import Cdsingleview from "./Components/Candidates/Formdata/Cdsingleview";
 
 
 
@@ -64,6 +66,12 @@ function App() {
           </Route>
           <Route exact path='/CreatCandidate' component={CreatCandidate}>
             <CreatCandidate />
+          </Route>
+          <Route exact path='/CdList' component={CdList}>
+            <CdList />
+          </Route>
+          <Route exact path='/Cdsingleview' component={Cdsingleview}>
+            <Cdsingleview />
           </Route>
         </Switch>
       </container>
