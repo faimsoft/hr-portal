@@ -17,6 +17,7 @@ import { SelectOption } from '../../../views/Dropdown';
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     hr: {
         position: 'absolute',
@@ -36,6 +37,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
+
+
 function Cdsingleview() {
     const [currency, setCurrency] = React.useState('');
 
@@ -48,10 +51,9 @@ function Cdsingleview() {
     return (
 
         // SelectOption('Countries', currency, countries, setCurrency)
-
-        < div >
-            <Grid container spacing={2}  >
-                <Grid item xs={10}  >
+        <>
+            <Grid container spacing={2}   >
+                <Grid item xs={3}  >
                     <div style={{ marginLeft: '10px' }}>
                         <Typography variant="h4">
                             <ArrowBackIcon color="primary"
@@ -60,11 +62,14 @@ function Cdsingleview() {
                                 style={{ fontSize: '30px' }} //onClick={handleClick}
                             />
                             Abhineet Sabharwal
-                            {/* <TextHead3 text3={'Hiring Status'} /> */}
-
-
                         </Typography>
                     </div>
+                </Grid>
+                <Grid item xs={2}  >
+                    <TextSCHead smtext={" M. Tech. (Structure)"} />
+                </Grid>
+                <Grid item xs={5}  >
+                    <TextSCHead smtext={" +91-9930705653"} />
                 </Grid>
                 <Grid item xs={2}  >
 
@@ -74,8 +79,7 @@ function Cdsingleview() {
                 </Grid>
             </Grid>
             <hr className={classes.hr} />
-
-
+            {/* three button */}
             <div className={classes.root} >
                 <Grid container spacing={2} style={{ marginTop: "10px" }}   >
                     <Grid item xs={2}  >
@@ -107,10 +111,8 @@ function Cdsingleview() {
 
                 </Grid>
 
-
             </div>
-        </div >
-
+        </>
     )
 }
 

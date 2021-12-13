@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
         display: "flex",
         "align-items": 'center',
-        color: '#000000 '
+        color: '#000000'
     },
     para: {
         "font- family": "Inter",
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
         "font- family": "Inter",
         "font- style": "normal",
         "font - weight": "bold",
-        "font - size": "20px",
+        "font - size": "50px",
         "line - height": "175 %",
         /* identical to box height, or 35px */
         display: "flex",

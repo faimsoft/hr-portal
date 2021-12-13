@@ -7,6 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import candidatesview from './view';
 
 
 
@@ -161,6 +162,7 @@ function Formdata() {
                 </TableContainer>
 
             </Container>
+            <candidatesview />
         </>
     )
 }

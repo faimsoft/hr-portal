@@ -16,6 +16,7 @@ import Designations from './Components/Drawer/Drawer_Pages/Institute_Setting/Des
 import Degree from "./Components/Drawer/Drawer_Pages/Institute_Setting/Degree"
 // Candidates
 import Candidates from "./Components/pages/Candidates";
+import view from "./Components/Candidates/Formdata/view";
 // Formdata
 import Formdata from "./Components/Candidates/Formdata/Formdata";
 import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
@@ -83,6 +84,9 @@ function App() {
           </Route>
           <Route exact path='/Degree' component={Degree}>
             <Degree />
+          </Route>
+          <Route exact path='/view' component={view}>
+            <view />
           </Route>
         </Switch>
       </container>

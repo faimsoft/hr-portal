@@ -8,11 +8,12 @@ import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, P
 const useStyles = makeStyles((theme) => ({
     lg: {
         position: "absolute",
-        "width": "213px",
+        "width": "200px",
         "height": "44px",
         "background": "#109CF1",
         "box- shadow": " 0px 2px 4px rgba(58, 87, 232, 0.3)",
         "border- radius": "4px",
+        // left: "654px",
     },
     sm: {
         position: "absolute",
