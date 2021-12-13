@@ -49,9 +49,9 @@ const Navbar = () => {
     <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
       <MenuItem component={Link} onClick={CloseMobileMenu} to="/CandiDR">Candidates</MenuItem>
       <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >Interviews</MenuItem>
-      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Assessments</MenuItem>
-      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Settings</MenuItem>
-      <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >Jobs</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/">Assessments</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Career_Site" >Settings</MenuItem>
+      <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login" >Log in</MenuItem>
       <MenuItem onClick={() => setOpen(true)}  >a</MenuItem>
 
     </Menu>
@@ -67,9 +67,9 @@ const Navbar = () => {
             <div className={classes.sectionDesktop}>
               <Button color="inherit" component={Link} to='/CandiDR'>Candidates</Button>
               <Button color="inherit" component={Link} to='/About'>Interviews</Button>
-              <Button color="inherit" component={Link} to='/Login'>Assessments</Button>
-              <Button color="inherit" component={Link} to='/Jobs'>Settings</Button>
-              <Button color="inherit" component={Link} to='SignUp'>Jobs</Button>
+              <Button color="inherit" component={Link} to='/'>Assessments</Button>
+              <Button color="inherit" component={Link} to='/Career_Site'>Settings</Button>
+              <Button color="inherit" component={Link} to='/Login'>Log in</Button>
             </div>
             <div className={classes.MobileDesktop} >
               <IconButton color="inherit" onClick={openMobileMenu}  >

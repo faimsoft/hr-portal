@@ -7,6 +7,10 @@ import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
 
 
@@ -29,11 +33,14 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-const Degree = () => {
+const Pipelines = () => {
          const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+     const [openModal, setOpenModal] = React.useState(false);
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
@@ -43,6 +50,19 @@ const Degree = () => {
     const onChangePage = (event, nextPage) => {
         setPage(nextPage);
     }
+    const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  height:200,
+  bgcolor: 'background.paper',
+  border: '0px',
+  boxShadow: 24,
+  p: 5,
+ borderRadius: 10
+};
 
    
     return (
@@ -52,33 +72,29 @@ const Degree = () => {
              <Container className={classes.Create} >
                 <div style={{ flexGrow: 1 }}>
                 </div>
-                <Button color="primary" component={Link} to='/CreatePage' variant="contained" disableElevation>
-                    Create a candidate
+                <Button color="primary" component={Link} onClick={handleOpen} variant="contained" disableElevation>
+                    Create
                 </Button>
 
             </Container>
             <Container className={classes.root} >
-                <TableContainer component={Paper} >
+                 <TableContainer component={Paper} >
                     <Table >
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell >Degree</TableCell>
-                                <TableCell align="center">Action</TableCell>
+                                <TableCell align="left" >Name</TableCell>
+                                <TableCell  align="center">Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                                <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >BCA</TableCell>
-                                  
+                                <TableRow  >
+                                    <TableCell ><Button variant="text"><Checkbox {...label} /></Button></TableCell>
+                                    <TableCell  variant="h3" >Admin Placement</TableCell>
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
-                                        <Button variant="text"><DeleteIcon color="error" /></Button>
                                     </TableCell>
                                 </TableRow>
-
-
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -94,10 +110,37 @@ const Degree = () => {
                 </TableContainer>
             </Container>
             </div>
+
+            {/* Modal */}
+             <div>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={openModal}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} >
+          <Typography align="center" id="modal-modal-title" align="center" variant="h6">
+            Add a New Category
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} align="center">
+            <TextField
+                id="outlined-size-small"
+                    size="small"
+                                placeholder="Type the name...."
+                                style={{ width: 250 }}
+                            />
+                            <Toolbar/>
+            <Button color="primary" component={Link}  variant="contained" disableElevation align="center">Add </Button>
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
     </>
 
     )
 }
 
-export default Degree
+export default Pipelines
 

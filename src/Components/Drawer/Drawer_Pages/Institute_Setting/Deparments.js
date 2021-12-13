@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
    },
    root: {
 
-        width: "75vw",
+        width: "95vw",
         paddingTop: theme.spacing(5),
 
     },
@@ -57,19 +57,18 @@ const Deparments = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell style={{ flexGrow: 1 }} color="primary" >Department Name</TableCell>
-                            
-                                <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                <TableCell color="primary" >Department Name</TableCell>
+                                <TableCell align="center"> Action </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" style={{ flexGrow: 1 }}>science</TableCell>
-                                  
-                                    <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell variant="h3" >science</TableCell>
+                                    <TableCell align="center">
+                                        <Button variant="text" ><EditIcon color="primary" /></Button>
+                                        <Button variant="text"><DeleteIcon color="error" /></Button>
+                                    </TableCell>
                                 </TableRow>
                         </TableBody>
                     </Table>

@@ -41,7 +41,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Sidebar = () => {
       const classes = useStyles();
-      const [mobileelment, setMobileelment] = useState(null)
+  const [mobileelment, setMobileelment] = useState(null)
+  const [HiringPeople, setHiringPeople] = useState(false)
+  const [Userbtn, setUserbtn] = useState(false)
+  const [Emailtemplates, setEmailtemplates] = useState(false)
       const [Open, setOpen] = useState(false)
       const [from, setFrom] = useState(false)
 
@@ -57,10 +60,10 @@ const Sidebar = () => {
         <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
           <MenuItem component={Link} onClick={CloseMobileMenu} to="/Home">Home</MenuItem>
           <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >About</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Login</MenuItem>
+          <MenuItem component={Link} onClick={CloseMobileMenu} to="/job">job</MenuItem>
           <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >SignUp</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Jobs</MenuItem>
-          <MenuItem component={Link} onClick={CloseMobileMenu} to="/setting" >setting</MenuItem>
+          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login" >Login</MenuItem>
+          <MenuItem component={Link} onClick={CloseMobileMenu} to="/Career_Site" >setting</MenuItem>
           <MenuItem onClick= {()=> setOpen(true)}  >a</MenuItem>
 
         </Menu>
@@ -90,23 +93,68 @@ const Sidebar = () => {
                                 </ListItem>
                                 <ListItem className={classes.nestedItem} component={Link} to='/Degree' button>
                                     <ListItemText > Degree</ListItemText>
+                  </ListItem>
+                  <ListItem className={classes.nestedItem} component={Link} to='/Jobstatus' button>
+                                    <ListItemText > Job Status</ListItemText>
                                 </ListItem>
                               
                             </List>
                         </Collapse>
-              <ListItem button>
-                <ListItemText primary="Third Item" />
+             
+              {/*  */}
+              <ListItem button  onClick={() => setUserbtn(!Userbtn)}>
+                <ListItemText primary="Users" />
+                {from ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
-              <ListItem button>
-                <ListItemText primary="Fourth Item" />
+               {/* collapse */}
+              <Collapse in={Userbtn}>
+                            <List disablePadding>
+                                <ListItem className={classes.nestedItem}  component={Link} to='./' button>
+                                    <ListItemText >List</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/' button>
+                                    <ListItemText > Approvals</ListItemText>
+                                </ListItem>
+                  
+                              
+                            </List>
+                        </Collapse>
+              {/*  */}
+              <ListItem button  onClick={() => setHiringPeople(!HiringPeople)}>
+                <ListItemText primary="Hiring Pipe" />
+                {HiringPeople ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
-              <ListItem button>
+               {/* collapse */}
+              <Collapse in={HiringPeople}>
+                            <List disablePadding>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/Stages' button>
+                                    <ListItemText >Stages</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/Pipelines' button>
+                                    <ListItemText > PipeLine</ListItemText>
+                                </ListItem>
+                            </List>
+                        </Collapse>
+              {/* <ListItem button>
                 <ListItemText primary="Fifth Item" />
+              </ListItem> */}
+              <ListItem button  onClick={() => setEmailtemplates(!Emailtemplates)}>
+                <ListItemText primary="Email Templates" />
+                {from ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
-              <ListItem button >
-                <ListItemText primary="sixth item"  />
-                 
-              </ListItem>
+               {/* collapse */}
+              <Collapse in={Emailtemplates}>
+                            <List disablePadding>
+                                <ListItem className={classes.nestedItem}  component={Link} to='./Categories' button>
+                                    <ListItemText >Categories</ListItemText>
+                                </ListItem>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/Templates' button>
+                                    <ListItemText > Templates</ListItemText>
+                                </ListItem>
+                  
+                              
+                            </List>
+                        </Collapse>
              
             </List>
           </Drawer>
