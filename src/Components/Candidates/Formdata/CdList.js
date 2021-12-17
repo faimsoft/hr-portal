@@ -68,6 +68,7 @@ function CdList() {
                         }}
                         id="Zip Code"
                         select
+                        size='small'
                         label="Zip Code"
                         value={currency}
                         onChange={clickhandleChange}
@@ -89,6 +90,7 @@ function CdList() {
 
                         }}
                         id="Zip Code"
+                        size='small'
                         select
                         label="Zip Code"
                         value={currency}

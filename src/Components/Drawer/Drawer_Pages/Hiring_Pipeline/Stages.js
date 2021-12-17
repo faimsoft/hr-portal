@@ -25,11 +25,12 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: theme.spacing(),
         display: 'flex'
 
-    }
+    },
+    
 
 }))
 
-const Degree = () => {
+const Stages = () => {
          const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -53,7 +54,7 @@ const Degree = () => {
                 <div style={{ flexGrow: 1 }}>
                 </div>
                 <Button color="primary" component={Link} to='/CreatePage' variant="contained" disableElevation>
-                    Create a candidate
+                    Create 
                 </Button>
 
             </Container>
@@ -61,24 +62,22 @@ const Degree = () => {
                 <TableContainer component={Paper} >
                     <Table >
                         <TableHead>
-                            <TableRow>
+                            <TableRow  className={classes.Tablehead}>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell >Degree</TableCell>
-                                <TableCell align="center">Action</TableCell>
+                                <TableCell align="left"  >Name</TableCell>
+                                <TableCell align="center"  >Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >BCA</TableCell>
-                                  
+                                    <TableCell variant="h3" style={{ flexGrow: 1 }}>Associated/ Screening</TableCell>
                                     <TableCell align="center">
+                                        <Button variant="text">View</Button>
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>
                                     </TableCell>
                                 </TableRow>
-
-
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -99,5 +98,5 @@ const Degree = () => {
     )
 }
 
-export default Degree
+export default Stages
 

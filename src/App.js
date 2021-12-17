@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from "./Components/Layout/Navbar";
 import About from "./Components/pages/About";
 import Login from "./Components/pages/Login";
-import SignUp from "./Components/pages/SignUp";
+import SignUp from "./Components/pages/SignUp/SignUp";
 import Jobs from './Components/pages/Jobs'
 // drawer pages
 import Career_Site from "./Components/Drawer/Drawer_Pages/Career_Site/Career_Site";
@@ -14,15 +14,22 @@ import Deparments from "./Components/Drawer/Drawer_Pages/Institute_Setting/Depar
 import CreatePage from './Components/Drawer/Drawer_Pages/Create-Field/CreatePage'
 import Designations from './Components/Drawer/Drawer_Pages/Institute_Setting/Designations'
 import Degree from "./Components/Drawer/Drawer_Pages/Institute_Setting/Degree"
-// Candidates
+import Jobstatus from "./Components/Drawer/Drawer_Pages/Institute_Setting/Jobstatus";
+import Stages from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Stages";
+import Pipelines from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Pipelines";
+import Categories from "./Components/Drawer/EmailTemplates/Categories";
+import Templates from './Components/Drawer/EmailTemplates/Templates'
+import CreateEmailTemplate from './Components/Drawer/EmailTemplates/CreateEmailTemplate'
+// Candidates /Formdata 
 import Candidates from "./Components/pages/Candidates";
 import view from "./Components/Candidates/Formdata/view";
-// Formdata
 import Formdata from "./Components/Candidates/Formdata/Formdata";
 import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
 import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
 import CdList from "./Components/Candidates/Formdata/CdList";
 import Cdsingleview from "./Components/Candidates/Formdata/Cdsingleview";
+import ControlledAccordions from "./Components/Candidates/Formdata/Controlled accordion";
+import Email from "./Components/Candidates/sendemail/Email";
 
 
 
@@ -87,6 +94,30 @@ function App() {
           </Route>
           <Route exact path='/view' component={view}>
             <view />
+          </Route>
+          <Route exact path='/Jobstatus' component={Jobstatus}>
+            <Jobstatus />
+          </Route>
+          <Route exact path='/Stages' component={Stages}>
+            <Stages />
+          </Route>
+          <Route exact path='/Pipelines' component={Pipelines}>
+            <Pipelines />
+          </Route>
+          <Route exact path='/Categories' component={Categories}>
+            <Categories />
+          </Route>
+          <Route exact path='/Templates' component={Templates}>
+            <Templates />
+          </Route>
+          <Route exact path='/CreateEmailTemplate' component={CreateEmailTemplate}>
+            <CreateEmailTemplate />
+          </Route>
+          <Route exact path='/ControlledAccordions' component={ControlledAccordions}>
+            <ControlledAccordions />
+          </Route>
+          <Route exact path='/Email' component={Email}>
+            < Email />
           </Route>
         </Switch>
       </container>

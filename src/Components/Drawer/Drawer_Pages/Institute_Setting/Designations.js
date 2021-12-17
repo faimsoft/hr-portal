@@ -64,19 +64,18 @@ const Designations = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell style={{ flexGrow: 1 }}>Designation</TableCell>
-                            
-                                <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                <TableCell>Designation</TableCell>
+                                <TableCell align="center">Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" style={{ flexGrow: 1 }}>Professer</TableCell>
-                                  
-                                    <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell variant="h3" >Professer</TableCell>
+                                    <TableCell align="center">
+                                        <Button variant="text" ><EditIcon color="primary" /></Button>
+                                        <Button variant="text"><DeleteIcon color="error" /></Button>
+                                    </TableCell>
                                 </TableRow>
 
 
