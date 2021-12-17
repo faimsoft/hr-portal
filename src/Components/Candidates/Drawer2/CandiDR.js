@@ -87,7 +87,7 @@ const CandiDR = () => {
                         <ListItem button component={Link} to="/Formdata" >
                             <ListItemText primary="From Date" />
                         </ListItem>
-                        <ListItem button >
+                        <ListItem button component={Link} to="/Cdsingleview" >
                             <ListItemText primary="To date" />
                         </ListItem>
                         <ListItem button >

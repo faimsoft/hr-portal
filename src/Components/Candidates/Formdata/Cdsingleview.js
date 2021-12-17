@@ -144,7 +144,7 @@ function Cdsingleview() {
                         <TextHead3 text3={'Assessment'} />
                         <TextClrHead smtext={"View"} />
                     </Grid>
-                    <Grid item xs={2}  >
+                    <Grid item xs={2} component={Link} to='./Interview' >
                         <LgButton lagbutton={"Schedule Interview"} />
                     </Grid>
                     <Grid item xs={2} onClick={handleBtOpen} >

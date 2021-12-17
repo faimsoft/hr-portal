@@ -30,6 +30,7 @@ import CdList from "./Components/Candidates/Formdata/CdList";
 import Cdsingleview from "./Components/Candidates/Formdata/Cdsingleview";
 import ControlledAccordions from "./Components/Candidates/Formdata/Controlled accordion";
 import Email from "./Components/Candidates/sendemail/Email";
+import Interview from "./Components/Candidates/Schedule an Interview/Interview";
 
 
 
@@ -118,6 +119,9 @@ function App() {
           </Route>
           <Route exact path='/Email' component={Email}>
             < Email />
+          </Route>
+          <Route exact path='/Interview' component={Interview}>
+            < Interview />
           </Route>
         </Switch>
       </container>

@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
         " font - size": "16px",
         "line - height": "175 %",
         /* or 28px */
-        color: "#000000,"
+        color: "#000000"
 
 
     },
@@ -133,6 +133,16 @@ const useStyles = makeStyles((theme) => ({
 
 
         color: "#919191",
+    },
+    para: {
+        "font- family": "Inter",
+        " font- style": "normal",
+        "font - weight": "normal",
+        fontSize: "15px",
+        "line - height": "175 %",
+        /* or 28px */
+        color: "#000000"
+
     }
 
 
@@ -186,7 +196,7 @@ export function TextSCHead({ smtext }) {
     const classes = useStyles();
 
     return (
-        <Typography style={{ color: "" }} className={classes.para} >{smtext}</Typography>
+        <Typography className={classes.para} >{smtext}</Typography>
     )
 }
 
