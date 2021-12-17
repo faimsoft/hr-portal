@@ -7,6 +7,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import candidatesview from './view';
+import { LgButton } from '../../../views/button';
 
 
 
@@ -70,6 +72,7 @@ function Formdata() {
                         }}
                         id="Zip Code"
                         select
+                        size='small'
                         label="Zip Code"
                         value={currency}
                         onChange={clickhandleChange}
@@ -91,6 +94,7 @@ function Formdata() {
 
                         }}
                         id="Zip Code"
+                        size='small'
                         select
                         label="Zip Code"
                         value={currency}
@@ -107,10 +111,8 @@ function Formdata() {
 
                 </Grid>
 
-                <Grid item xs={2}  >
-                    <Button color="primary" component={Link} to='/CreatCandidate' variant="contained" disableElevation>
-                        Create a candidate
-                    </Button>
+                <Grid item xs={2} component={Link} to='./CreatCandidate' >
+                    <LgButton select lagbutton={"Create a candidate"} />
                 </Grid>
             </Grid>
             <Container className={classes.root} >
@@ -125,8 +127,10 @@ function Formdata() {
                                 <TableCell>Status</TableCell>
                                 <TableCell>Sourced from</TableCell>
                                 <TableCell>Phone</TableCell>
-                                <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                <TableCell align="center">
+                                    <Button variant="text" ><EditIcon color="primary" /></Button>
+                                    <Button variant="text"><DeleteIcon color="error" /></Button>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -138,8 +142,10 @@ function Formdata() {
                                     <TableCell>{users.website}</TableCell>
                                     <TableCell>{users.company.name}</TableCell>
                                     <TableCell>{users.phone}</TableCell>
-                                    <TableCell><Button variant="text"><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell align="center">
+                                        <Button variant="text" ><EditIcon color="primary" /></Button>
+                                        <Button variant="text"><DeleteIcon color="error" /></Button>
+                                    </TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 
@@ -161,6 +167,7 @@ function Formdata() {
                 </TableContainer>
 
             </Container>
+            <candidatesview />
         </>
     )
 }

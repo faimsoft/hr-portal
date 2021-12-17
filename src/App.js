@@ -31,14 +31,20 @@ import PipelineCreate from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Pip
 import BillingList from './Components/Drawer/Drawer_Pages/Billing/BillingList'
 import JobboardList from "./Components/Drawer/Drawer_Pages/Job/JobboardList";
 // Candidates
+// import CreateEmailTemplate from './Components/Drawer/EmailTemplates/CreateEmailTemplate'
+// Candidates /Formdata 
 import Candidates from "./Components/pages/Candidates";
-// Formdata
+import view from "./Components/Candidates/Formdata/view";
 import Formdata from "./Components/Candidates/Formdata/Formdata";
 import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
 import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
 import CdList from "./Components/Candidates/Formdata/CdList";
 import Cdsingleview from "./Components/Candidates/Formdata/Cdsingleview";
 import { Approval } from "@mui/icons-material";
+import ControlledAccordions from "./Components/Candidates/Formdata/Controlled accordion";
+import Email from "./Components/Candidates/sendemail/Email";
+import Interview from "./Components/Candidates/Schedule an Interview/Interview";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -100,6 +106,9 @@ function App() {
           <Route exact path='/Degree' component={Degree}>
             <Degree />
           </Route>
+          <Route exact path='/view' component={view}>
+            <view />
+          </Route>
           <Route exact path='/Jobstatus' component={Jobstatus}>
             <Jobstatus />
           </Route>
@@ -147,6 +156,15 @@ function App() {
           </Route>
           <Route exact path='/JobboardList' component={JobboardList}>
             <JobboardList />
+           </Route> 
+          <Route exact path='/ControlledAccordions' component={ControlledAccordions}>
+            <ControlledAccordions />
+          </Route>
+          <Route exact path='/Email' component={Email}>
+            < Email />
+          </Route>
+          <Route exact path='/Interview' component={Interview}>
+            < Interview />
           </Route>
         </Switch>
       </container>

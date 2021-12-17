@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <>
       <div className={classes.root}>
-       
+
         <AppBar color="primary" position="fixed" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h6" style={{ flexGrow: 1 }}> Hr Portal</Typography>
@@ -80,7 +80,7 @@ const Navbar = () => {
         </AppBar>
         <main className={classes.content}>
           <Toolbar />
-                 </main>
+        </main>
         {MobileMenu}
       </div>
     </>
