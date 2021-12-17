@@ -19,7 +19,17 @@ import Stages from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Stages";
 import Pipelines from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Pipelines";
 import Categories from "./Components/Drawer/EmailTemplates/Categories";
 import Templates from './Components/Drawer/EmailTemplates/Templates'
-import CreateEmailTemplate from './Components/Drawer/EmailTemplates/CreateEmailTemplate'
+import CreateEmailTemplate from './Components/Drawer/EmailTemplates/CreateEmailTemplate';
+import UserList from "./Components/Drawer/Drawer_Pages/User/UserList";
+import EditUser from "./Components/Drawer/Drawer_Pages/User/EditUser";
+import CreateUser from "./Components/Drawer/Drawer_Pages/User/CreateUser";
+import CreateStage from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/CreateStage";
+import WebformList from "./Components/Drawer/Drawer_Pages/Webforms/WebformList";
+import CreateWebForm from "./Components/Drawer/Drawer_Pages/Webforms/CreateWebForm";
+import Aproval from "./Components/Drawer/Drawer_Pages/User/Aproval";
+import PipelineCreate from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/PipelineCreate";
+import BillingList from './Components/Drawer/Drawer_Pages/Billing/BillingList'
+import JobboardList from "./Components/Drawer/Drawer_Pages/Job/JobboardList";
 // Candidates
 import Candidates from "./Components/pages/Candidates";
 // Formdata
@@ -28,6 +38,7 @@ import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
 import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
 import CdList from "./Components/Candidates/Formdata/CdList";
 import Cdsingleview from "./Components/Candidates/Formdata/Cdsingleview";
+import { Approval } from "@mui/icons-material";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -106,6 +117,36 @@ function App() {
           </Route>
           <Route exact path='/CreateEmailTemplate' component={CreateEmailTemplate}>
             <CreateEmailTemplate />
+          </Route>
+          <Route exact path='/UserList' component={UserList}>
+            <UserList />
+          </Route>
+          <Route exact path='/EditUser' component={EditUser}>
+            <EditUser />
+          </Route>
+          <Route exact path='/CreateUser' component={CreateUser}>
+            <CreateUser />
+          </Route>
+          <Route exact path='/CreateStage' component={CreateStage}>
+            <CreateStage />
+          </Route>
+          <Route exact path='/WebformList' component={WebformList}>
+            <WebformList />
+          </Route>
+          <Route exact path='/CreateWebForm' component={CreateWebForm}>
+            <CreateWebForm />
+          </Route>
+          <Route exact path='/Aproval' component={Aproval}>
+            <Aproval />
+          </Route>
+           <Route exact path='/PipelineCreate' component={PipelineCreate}>
+            <PipelineCreate />
+          </Route>
+          <Route exact path='/BillingList' component={BillingList}>
+            <BillingList />
+          </Route>
+          <Route exact path='/JobboardList' component={JobboardList}>
+            <JobboardList />
           </Route>
         </Switch>
       </container>

@@ -109,10 +109,10 @@ const Sidebar = () => {
                {/* collapse */}
               <Collapse in={Userbtn}>
                             <List disablePadding>
-                                <ListItem className={classes.nestedItem}  component={Link} to='./' button>
+                                <ListItem className={classes.nestedItem}  component={Link} to='./UserList' button>
                                     <ListItemText >List</ListItemText>
                                 </ListItem>
-                                <ListItem className={classes.nestedItem}  component={Link} to='/' button>
+                                <ListItem className={classes.nestedItem}  component={Link} to='/Aproval' button>
                                     <ListItemText > Approvals</ListItemText>
                                 </ListItem>
                   
@@ -154,7 +154,16 @@ const Sidebar = () => {
                   
                               
                             </List>
-                        </Collapse>
+              </Collapse>
+              <ListItem button component={Link} to='./WebformList'>
+                <ListItemText primary="WebForms" />
+              </ListItem>
+              <ListItem button component={Link} to='./JobboardList'>
+                <ListItemText primary="Job Boards" />
+              </ListItem>
+              <ListItem button component={Link} to='./BillingList'>
+                <ListItemText primary="Billing" />
+              </ListItem>
              
             </List>
           </Drawer>

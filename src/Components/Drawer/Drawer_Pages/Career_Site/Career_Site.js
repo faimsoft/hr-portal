@@ -26,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
     instituteweb: {
         marginTop:75
     },
-    buttondiv: {
-        marginRight: 40,
-        marginLeft:1000
-    },
+    // buttondiv: {
+    //     marginRight: 40,
+    //     marginLeft:1000
+    // },
     
    
 
@@ -128,8 +128,12 @@ const Career_Site = () => {
                          <Button  variant="contained" color="primary">Done</Button>
                          <Button variant="contained" color="error" >cancel</Button>
                                 </div> */}
-                    <div align="Right" className={classes.buttondiv} >
-                        <Stack spacing={2} direction="row">
+                    <div>
+                        <Stack  
+                        direction="row"
+                        justifyContent="right"
+                        alignItems="right"
+                        spacing={2}>
                             <Button variant="outlined">Cancel</Button>
                             <Button variant="contained">Create</Button>
                         </Stack>

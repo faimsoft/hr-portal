@@ -13,6 +13,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Stack from '@mui/material/Stack';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +25,13 @@ const useStyles = makeStyles((theme) => ({
     },
     formpagedesign: {
         paddingLeft:60
+    },
+    bodyform: {
+        marginLeft: 200,
+        widhth:1000
+    },
+    bodyformSize: {
+        width:800
     }
   
 
@@ -30,63 +40,97 @@ const useStyles = makeStyles((theme) => ({
 const CreateEmailTemplate = () => {
      
     const classes = useStyles();
-      const [age, setAge] = React.useState('');
+    const [Category, setCategory] = React.useState('');
+    const [Variable, setVariable] = React.useState('')
+    
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setCategory(event.target.value);
     };
+    const variableChange = (event) => {
+        setVariable(event.target.value)
+    }
 
      return (
          <>
              <Sidebar />
              <div className={classes.box}>
                  <Box component={Paper}>
-                     <Toolbar/>
                      <Button component={Link} to="/Categories"  align="left" color='primary' fontSize="large"  ><ArrowBackIcon /></Button>
-                     <br />
                      <Typography variant="h4" align="center" color="primary"> Create an Email Template</Typography>
                      <br />
                      <hr />
                      <Toolbar />
-                     <Grid container spacing={2} className={classes.formpagedesign}>
+                     <Grid container spacing={2} className={classes.formpagedesign} align="center">
                          <Grid xs={6}>
-                             <Typography variant="text" align="left" > Category</Typography>
                              <br/>
-                             <FormControl variant="standard" sx={{  minWidth: 200 }}>
-                                <InputLabel id="demo-simple-select-standard-label"></InputLabel>
-                                 <Select
-                                id="outlined-basic"
-                                labelId="demo-simple-select-standard-label"
-                                // id="demo-simple-select-standard"
-                                value={age}
+                             <FormControl  sx={{ minWidth: 220 }}>
+                                <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                                <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={Category}
+                                label="Category"
                                 onChange={handleChange}
-                                label="Age"
                                 >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                <MenuItem value={10}>fresh</MenuItem>
+                                <MenuItem value={20}>exprience</MenuItem>
+                                <MenuItem value={30}>applied</MenuItem>
                                 </Select>
                              </FormControl>
                              <Toolbar />
-                             <Typography variant="text" align="left" > Category</Typography>
-                            <br/>
-                             
-                            <TextField
-                            label=""
-                            type="text"
-                            size="small"
-                             />
+                             <br/>
+                             <TextField id="outlined-basic" label="Subject" variant="outlined" />
                              <Toolbar/>
-                        </Grid>
-                        <Grid xs={6}>
-                            <h1>xs=  kcj dckdsn ck sdknmcds cdsknckdsc dndksn8</h1>
-                        </Grid>
-                    </Grid>
-                 </Box>
-
+                         </Grid>
+                         <Grid xs={6} align="left">
+                             <br />
+                             <div>
+                                 <FormControlLabel control={<Checkbox defaultChecked />} label="Candidate" />
+                                 <FormControlLabel control={<Checkbox defaultChecked />} label="Internal" />
+                                 <Toolbar />
+                                <br/>
+                                <br/>
+                                <FormControl  sx={{ minWidth: 220 }}>
+                                    <InputLabel id="demo-simple-select-label">Variabel</InputLabel>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={Variable}
+                                    label="Variable"
+                                    onChange={variableChange}
+                                    >
+                                    <MenuItem value={10}>1</MenuItem>
+                                    <MenuItem value={20}>2</MenuItem>
+                                    <MenuItem value={30}>3</MenuItem>
+                                    </Select>
+                                </FormControl>
+                             </div>
+                          </Grid>
+                     </Grid>
+                     <div align="left" className={classes.bodyform}>
+                         <Typography variant="text" > Body</Typography>
+                         <br />
+                         <TextField
+                        className={classes.bodyformSize}
+                        id="outlined-basic"
+                        multiline
+                        rows={9}
+                        />
+                        </div>
+                       <Toolbar/>
+                    <div >
+                         <Stack
+                             direction="row"
+                        justifyContent="center"
+                        alignItems="center"
+                        spacing={2}>
+                                <Button variant="outlined">Cancel</Button>
+                            <Button variant="contained">Submit</Button>
+                        </Stack>
+                 </div>
+<Toolbar/>
+                        </Box>
              </div>
              
          </>
