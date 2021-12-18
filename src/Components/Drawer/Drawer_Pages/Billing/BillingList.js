@@ -1,7 +1,6 @@
 import React from 'react'
 import Sidebar from '../../SideBar/sidebar';
 import Button from '@mui/material/Button';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import {Box,Typography,Table, TableBody, TableContainer, TableHead, TableRow, TableCell,} from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles";
@@ -36,7 +35,7 @@ const BillingList = () => {
              <Sidebar />
              <div className={classes.box}>
                  <Box component={Paper}>
-                     <Button component={Link} to="/WebformList"  align="left" color='primary' fontSize="large"  ><ArrowBackIcon /></Button>
+                     <Toolbar/>
                      <Typography variant="h4" align="center" color="primary"> Your current Plan</Typography>
                      <Toolbar />
                      <hr />
@@ -149,8 +148,6 @@ const BillingList = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
-
-                
                         </Box>
                         <Toolbar/>
                      </div>

@@ -13,6 +13,10 @@ import Switch from '@mui/material/Switch';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { Toolbar } from '@material-ui/core';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+
 
 // switch
 
@@ -73,7 +77,8 @@ const IOSSwitch = styled((props) => (
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
+      bgcolor: 'background.paper',
+  borderRadius:'30px',
   border: '2px solid #000',
   boxShadow: 24,
   pt: 2,
@@ -88,6 +93,10 @@ const useStyles = makeStyles((theme) => ({
     },
     switch: {
        paddingLeft:150
+  },
+    formsize: {
+        width: 500,
+        height:30
     }
   
   
@@ -199,12 +208,27 @@ const JobboardList = () => {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 400 }}>
-          <h2 id="parent-modal-title">Text in a modal</h2>
-          <p id="parent-modal-description">
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </p>
-          
+          <Box sx={{ ...style, width: 700 }}>
+            <Toolbar/>
+            <Typography variant="h4" align='center'> Linked IN</Typography>
+            <div>
+              <Toolbar/>
+              <Stack direction="row" spacing={4}>
+                <Typography variant="h6" style={{ flexGrow: 1 }} >   User ID </Typography>
+                <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.formsize} />
+              </Stack>
+              <Toolbar />
+              <Stack direction="row" spacing={4}>
+                <Typography variant="h6" style={{ flexGrow: 1 }}> Private key Token</Typography>
+                <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.formsize} />
+              </Stack>
+              <Toolbar />
+                {/* <Button variant="contained" color="primary" >Contained</Button> */}
+              <div  align='center'>
+                <Button variant="contained" color="primary" >Validate</Button>
+              </div>
+
+            </div>
         </Box>
       </Modal>
         </>

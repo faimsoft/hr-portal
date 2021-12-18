@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles/App.css";
-// import { Container} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// NavbarPages
 import Navbar from "./Components/Layout/Navbar";
 import About from "./Components/pages/About";
-import Login from "./Components/pages/Login";
+import Login from "./Components/pages/Login/Login";
 import SignUp from "./Components/pages/SignUp/SignUp";
 import Jobs from './Components/pages/Jobs'
 // drawer pages
@@ -31,7 +31,6 @@ import PipelineCreate from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Pip
 import BillingList from './Components/Drawer/Drawer_Pages/Billing/BillingList'
 import JobboardList from "./Components/Drawer/Drawer_Pages/Job/JobboardList";
 // Candidates
-// import CreateEmailTemplate from './Components/Drawer/EmailTemplates/CreateEmailTemplate'
 // Candidates /Formdata 
 import Candidates from "./Components/pages/Candidates";
 import view from "./Components/Candidates/Formdata/view";
