@@ -43,8 +43,8 @@ import { Approval } from "@mui/icons-material";
 import ControlledAccordions from "./Components/Candidates/Formdata/Controlled accordion";
 import Email from "./Components/Candidates/sendemail/Email";
 import Interview from "./Components/Candidates/Schedule an Interview/Interview";
-
-
+// Footer
+import Footerforall from "./Components/Drawer/Drawer_Pages/Footer/Footerforall";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +59,7 @@ function App() {
     <BrowserRouter>
       <container className={classes.root} disabledGutters>
         <Navbar />
+        
         <Switch>
           <Route exact path='/Candidates' component={Candidates}>
             <Candidates />
@@ -165,7 +166,11 @@ function App() {
           <Route exact path='/Interview' component={Interview}>
             < Interview />
           </Route>
+          <Route exact path='/Footerforall' component={Footerforall}>
+            < Footerforall />
+          </Route>
         </Switch>
+        
       </container>
     </BrowserRouter>
   );

@@ -164,6 +164,10 @@ const Sidebar = () => {
               <ListItem button component={Link} to='./BillingList'>
                 <ListItemText primary="Billing" />
               </ListItem>
+            
+               <ListItem button component={Link} to='./Footerforall'>
+                <ListItemText primary="Footerfor all" />
+              </ListItem>
              
             </List>
           </Drawer>
