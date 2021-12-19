@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import {  Checkbox,} from "@material-ui/core";
-import { borders } from '@mui/system';
+// import { borders } from '@mui/system';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -113,12 +113,12 @@ const SignUp = () => {
                 </Typography>
                 <br/>
                 <br/>
-                <Button variant="contained"  className={classes.LoginBtn} >Log in </Button>
+                <Button variant="contained"  className={classes.LoginBtn} >Sign in </Button>
                 <br/>
                 <br/>
                 <Typography variant="text" >
                         Already have an account ?
-                        <Button variant="text" component={Link} to="/Login">Sign in</Button>
+                        <Button variant="text" component={Link} to="/Login"> Login</Button>
                 </Typography>
                 <Toolbar/>
             </Box>

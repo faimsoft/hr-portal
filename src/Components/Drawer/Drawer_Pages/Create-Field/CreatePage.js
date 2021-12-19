@@ -32,11 +32,11 @@ const CreatePage = () => {
                   component={Paper}  
                   component="form"
                          sx={{
-        '& .MuiTextField-root': { m: 1, width: '45ch' },
-      }}
-      noValidate
-      autoComplete="off"
-                 >
+                    '& .MuiTextField-root': { m: 1, width: '45ch' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+             >
                 
             <Autocomplete
                 disablePortal
@@ -51,7 +51,7 @@ const CreatePage = () => {
                     required="required"
                     label="Type The Name Of The Field"
                     defaultValue="required"
-                    />
+                  />
             </Box>                        
             <Toolbar/>
 
@@ -60,13 +60,7 @@ const CreatePage = () => {
                     Create 
             </Button>
             </div>
-            {/* <div align="centter">
-              <Typography  align="center">
-               <Button className={classes.createbutton} color="primary" component={Link} to='/' variant="contained" disableElevation >
-                    Create 
-            </Button>
-            </Typography>
-            </div> */}
+            
             
         </div>
     )

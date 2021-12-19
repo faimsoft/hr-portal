@@ -54,7 +54,7 @@ const Designations = () => {
                 <div style={{ flexGrow: 1 }}>
                 </div>
                 <Button color="primary" component={Link} to='/CreatePage' variant="contained" disableElevation>
-                    Create a candidate
+                    Create
                 </Button>
 
             </Container>

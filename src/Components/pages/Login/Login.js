@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import pic from '../Media/images/SignIntexture.jpg'
+import pic from '../..//Media/images/SignIntexture.jpg'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';

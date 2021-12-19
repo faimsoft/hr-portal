@@ -60,17 +60,14 @@ const Jobstatus = () => {
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
                                 <TableCell style={{ flexGrow: 1 }} color="primary" >In Progress</TableCell>
                             
-                                    <TableCell>
-                                        <Button variant="text" ><EditIcon color="primary" /></Button>
-                                        <Button variant="text" ><DeleteIcon color="error" /></Button>
-                                    </TableCell>
+                                    <TableCell align="center" color="primary" >Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
                                     <TableCell variant="h3" style={{ flexGrow: 1 }}>On Hold</TableCell>
-                                    <TableCell>
+                                    <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>
                                     </TableCell>

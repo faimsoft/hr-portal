@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import {  Toolbar,Container,TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox,} from "@material-ui/core";
+import { Container,TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox,} from "@material-ui/core";
 import { Link } from 'react-router-dom';
-import Sidebar from '../../SideBar/sidebar'
+import Sidebar from '../../SideBar/sidebar';
 import { makeStyles, } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import axios from 'axios';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-
-
 
 const useStyles = makeStyles((theme) => ({
    box:{
@@ -20,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
    },
    root: {
 
-        width: "75vw",
+        width: "85vw",
         paddingTop: theme.spacing(5),
 
     },
@@ -32,58 +26,49 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-const Pipelines = () => {
-         const classes = useStyles();
+const Aproval = () => {
+               const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
- 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-
-  
-    
 
     const onChangePage = (event, nextPage) => {
         setPage(nextPage);
     }
-  
 
-   
     return (
-          <>
+        <>
         <Sidebar/>
-        <div className={classes.box}>
-             <Container className={classes.Create} >
-                <div style={{ flexGrow: 1 }}>
-                </div>
-                {/* <Button color="primary" component={Link} onClick={handleOpen} variant="contained" disableElevation>
-                    Create
-                </Button> */}
-
-            </Container>
+        <div className={classes.box} align="center">
+             
             <Container className={classes.root} >
-                 <TableContainer component={Paper} >
+                <TableContainer component={Paper} >
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell align="left" >Name</TableCell>
-                                <TableCell  align="center">Action</TableCell>
+                                <TableCell align="left" ><Button variant="text"><Checkbox {...label} /></Button></TableCell>
+                                    <TableCell color="primary"  align="left" > Name</TableCell>
+                                    <TableCell align="left"> Email </TableCell>
+                                    <TableCell align="left"> phone </TableCell>
+                                    <TableCell align="left"> Department </TableCell>
+                                    <TableCell align="center"> Action </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                                <TableRow  >
-                                    <TableCell ><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell  variant="h3" >Admin Placement</TableCell>
-                                    <TableCell align="center">
-                                        <Button variant="text" component={Link} to='/PipelineCreate' ><EditIcon color="primary" /></Button>
+                                <TableRow >
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
+                                    <TableCell variant="h3"  align="left">Google firlds</TableCell>
+                                    <TableCell variant="h3" align="left" >aaqil@123</TableCell>
+                                    <TableCell variant="h3" align="left" >9876543210</TableCell>
+                                    <TableCell variant="h3" align="left" >Commerce Department</TableCell>
+                                    <TableCell align="center" >
+                                        <Button variant="text" variant="contained">Approved</Button>
                                     </TableCell>
                                 </TableRow>
                         </TableBody>
                     </Table>
                 </TableContainer>
-
                 <TableContainer component={Paper}>
                     <TablePagination
                         rowsPerPageOptions={[3, 5, 8, 10, 12, 15]}
@@ -95,14 +80,9 @@ const Pipelines = () => {
                 </TableContainer>
             </Container>
             </div>
-
-            {/* Modal */}
-             <div>
-          </div>
     </>
-
     )
 }
 
-export default Pipelines
+export default Aproval
 

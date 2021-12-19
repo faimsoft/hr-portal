@@ -53,7 +53,7 @@ const Stages = () => {
              <Container className={classes.Create} >
                 <div style={{ flexGrow: 1 }}>
                 </div>
-                <Button color="primary" component={Link} to='/CreatePage' variant="contained" disableElevation>
+                <Button color="primary" component={Link} to='/CreateStage' variant="contained" disableElevation>
                     Create 
                 </Button>
 

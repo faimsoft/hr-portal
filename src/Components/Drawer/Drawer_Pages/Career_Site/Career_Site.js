@@ -3,9 +3,7 @@ import Sidebar from '../../SideBar/sidebar'
 import { makeStyles } from "@material-ui/core/styles";
 import {Toolbar, Typography} from "@material-ui/core"
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -26,10 +24,7 @@ const useStyles = makeStyles((theme) => ({
     instituteweb: {
         marginTop:75
     },
-    buttondiv: {
-        marginRight: 40,
-        marginLeft:1000
-    },
+   
     
    
 
@@ -54,20 +49,7 @@ const Career_Site = () => {
         <>
         <Sidebar/>
         <div  className={classes.SideSpace}>
-                  {/* <Box py={20} textAlign="center">
-            <Typography  variant="h1"> Carrer Site</Typography>
-        </Box> */}
-                {/* <Box>
-                    <p>Institute Name</p>
-                    <TextField
-                    required
-                    id="outlined-required"
-                    required="required"
-                    defaultValue="Mss college Ambad"
-                    />
-                   
-                </Box> */}
-                <div>
+                 <div>
                   <Grid container spacing={2} align="center">
                     <Grid  xs={2}>
                             <Typography >
@@ -76,7 +58,6 @@ const Career_Site = () => {
                                 <h4 >Institute Logo :</h4>
                                 <Toolbar />
                                 <h4 className={classes.instituteweb}>Institute Website :</h4>
-                             
                                 <h4 className={classes.instituteweb}>Description :</h4>
                                 <Toolbar />
                                 <Toolbar/>
@@ -113,23 +94,19 @@ const Career_Site = () => {
                                 id="outlined-size-small"
                                 size="small"
                                 />
-                                 {/* <TextField
-          label="Size"
-          id="outlined-size-small"
-          defaultValue="ba"
-          size="small"
-        /> */}
+                                 
 
                             </Typography>
                     </Grid>
                   </Grid>  
                     <hr />
-                    {/* <div align="right" spacing={2} className={classes.buttondiv}>
-                         <Button  variant="contained" color="primary">Done</Button>
-                         <Button variant="contained" color="error" >cancel</Button>
-                                </div> */}
-                    <div align="Right" className={classes.buttondiv} >
-                        <Stack spacing={2} direction="row">
+                   
+                    <div>
+                        <Stack  
+                        direction="row"
+                        justifyContent="right"
+                        alignItems="right"
+                        spacing={2}>
                             <Button variant="outlined">Cancel</Button>
                             <Button variant="contained">Create</Button>
                         </Stack>
