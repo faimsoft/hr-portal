@@ -92,12 +92,14 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="outlined-First Name*"
                                     label="First Name*"
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="outlined-Last Name*"
                                     label="Last Name*"
                                 />
@@ -111,12 +113,14 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="outlined-First Email*"
                                     label="Email*"
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="outlined-Mobile Number*"
                                     label="Mobile Number*"
                                 />
@@ -130,12 +134,14 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="outlined-Enter mobile email..."
                                     label="Enter mobile email..."
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="Enter mobile number..."
                                     label="Enter mobile number..."
                                 />
@@ -153,9 +159,11 @@ export default function StateTextFields() {
                                 <TextField
                                     id="Type street address"
                                     label="Type street address"
+                                    size='small'
 
                                 />
                                 <TextField
+                                    size='small'
                                     id="Choose country"
                                     select
                                     label="Choose cuntry"
@@ -181,6 +189,7 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="Select state..."
                                     select
                                     label="Select state..."
@@ -197,6 +206,7 @@ export default function StateTextFields() {
                                     ))}
                                 </TextField>
                                 <TextField
+                                    size='small'
                                     id="City..."
                                     select
                                     label="City..."
@@ -224,6 +234,7 @@ export default function StateTextFields() {
                                 <div className={classes.small}>
                                     <Box>
                                         <TextField
+                                            size='small'
                                             id="Zip Code"
                                             select
                                             label="Zip Code"
@@ -253,6 +264,7 @@ export default function StateTextFields() {
                                 <div className={classes.small}>
 
                                     <TextField
+                                        size='small'
                                         id="Select Degree"
                                         select
                                         label="Select Degree"
@@ -269,6 +281,7 @@ export default function StateTextFields() {
                                         ))}
                                     </TextField>
                                     <TextField
+                                        size='small'
                                         id="Total Experience"
                                         select
                                         label="Total Experience"
@@ -300,6 +313,7 @@ export default function StateTextFields() {
                             >
 
                                 <TextField
+                                    size='small'
                                     id="Search for the country name..."
                                     label="Search for the country name..."
                                     value={name}
@@ -321,6 +335,7 @@ export default function StateTextFields() {
                                 <div className={classes.small}>
 
                                     <TextField
+                                        size='small'
                                         id="From Month"
                                         select
                                         label="From Month"
@@ -337,6 +352,7 @@ export default function StateTextFields() {
                                         ))}
                                     </TextField>
                                     <TextField
+                                        size='small'
                                         id="From Year"
                                         select
                                         label="From Year"
@@ -353,6 +369,7 @@ export default function StateTextFields() {
                                         ))}
                                     </TextField>
                                     <TextField
+                                        size='small'
                                         id="To Month"
                                         select
                                         label="To Month"
@@ -369,6 +386,7 @@ export default function StateTextFields() {
                                         ))}
                                     </TextField>
                                     <TextField
+                                        size='small'
                                         id="To Year"
                                         select
                                         label="To Year"
@@ -402,6 +420,7 @@ export default function StateTextFields() {
                             <div className={classes.small}>
 
                                 <TextField
+                                    size='small'
                                     id="Select Degree"
                                     select
                                     label="Select Degree"

@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         // height: "106px",
         left: "100px",
         // left: " 958px",
-        background: "#EBEBEB",
+        background: "#F9F9F9;",
         border: "1px solid #D5D5D5",
         " box- sizing": "border- box",
         "border - radius": "5px",
@@ -84,6 +84,12 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
 function Interview() {
+    const [currency, setCurrency] = React.useState('EUR');
+
+    const clickhandleChange = (e) => {
+        setCurrency(e.target.value);
+    };
+
 
     const classes = useStyles();
     // toggle button
@@ -101,7 +107,7 @@ function Interview() {
                         button
                         style={{ fontSize: '30px' }}
                     /></Button>
-                    Send Email
+                    Schedule an Interview
                 </Typography>
             </div>
 
@@ -204,14 +210,27 @@ function Interview() {
                                 <TextSCHead smtext={" Location"} />
                             </Grid>
                             <Grid xs={9}>
-                                <Box
-                                    sx={{
+
+                                <TextField
+                                    style={{
                                         width: 700,
                                         maxWidth: '100%',
                                     }}
-                                >
-                                    <TextField size="small" fullWidth label="" id="fullWidth" />
-                                </Box>
+                                    id="Zip Code"
+                                    size='small'
+                                    select
+                                    label="Select Locations"
+                                    value={currency}
+                                    onChange={clickhandleChange}
+                                    SelectProps={{
+                                        native: true,
+                                    }}
+                                >  {countries.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                                </TextField>
 
                             </Grid>
                         </Grid>
@@ -415,34 +434,45 @@ const top100Films = [
         title: 'The Lord of the Rings: The Fellowship of the Ring',
         year: 2001,
     },
-    {
-        title: 'Star Wars: Episode V - The Empire Strikes Back',
-        year: 1980,
-    },
-    { title: 'Forrest Gump', year: 1994 },
-    { title: 'Inception', year: 2010 },
-    {
-        title: 'The Lord of the Rings: The Two Towers',
-        year: 2002,
-    },
-    { title: "One Flew Over the Cuckoo's Nest", year: 1975 },
-    { title: 'Goodfellas', year: 1990 },
-    { title: 'The Matrix', year: 1999 },
-    { title: 'Seven Samurai', year: 1954 },
-    {
-        title: 'Star Wars: Episode IV - A New Hope',
-        year: 1977,
-    },
-    { title: 'City of God', year: 2002 },
-    { title: 'Se7en', year: 1995 },
-    { title: 'The Silence of the Lambs', year: 1991 },
-    { title: "It's a Wonderful Life", year: 1946 },
-    { title: 'Life Is Beautiful', year: 1997 },
-    { title: 'The Usual Suspects', year: 1995 },
-    { title: 'Léon: The Professional', year: 1994 },
-    { title: 'Spirited Away', year: 2001 },
-    { title: 'Saving Private Ryan', year: 1998 },
-    { title: 'Once Upon a Time in the West', year: 1968 },
-    { title: 'American History X', year: 1998 },
-    { title: 'Interstellar', year: 2014 },
+
+
+
 ];
+
+// seclet
+const countries = [
+    { code: 'AD', label: 'Andorra', phone: '376' },
+    {
+        code: 'AE',
+        label: 'United Arab Emirates',
+        phone: '971',
+    },
+    { code: 'AF', label: 'Afghanistan', phone: '93' },
+    {
+        code: 'AG',
+        label: 'Antigua and Barbuda',
+        phone: '1-268',
+    },
+    { code: 'AI', label: 'Anguilla', phone: '1-264' },
+    { code: 'AL', label: 'Albania', phone: '355' },
+    { code: 'AM', label: 'Armenia', phone: '374' },
+    { code: 'AO', label: 'Angola', phone: '244' },
+    { code: 'AQ', label: 'Antarctica', phone: '672' },
+    { code: 'AR', label: 'Argentina', phone: '54' },
+    { code: 'AS', label: 'American Samoa', phone: '1-684' },
+    { code: 'AT', label: 'Austria', phone: '43' },
+    {
+        code: 'AU',
+        label: 'Australia',
+        phone: '61',
+        suggested: true,
+    },
+    { code: 'AW', label: 'Aruba', phone: '297' },
+    { code: 'AX', label: 'Alland Islands', phone: '358' },
+    { code: 'AZ', label: 'Azerbaijan', phone: '994' },
+    {
+        code: 'BA',
+        label: 'Bosnia and Herzegovina',
+        phone: '387',
+    },
+]

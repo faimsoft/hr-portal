@@ -7,8 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import candidatesview from './view';
-import { LgButton } from '../../../views/button';
+
 
 
 
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     }
 
 }));
-function Formdata() {
+function CdList() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -39,12 +38,9 @@ function Formdata() {
     const loadUsers = async () => {
         const res = await axios.get("https://jsonplaceholder.typicode.com/users");
         setUsers(res.data);
-
     };
-
     useEffect(() => {
         loadUsers();
-        console.warn("users")
     }, [])
 
     const onChangePage = (event, nextPage) => {
@@ -54,7 +50,6 @@ function Formdata() {
     const onChangeRowsPerPage = (event) => {
         setRowsPerPage(event.target.value);
     }
-
     const [currency, setCurrency] = React.useState('EUR');
 
     const clickhandleChange = (e) => {
@@ -62,6 +57,7 @@ function Formdata() {
     };
     return (
         <>
+
             <Grid container spacing={2}    >
                 <div style={{ flexGrow: 1 }}></div>
                 <Grid item xs={2}  >
@@ -111,8 +107,10 @@ function Formdata() {
 
                 </Grid>
 
-                <Grid item xs={2} component={Link} to='./CreatCandidate' >
-                    <LgButton select lagbutton={"Create a candidate"} />
+                <Grid item xs={2}  >
+                    <Button color="primary" component={Link} to='/CreatCandidate' variant="contained" disableElevation>
+                        Create a candidate
+                    </Button>
                 </Grid>
             </Grid>
             <Container className={classes.root} >
@@ -123,29 +121,25 @@ function Formdata() {
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
                                 <TableCell>Name</TableCell>
-                                <TableCell>Associated Job</TableCell>
+                                <TableCell>Latest Job Applied</TableCell>
                                 <TableCell>Status</TableCell>
                                 <TableCell>Sourced from</TableCell>
                                 <TableCell>Phone</TableCell>
-                                <TableCell align="center">
-                                    <Button variant="text" ><EditIcon color="primary" /></Button>
-                                    <Button variant="text"><DeleteIcon color="error" /></Button>
-                                </TableCell>
+                                <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
+                                <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((users) => (
+                            {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => (
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3">{users.name}</TableCell>
-                                    <TableCell>{users.email}</TableCell>
-                                    <TableCell>{users.website}</TableCell>
-                                    <TableCell>{users.company.name}</TableCell>
-                                    <TableCell>{users.phone}</TableCell>
-                                    <TableCell align="center">
-                                        <Button variant="text" ><EditIcon color="primary" /></Button>
-                                        <Button variant="text"><DeleteIcon color="error" /></Button>
-                                    </TableCell>
+                                    <TableCell variant="h3">{user.name}</TableCell>
+                                    <TableCell>{user.email}</TableCell>
+                                    <TableCell>{user.website}</TableCell>
+                                    <TableCell>{user.company.name}</TableCell>
+                                    <TableCell>{user.phone}</TableCell>
+                                    <TableCell><Button variant="text"><EditIcon color="primary" /></Button></TableCell>
+                                    <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 
@@ -167,12 +161,12 @@ function Formdata() {
                 </TableContainer>
 
             </Container>
-            <candidatesview />
         </>
     )
 }
 
-export default Formdata
+export default CdList
+
 
 
 

@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
         left: "100px",
         // left: " 958px",
 
-        background: "#EBEBEB",
+        background: "#F9F9F9;",
         border: "1px solid #D5D5D5",
         " box- sizing": "border- box",
         "border - radius": "5px",
