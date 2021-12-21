@@ -43,6 +43,11 @@ import { Approval } from "@mui/icons-material";
 import ControlledAccordions from "./Components/Candidates/Formdata/Controlled accordion";
 import Email from "./Components/Candidates/sendemail/Email";
 import Interview from "./Components/Candidates/Schedule an Interview/Interview";
+// interview pages
+import InterviewDrawer from "./Components/Interview/interviewdrawer/InterviewDrawer";
+import InterviewList from "./Components/Interview/interviewdrawer/InterviewList";
+import InterviewCreate from "./Components/Interview/interviewdrawer/InterviewCreate";
+import Preview from "./Components/Interview/interviewdrawer/Preview";
 // Footer
 import Footerforall from "./Components/Drawer/Drawer_Pages/Footer/Footerforall";
 
@@ -59,7 +64,7 @@ function App() {
     <BrowserRouter>
       <container className={classes.root} disabledGutters>
         <Navbar />
-        
+
         <Switch>
           <Route exact path='/Candidates' component={Candidates}>
             <Candidates />
@@ -148,7 +153,7 @@ function App() {
           <Route exact path='/Aproval' component={Aproval}>
             <Aproval />
           </Route>
-           <Route exact path='/PipelineCreate' component={PipelineCreate}>
+          <Route exact path='/PipelineCreate' component={PipelineCreate}>
             <PipelineCreate />
           </Route>
           <Route exact path='/BillingList' component={BillingList}>
@@ -156,7 +161,7 @@ function App() {
           </Route>
           <Route exact path='/JobboardList' component={JobboardList}>
             <JobboardList />
-           </Route> 
+          </Route>
           <Route exact path='/ControlledAccordions' component={ControlledAccordions}>
             <ControlledAccordions />
           </Route>
@@ -169,8 +174,21 @@ function App() {
           <Route exact path='/Footerforall' component={Footerforall}>
             < Footerforall />
           </Route>
+          {/* interview */}
+          <Route exact path='/InterviewDrawer' component={InterviewDrawer}>
+            < InterviewDrawer />
+          </Route>
+          <Route exact path='/InterviewList' component={InterviewList}>
+            < InterviewList />
+          </Route>
+          <Route exact path='/InterviewCreate' component={InterviewCreate}>
+            < InterviewCreate />
+          </Route>
+          <Route exact path='/Preview' component={Preview}>
+            < Preview />
+          </Route>
         </Switch>
-        
+
       </container>
     </BrowserRouter>
   );

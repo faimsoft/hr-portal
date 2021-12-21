@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, Collapse, Container } from "@material-ui/core";
 import axios from 'axios';
 import { makeStyles } from "@material-ui/core/styles";
 import EditIcon from '@mui/icons-material/Edit';
@@ -7,6 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+
 
 
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
 
 }));
-function CdList() {
+function InterviewList() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -108,8 +109,8 @@ function CdList() {
                 </Grid>
 
                 <Grid item xs={2}  >
-                    <Button color="primary" component={Link} to='/CreatCandidate' variant="contained" disableElevation>
-                        Create a candidate
+                    <Button color="primary" component={Link} to='/InterviewCreate' variant="contained" disableElevation>
+                        Create Interview
                     </Button>
                 </Grid>
             </Grid>
@@ -120,13 +121,15 @@ function CdList() {
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell>Name</TableCell>
-                                <TableCell>Latest Job Applied</TableCell>
-                                <TableCell>Status</TableCell>
-                                <TableCell>Sourced from</TableCell>
-                                <TableCell>Phone</TableCell>
-                                <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                <TableCell>Candidate</TableCell>
+                                <TableCell>Owner</TableCell>
+                                <TableCell>Job</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Time</TableCell>
+                                <TableCell>Type</TableCell>
+                                <TableCell>
+                                    Action
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -138,8 +141,11 @@ function CdList() {
                                     <TableCell>{user.website}</TableCell>
                                     <TableCell>{user.company.name}</TableCell>
                                     <TableCell>{user.phone}</TableCell>
-                                    <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell>{user.username}</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><EditIcon color="primary" /></Button>
+                                        <Button variant="text"><DeleteIcon color="error" /></Button>
+                                    </TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 
@@ -165,7 +171,7 @@ function CdList() {
     )
 }
 
-export default CdList
+export default InterviewList
 
 
 
@@ -206,3 +212,62 @@ const countries = [
         phone: '387',
     },
 ]
+
+
+
+
+
+// function Cdsingleview() {
+//     const [currency, setCurrency] = React.useState('Afghanistan');
+
+//     const clickhandleChange = (value) => {
+//         console.log('select', value);
+//         setCurrency(value)
+//     };
+
+
+//     return (
+//         SelectOption('Countries', currency, countries, clickhandleChange)
+//     )
+// }
+
+// export default Cdsingleview
+
+
+// const countries = [
+//     { code: 'AD', label: 'Andorra', phone: '376' },
+//     {
+//         code: 'AE',
+//         label: 'United Arab Emirates',
+//         phone: '971',
+//     },
+//     { code: 'AF', label: 'Afghanistan', phone: '93' },
+//     {
+//         code: 'AG',
+//         label: 'Antigua and Barbuda',
+//         phone: '1-268',
+//     },
+//     { code: 'AI', label: 'Anguilla', phone: '1-264' },
+//     { code: 'AL', label: 'Albania', phone: '355' },
+//     { code: 'AM', label: 'Armenia', phone: '374' },
+//     { code: 'AO', label: 'Angola', phone: '244' },
+//     { code: 'AQ', label: 'Antarctica', phone: '672' },
+//     { code: 'AR', label: 'Argentina', phone: '54' },
+//     { code: 'AS', label: 'American Samoa', phone: '1-684' },
+//     { code: 'AT', label: 'Austria', phone: '43' },
+//     {
+//         code: 'AU',
+//         label: 'Australia',
+//         phone: '61',
+//         suggested: true,
+//     },
+//     { code: 'AW', label: 'Aruba', phone: '297' },
+//     { code: 'AX', label: 'Alland Islands', phone: '358' },
+//     { code: 'AZ', label: 'Azerbaijan', phone: '994' },
+//     {
+//         code: 'BA',
+//         label: 'Bosnia and Herzegovina',
+//         phone: '387',
+//     },
+// ]
+

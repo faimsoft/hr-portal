@@ -66,7 +66,7 @@ const Navbar = () => {
             <Typography variant="h6" style={{ flexGrow: 1 }}> Hr Portal</Typography>
             <div className={classes.sectionDesktop}>
               <Button color="inherit" component={Link} to='/CandiDR'>Candidates</Button>
-              <Button color="inherit" component={Link} to='/About'>Interviews</Button>
+              <Button color="inherit" component={Link} to='/InterviewDrawer'>Interviews</Button>
               <Button color="inherit" component={Link} to='/'>Assessments</Button>
               <Button color="inherit" component={Link} to='/Career_Site'>Settings</Button>
               <Button color="inherit" component={Link} to='/Login'>Log in</Button>
