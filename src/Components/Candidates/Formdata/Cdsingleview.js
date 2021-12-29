@@ -23,6 +23,8 @@ import { Bottomtext } from '../../../views/text';
 import ControlledAccordions from './Controlled accordion';
 import { Modal } from '@material-ui/core';
 import { HiringStatus } from '../../../views/button'
+import { useHistory } from "react-router-dom";
+
 
 
 // dot modal style
@@ -81,6 +83,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Cdsingleview() {
     const [currency, setCurrency] = useState('');
+    const history = useHistory();
+
     //Modal
     // const [listIsOpen, setListIsOpen] = useState(false)
     const [open, setOpen] = useState(false);
@@ -95,6 +99,9 @@ function Cdsingleview() {
     const clickhandleChange = (e) => {
         setCurrency(e.target.value);
     };
+    function handleClick() {
+        history.push("/CandiDR");
+    }
 
     const classes = useStyles();
 
@@ -105,10 +112,10 @@ function Cdsingleview() {
             <Grid container spacing={2}   >
                 <Grid item xs={4}  >
                     <div style={{ marginLeft: '10px' }}>
-                        <Typography variant="h4">
+                        <Typography variant="h5">
                             <Button variant="text" ><ArrowBackIcon color="primary"
                                 button
-                                style={{ fontSize: '30px' }}
+                                style={{ fontSize: '30px' }} onClick={handleClick}
                             /></Button>
                             Abhineet Sabharwal
                         </Typography>
@@ -335,7 +342,7 @@ function Cdsingleview() {
                 </div>
             </div>
 
-            {/* modal */}
+            {/* dote button modal */}
             <Modal
                 open={open}
                 onClose={handleClose}

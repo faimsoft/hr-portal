@@ -8,6 +8,8 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
 import { Bottomtext } from '../../../views/text';
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -85,6 +87,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 function Preview() {
     const [currency, setCurrency] = React.useState('EUR');
 
+    const history = useHistory();
+    function handleClick() {
+        history.push("/InterviewCreate");
+    }
+
     const clickhandleChange = (e) => {
         setCurrency(e.target.value);
     };
@@ -101,10 +108,10 @@ function Preview() {
     return (
         <>
             <div style={{ marginLeft: '10px', marginBottom: "20px" }}>
-                <Typography variant="h4">
+                <Typography variant="h5">
                     <Button variant="text" ><ArrowBackIcon color="primary"
                         button
-                        style={{ fontSize: '30px' }}
+                        style={{ fontSize: '30px' }} onClick={handleClick}
                     /></Button>
                     Create an Interview
                 </Typography>

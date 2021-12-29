@@ -48,6 +48,10 @@ import InterviewDrawer from "./Components/Interview/interviewdrawer/InterviewDra
 import InterviewList from "./Components/Interview/interviewdrawer/InterviewList";
 import InterviewCreate from "./Components/Interview/interviewdrawer/InterviewCreate";
 import Preview from "./Components/Interview/interviewdrawer/Preview";
+// Assestments
+import AssestmentsDrawer from "./Components/Assestments/Drawer/AssestmentsDrawer";
+import AssestmentList from "./Components/Assestments/AssestmentList";
+import AssestmentsCreat from "./Components/Assestments/AssestmentsCreat";
 // Footer
 import Footerforall from "./Components/Drawer/Drawer_Pages/Footer/Footerforall";
 
@@ -186,6 +190,16 @@ function App() {
           </Route>
           <Route exact path='/Preview' component={Preview}>
             < Preview />
+          </Route>
+          {/* Assestments */}
+          <Route exact path='/AssestmentsDrawer' component={AssestmentsDrawer}>
+            < AssestmentsDrawer />
+          </Route>
+          <Route exact path='/AssestmentList' component={AssestmentList}>
+            < AssestmentList />
+          </Route>
+          <Route exact path='/AssestmentsCreat' component={AssestmentsCreat}>
+            < AssestmentsCreat />
           </Route>
         </Switch>
 

@@ -6,7 +6,7 @@ import MoreIcon from '@material-ui/icons/MoreVert'
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
-import InterviewList from './InterviewList';
+import AssestmentList from '../AssestmentList';
 const DrawerWidth = 200
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const InterviewDrawer = () => {
+const AssestmentsDrawer = () => {
     const classes = useStyles();
     const [opene, setOpene] = useState(false)
     // const [from, setFrom] = useState(false)
@@ -86,7 +86,7 @@ const InterviewDrawer = () => {
 
     return (
         <>
-            <InterviewList />
+            <AssestmentList />
             <div className={classes.root}>
                 <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
                     <List disablepadding className={classes.drawer}>
@@ -297,7 +297,7 @@ const InterviewDrawer = () => {
     )
 }
 
-export default InterviewDrawer
+export default AssestmentsDrawer
 
 
 

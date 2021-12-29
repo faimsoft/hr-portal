@@ -8,6 +8,8 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
 import { Bottomtext } from '../../../views/text';
+import { useHistory } from "react-router-dom";
+
 
 
 // email icon
@@ -83,6 +85,10 @@ function Email() {
     const classes = useStyles();
     // toggle button
     const [formats, setFormats] = React.useState(() => ['bold', 'italic']);
+    const history = useHistory();
+    function handleClick() {
+        history.push("/Cdsingleview");
+    }
 
     const handleFormat = (event, newFormats) => {
         setFormats(newFormats);
@@ -91,10 +97,10 @@ function Email() {
     return (
         <>
             <div style={{ marginLeft: '10px', marginBottom: "20px" }}>
-                <Typography variant="h4">
+                <Typography variant="h5">
                     <Button variant="text" ><ArrowBackIcon color="primary"
                         button
-                        style={{ fontSize: '30px' }}
+                        style={{ fontSize: '30px' }} onClick={handleClick}
                     /></Button>
                     Send Email
                 </Typography>
