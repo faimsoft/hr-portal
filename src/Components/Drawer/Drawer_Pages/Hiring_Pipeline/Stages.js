@@ -63,15 +63,15 @@ const Stages = () => {
                     <Table >
                         <TableHead>
                             <TableRow  className={classes.Tablehead}>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell align="left"  >Name</TableCell>
+                                <TableCell><Button variant="text"><Checkbox {...label} /></Button>Name</TableCell>
+                                {/* <TableCell align="left"  ></TableCell> */}
                                 <TableCell align="center"  >Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" style={{ flexGrow: 1 }}>Associated/ Screening</TableCell>
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button> Associated/ Screening</TableCell>
+                                    {/* <TableCell variant="h3" style={{ flexGrow: 1 }}></TableCell> */}
                                     <TableCell align="center">
                                         <Button variant="text">View</Button>
                                         <Button variant="text" ><EditIcon color="primary" /></Button>

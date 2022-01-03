@@ -3,13 +3,13 @@ import "./styles/App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // NavbarPages
-import Navbar from "./Components/Layout/Navbar";
+import Navbar from "./Components/Appbar/Navbar";
 import About from "./Components/pages/About";
 import Login from "./Components/pages/Login/Login";
 import SignUp from "./Components/pages/SignUp/SignUp";
 import Jobs from './Components/pages/Jobs'
 // drawer pages
-import Career_Site from "./Components/Drawer/Drawer_Pages/Career_Site/Career_Site";
+import CareerSite from "./Components/Drawer/Drawer_Pages/Career_Site/CareerSite";
 import Deparments from "./Components/Drawer/Drawer_Pages/Institute_Setting/Deparments";
 import CreatePage from './Components/Drawer/Drawer_Pages/Create-Field/CreatePage'
 import Designations from './Components/Drawer/Drawer_Pages/Institute_Setting/Designations'
@@ -17,9 +17,9 @@ import Degree from "./Components/Drawer/Drawer_Pages/Institute_Setting/Degree"
 import Jobstatus from "./Components/Drawer/Drawer_Pages/Institute_Setting/Jobstatus";
 import Stages from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Stages";
 import Pipelines from "./Components/Drawer/Drawer_Pages/Hiring_Pipeline/Pipelines";
-import Categories from "./Components/Drawer/EmailTemplates/Categories";
-import Templates from './Components/Drawer/EmailTemplates/Templates'
-import CreateEmailTemplate from './Components/Drawer/EmailTemplates/CreateEmailTemplate';
+import Categories from "./Components/Drawer/Drawer_Pages/EmailTemplates/Categories";
+import Templates from './Components/Drawer/Drawer_Pages/EmailTemplates/Templates'
+import CreateEmailTemplate from './Components/Drawer/Drawer_Pages/EmailTemplates/CreateEmailTemplate';
 import UserList from "./Components/Drawer/Drawer_Pages/User/UserList";
 import EditUser from "./Components/Drawer/Drawer_Pages/User/EditUser";
 import CreateUser from "./Components/Drawer/Drawer_Pages/User/CreateUser";
@@ -39,12 +39,18 @@ import CandiDR from "./Components/Candidates/Drawer2/CandiDR";
 import CreatCandidate from "./Components/Candidates/Formdata/CreatCandidate"
 import CdList from "./Components/Candidates/Formdata/CdList";
 import Cdsingleview from "./Components/Candidates/Formdata/Cdsingleview";
-import { Approval } from "@mui/icons-material";
+// import { Approval } from "@mui/icons-material";
 import ControlledAccordions from "./Components/Candidates/Formdata/Controlled accordion";
 import Email from "./Components/Candidates/sendemail/Email";
 import Interview from "./Components/Candidates/Schedule an Interview/Interview";
 // Footer
 import Footerforall from "./Components/Drawer/Drawer_Pages/Footer/Footerforall";
+// dashboard
+import Dashboard from './Components/Dashboard/Dashboard'
+// candidate aaply
+import CarerSiteMain from './Components/CareerSite/CarerSiteMain'
+import SingleJobView from './Components/CareerSite/SingleJobView'
+import CandidateApply from './Components/CareerSite/CandidateApply'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,26 +64,35 @@ function App() {
   return (
     <BrowserRouter>
       <container className={classes.root} disabledGutters>
-        <Navbar />
-        
         <Switch>
-          <Route exact path='/Candidates' component={Candidates}>
-            <Candidates />
-          </Route>
-          <Route exact path='/about' component={About}>
-            <About />
-          </Route>
           <Route exact path='/Login' component={Login}>
             <Login />
           </Route>
           <Route exact path='/SignUp' component={SignUp}>
             <SignUp />
           </Route>
+          <Route exact path='/CarerSiteMain' component={CarerSiteMain}>
+            < CarerSiteMain />
+            </Route>
+            <Route exact path='/SingleJobView' component={SingleJobView}>
+            < SingleJobView />
+          </Route>
+          <Route exact path='/CandidateApply' component={CandidateApply}>
+            < CandidateApply />
+          </Route>
+        <div>
+        <Navbar />
+          <Route exact path='/Candidates' component={Candidates}>
+            <Candidates />
+          </Route>
+          <Route exact path='/about' component={About}>
+            <About />
+          </Route>
           <Route exact path='/Jobs' component={Jobs}>
             <Jobs />
           </Route>
-          <Route exact path='/Career_Site' component={Career_Site}>
-            <Career_Site />
+          <Route exact path='/CareerSite' component={CareerSite}>
+            <CareerSite />
           </Route>
           <Route exact path='/Deparments' component={Deparments}>
             <Deparments />
@@ -168,9 +183,13 @@ function App() {
           </Route>
           <Route exact path='/Footerforall' component={Footerforall}>
             < Footerforall />
-          </Route>
+            </Route>
+            <Route exact path='/Dashboard' component={Dashboard}>
+            < Dashboard />
+            </Route>
+            
+          </div>
         </Switch>
-        
       </container>
     </BrowserRouter>
   );

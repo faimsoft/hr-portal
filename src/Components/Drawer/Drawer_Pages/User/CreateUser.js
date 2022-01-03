@@ -42,7 +42,7 @@ const CreateUser = () => {
              <div className={classes.box}>
                  <Box component={Paper}>
                      <Button component={Link} to='/UserList'  align="left" color='primary' fontSize="large"  ><ArrowBackIcon /></Button>
-                     <Typography variant="h4" align="center" > Create User</Typography>
+                     <Typography variant="h4" align="center" style={{ fontWeight: 600 }}> Create User</Typography>
                      <br />
                      <hr />
                      <Toolbar />

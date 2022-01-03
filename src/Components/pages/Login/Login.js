@@ -12,7 +12,8 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
    pagePadding:{
-       padding:10,
+        padding: 10,
+       marginTop:20
     },
     imageStyle: {
         height: 650,
@@ -37,21 +38,18 @@ const Login = () => {
     return (
         < >
             <div className={classes.pagePadding}  >
-
                 <div>
                     <Box component={Paper} className={classes.pagePadding}>
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             <Grid  xs={6} className={classes.loginDesign} >
-                                <Typography variant="h5" color="primary"> Welcome To MI Robotic</Typography>
+                                <Typography variant="h5" color="primary" style={{ fontWeight: 600 }}> Welcome To MI Robotic</Typography>
                                 <Typography variant="text" > Enter your Email And Pasword To Sign in</Typography>
                                 <Toolbar />
                                 <Typography variant="text" > Email</Typography>
                                 <br />
-                                
                                 <TextField id="outlined-basic" svariant="outlined" size="small"  className={classes.signinBtn}/>
                                 <br />
                                 <br />
-                              
                                 <Typography variant="text" > Password</Typography>
                                 <br/>
                                 <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} />
@@ -77,7 +75,6 @@ const Login = () => {
                         </Grid>
                     </Box>
                 </div>
-   
             </div>
         </>
         

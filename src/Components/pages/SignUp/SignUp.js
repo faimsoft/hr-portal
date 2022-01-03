@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box,Typography} from "@material-ui/core"
-import { makeStyles, } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Paper from '@mui/material/Paper';
 import {Toolbar} from "@material-ui/core"
 import TextField from '@mui/material/TextField';
@@ -45,10 +45,10 @@ const SignUp = () => {
         <>
             <div className={classes.main_div}>
             
-            <Box sx={{ bgcolor: 'secondary.main', color: 'primary.contrastText', p: 2 }}>
+            <Box sx={{ bgcolor: '#bdbdbd', color: 'primary.contrastText', p: 2 }}>
                 <Toolbar/>
-                <Typography  variant="h4" align="center" color="primary"> Welcome To MI Ro</Typography>
-                <Typography  variant="subtitle1" align="center"> A Leading Company in AI and VR</Typography>
+                <Typography  variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}> Welcome To MI Ro</Typography>
+                <Typography  variant="subtitle1" align="center" style={{ fontWeight: 200 }}> A Leading Company in AI and VR</Typography>
                 <Toolbar/>
                 <Toolbar/>
             </Box>

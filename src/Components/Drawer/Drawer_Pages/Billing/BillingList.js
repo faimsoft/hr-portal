@@ -13,7 +13,8 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 const useStyles = makeStyles((theme) => ({
    box:{
        paddingLeft:240,
-       paddingRight:10
+        paddingRight: 10,
+        
     },
    
   
@@ -36,11 +37,11 @@ const BillingList = () => {
              <div className={classes.box}>
                  <Box component={Paper}>
                      <Toolbar/>
-                     <Typography variant="h4" align="center" color="primary"> Your current Plan</Typography>
+                     <Typography variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}> Your current Plan</Typography>
                      <Toolbar />
                      <hr />
                      <div>
-                        <Toolbar/>
+                        {/* <Toolbar/> */}
                          <Box component={Paper} align="center">
                              <Toolbar/>
                              <Card sx={{ maxWidth: 300 }}>
@@ -63,7 +64,7 @@ const BillingList = () => {
                  </Box>
                  {/* SElect plan */}
                   <Box component={Paper}>
-                     <Typography variant="h4" align="center" color="primary">Select Plan</Typography>
+                     <Typography variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}>Select Plan</Typography>
                      <Toolbar />
                      <hr />
                      <div>

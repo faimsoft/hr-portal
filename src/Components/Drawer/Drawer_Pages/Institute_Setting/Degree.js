@@ -62,15 +62,19 @@ const Degree = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell >Degree</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><Checkbox {...label} /></Button>
+                                        Degree
+                                    </TableCell>
                                 <TableCell align="center">Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >BCA</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><Checkbox {...label} /></Button>
+                                        BCA
+                                    </TableCell>
                                   
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>

@@ -42,7 +42,7 @@ const commonStyles = {
 };
 
 
-const Career_Site = () => {
+const CareerSite = () => {
      const classes = useStyles();
 
     return (
@@ -118,4 +118,4 @@ const Career_Site = () => {
     )
 }
 
-export default Career_Site
+export default CareerSite

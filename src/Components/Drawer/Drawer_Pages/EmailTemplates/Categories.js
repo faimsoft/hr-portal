@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container,Toolbar,TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox,} from "@material-ui/core";
 import { Link } from 'react-router-dom';
-import Sidebar from '../SideBar/sidebar'
+import Sidebar from '../../SideBar/sidebar';
 import { makeStyles, } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
@@ -77,15 +77,15 @@ const Categories = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell color="primary" > Name</TableCell>
+                                <TableCell><Button variant="text"><Checkbox {...label} /></Button>Name</TableCell>
+                                {/* <TableCell color="primary" > </TableCell> */}
                                 <TableCell align="center"> Action </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >Interview Mails</TableCell>
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button>Interview Mails</TableCell>
+                                    {/* <TableCell variant="h3" ></TableCell> */}
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>
@@ -115,7 +115,7 @@ const Categories = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} >
-          <Typography align="center" id="modal-modal-title" align="center" variant="h6">
+          <Typography align="center" id="modal-modal-title"  variant="h6" style={{ fontWeight: 600 }}>
             Add a New Category
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }} align="center">

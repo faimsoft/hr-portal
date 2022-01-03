@@ -56,15 +56,13 @@ const WebformList = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell color="primary" > Name</TableCell>
+                                <TableCell><Button variant="text"><Checkbox {...label} /></Button>Name</TableCell>
                                 <TableCell align="center"> Action </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >General Submissions</TableCell>
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button>General Submissions</TableCell>
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>

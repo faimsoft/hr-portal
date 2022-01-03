@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../SideBar/sidebar'
+import Sidebar from '../../SideBar/sidebar';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
@@ -57,7 +57,7 @@ const CreateEmailTemplate = () => {
              <div className={classes.box}>
                  <Box component={Paper}>
                      <Button component={Link} to="/Categories"  align="left" color='primary' fontSize="large"  ><ArrowBackIcon /></Button>
-                     <Typography variant="h4" align="center" color="primary"> Create an Email Template</Typography>
+                     <Typography variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}> Create an Email Template</Typography>
                      <br />
                      <hr />
                      <Toolbar />

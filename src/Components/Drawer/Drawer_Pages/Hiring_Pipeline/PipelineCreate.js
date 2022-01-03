@@ -61,7 +61,7 @@ const PipelineCreate = () => {
              <div className={classes.box}>
                  <Box component={Paper}>
                      <Button component={Link} to="/Pipelines"  align="left" color='primary' fontSize="large"  ><ArrowBackIcon /></Button>
-                     <Typography variant="h4" align="center" color="primary"> Edit Pipeline</Typography>
+                     <Typography variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}> Edit Pipeline</Typography>
                      {/* <Toolbar/> */}
                 
                  <div>

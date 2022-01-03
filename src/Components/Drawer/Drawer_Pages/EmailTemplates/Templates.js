@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container,TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox,} from "@material-ui/core";
 import { Link } from 'react-router-dom';
-import Sidebar from '../SideBar/sidebar'
+import Sidebar from '../../SideBar/sidebar';
 import { makeStyles, } from "@material-ui/core/styles";
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
@@ -54,8 +54,7 @@ const Templates = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell align="left" ><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell color="primary"  align="left" > Name</TableCell>
+                                <TableCell align="left" ><Button variant="text"><Checkbox {...label} /></Button>Name</TableCell>
                                     <TableCell align="left"> Subject </TableCell>
                                     <TableCell align="left"> Category </TableCell>
                                     <TableCell align="left"> Typee </TableCell>
@@ -64,8 +63,8 @@ const Templates = () => {
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3"  align="left">Invite for video call</TableCell>
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button>Invite for video call</TableCell>
+                                    {/* <TableCell variant="h3"  align="left"></TableCell> */}
                                     <TableCell variant="h3" align="left" >Video call details</TableCell>
                                     <TableCell variant="h3" align="left" >Job Offer</TableCell>
                                     <TableCell variant="h3" align="left" >Candidate</TableCell>
