@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
 
     },
     small: {
-        paddingLeft: theme.spacing(2),
+        // paddingLeft: theme.spacing(2),
 
     },
-    root: {
-        paddingTop: theme.spacing(5),
-    },
+    // root: {
+    //     paddingTop: theme.spacing(5),
+    // },
     Create: {
         display: "none",
         [theme.breakpoints.up("md")]: {
@@ -51,7 +51,7 @@ export default function StateTextFields() {
     };
 
     function handleClick() {
-        history.push("/Cdsingleview");
+        history.push("/CandiDR");
     }
 
     return (
@@ -61,7 +61,7 @@ export default function StateTextFields() {
                 <Grid item xs={10}  >
 
                     <div style={{ marginLeft: '10px' }}>
-                        <Typography variant="h4">
+                        <Typography variant="h5">
                             <Button variant="text" ><ArrowBackIcon color="primary"
                                 button
                                 style={{ fontSize: '30px' }} onClick={handleClick}
@@ -77,11 +77,10 @@ export default function StateTextFields() {
             </Grid>
             <div className={classes.root}>
 
-
-                <Grid container spacing={2}  >
-                    <Grid item xs={7} component={Paper} style={{ padding: " 50px" }}  >
-                        <div className={classes.paper}>
-                            <Typography variant="h3" style={{ paddingTop: '20px', }}> Personal Details</Typography>
+                <Box component={Paper} style={{ padding: " 50px" }}>
+                    <Grid container spacing={2}  >
+                        <Grid item xs={7}   >
+                            <Typography style={{ marginLeft: "25px" }} variant="h4"> Personal Details</Typography>
 
                             <Box
                                 component="form"
@@ -92,12 +91,14 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="outlined-First Name*"
                                     label="First Name*"
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="outlined-Last Name*"
                                     label="Last Name*"
                                 />
@@ -111,12 +112,14 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="outlined-First Email*"
                                     label="Email*"
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="outlined-Mobile Number*"
                                     label="Mobile Number*"
                                 />
@@ -130,12 +133,14 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="outlined-Enter mobile email..."
                                     label="Enter mobile email..."
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="Enter mobile number..."
                                     label="Enter mobile number..."
                                 />
@@ -153,9 +158,11 @@ export default function StateTextFields() {
                                 <TextField
                                     id="Type street address"
                                     label="Type street address"
+                                    size='small'
 
                                 />
                                 <TextField
+                                    size='small'
                                     id="Choose country"
                                     select
                                     label="Choose cuntry"
@@ -181,6 +188,7 @@ export default function StateTextFields() {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    size='small'
                                     id="Select state..."
                                     select
                                     label="Select state..."
@@ -197,6 +205,7 @@ export default function StateTextFields() {
                                     ))}
                                 </TextField>
                                 <TextField
+                                    size='small'
                                     id="City..."
                                     select
                                     label="City..."
@@ -221,9 +230,11 @@ export default function StateTextFields() {
                                 noValidate
                                 autoComplete="off"
                             >
-                                <div className={classes.small}>
+                                <div style={{ marginTop: "10px", marginLeft: "18px" }}>
+
                                     <Box>
                                         <TextField
+                                            size='small'
                                             id="Zip Code"
                                             select
                                             label="Zip Code"
@@ -241,6 +252,7 @@ export default function StateTextFields() {
                                         </TextField>
                                     </Box>
                                 </div>
+
                             </Box>
                             <Box
                                 component="form"
@@ -250,9 +262,10 @@ export default function StateTextFields() {
                                 noValidate
                                 autoComplete="off"
                             >
-                                <div className={classes.small}>
+                                <div style={{ marginTop: "10px", marginLeft: "18px" }}>
 
                                     <TextField
+                                        size='small'
                                         id="Select Degree"
                                         select
                                         label="Select Degree"
@@ -269,6 +282,7 @@ export default function StateTextFields() {
                                         ))}
                                     </TextField>
                                     <TextField
+                                        size='small'
                                         id="Total Experience"
                                         select
                                         label="Total Experience"
@@ -288,7 +302,7 @@ export default function StateTextFields() {
 
                             </Box>
                             <div  >
-                                <Typography variant="h3" style={{ paddingTop: '20px', }}> Education Details</Typography>
+                                <Typography variant="h4" style={{ paddingTop: '20px', marginLeft: "25px" }} > Education Details</Typography>
                             </div>
                             <Box
                                 component="form"
@@ -300,30 +314,124 @@ export default function StateTextFields() {
                             >
 
                                 <TextField
+                                    size='small'
                                     id="Search for the country name..."
                                     label="Search for the country name..."
                                     value={name}
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    size='small'
                                     id="Search for the city name..."
                                     label="Search for the city name..."
                                 />
                             </Box>
+                            <div style={{ marginTop: "10px", marginLeft: "18px" }}>
+
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& .MuiTextField-root': { m: 1, width: '25ch' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <div className={classes.small}>
+
+                                        <TextField
+                                            size='small'
+                                            id="From Month"
+                                            select
+                                            label="From Month"
+                                            value={currency}
+                                            onChange={clickhandleChange}
+                                            SelectProps={{
+                                                native: true,
+                                            }}
+                                        >
+                                            {countries.map((option) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </TextField>
+                                        <TextField
+                                            size='small'
+                                            id="From Year"
+                                            select
+                                            label="From Year"
+                                            value={currency}
+                                            onChange={clickhandleChange}
+                                            SelectProps={{
+                                                native: true,
+                                            }}
+                                        >
+                                            {countries.map((option) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </TextField>
+                                        <TextField
+                                            size='small'
+                                            id="To Month"
+                                            select
+                                            label="To Month"
+                                            value={currency}
+                                            onChange={clickhandleChange}
+                                            SelectProps={{
+                                                native: true,
+                                            }}
+                                        >
+                                            {countries.map((option) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </TextField>
+                                        <TextField
+                                            size='small'
+                                            id="To Year"
+                                            select
+                                            label="To Year"
+                                            value={currency}
+                                            onChange={clickhandleChange}
+                                            SelectProps={{
+                                                native: true,
+                                            }}
+                                        >
+                                            {countries.map((option) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </TextField>
+                                    </div>
+
+                                </Box>
+                            </div>
+                        </Grid>
+                        {/* <Grid item xs={1} /> */}
+                        <hr />
+                        <Grid item xs={4}  >
+                            <Typography variant="h6" style={{ marginLeft: "25px" }}> Assign to a job</Typography>
+
                             <Box
                                 component="form"
                                 sx={{
-                                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                                    '& .MuiTextField-root': { m: 3, width: '40ch' },
                                 }}
                                 noValidate
                                 autoComplete="off"
                             >
                                 <div className={classes.small}>
 
+
                                     <TextField
-                                        id="From Month"
+                                        size='small'
+                                        id="Select Degree"
                                         select
-                                        label="From Month"
+                                        label="Select Degree"
                                         value={currency}
                                         onChange={clickhandleChange}
                                         SelectProps={{
@@ -336,95 +444,14 @@ export default function StateTextFields() {
                                             </option>
                                         ))}
                                     </TextField>
-                                    <TextField
-                                        id="From Year"
-                                        select
-                                        label="From Year"
-                                        value={currency}
-                                        onChange={clickhandleChange}
-                                        SelectProps={{
-                                            native: true,
-                                        }}
-                                    >
-                                        {countries.map((option) => (
-                                            <option key={option.value} value={option.value}>
-                                                {option.label}
-                                            </option>
-                                        ))}
-                                    </TextField>
-                                    <TextField
-                                        id="To Month"
-                                        select
-                                        label="To Month"
-                                        value={currency}
-                                        onChange={clickhandleChange}
-                                        SelectProps={{
-                                            native: true,
-                                        }}
-                                    >
-                                        {countries.map((option) => (
-                                            <option key={option.value} value={option.value}>
-                                                {option.label}
-                                            </option>
-                                        ))}
-                                    </TextField>
-                                    <TextField
-                                        id="To Year"
-                                        select
-                                        label="To Year"
-                                        value={currency}
-                                        onChange={clickhandleChange}
-                                        SelectProps={{
-                                            native: true,
-                                        }}
-                                    >
-                                        {countries.map((option) => (
-                                            <option key={option.value} value={option.value}>
-                                                {option.label}
-                                            </option>
-                                        ))}
-                                    </TextField>
+
                                 </div>
 
                             </Box>
-                        </div>
+
+                        </Grid>
                     </Grid>
-                    <Grid item xs={1} />
-                    <Grid item xs={4} component={Paper} style={{ padding: " 50px" }}  >
-                        <Box
-                            component="form"
-                            sx={{
-                                '& .MuiTextField-root': { m: 3, width: '40ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                        >
-                            <div className={classes.small}>
-
-                                <TextField
-                                    id="Select Degree"
-                                    select
-                                    label="Select Degree"
-                                    value={currency}
-                                    onChange={clickhandleChange}
-                                    SelectProps={{
-                                        native: true,
-                                    }}
-                                >
-                                    {countries.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </TextField>
-
-                            </div>
-
-                        </Box>
-
-                    </Grid>
-                </Grid>
-
+                </Box>
 
             </div>
         </>

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -9,7 +8,9 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
 import { Bottomtext } from '../../../views/text';
+import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+
 
 
 
@@ -85,13 +86,13 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
-function Interview() {
+function InterviewCreate() {
     const [currency, setCurrency] = React.useState('EUR');
+
     const history = useHistory();
     function handleClick() {
-        history.push("/Cdsingleview");
+        history.push("/InterviewDrawer");
     }
-
 
     const clickhandleChange = (e) => {
         setCurrency(e.target.value);
@@ -106,7 +107,6 @@ function Interview() {
         setFormats(newFormats);
     };
 
-
     return (
         <>
             <div style={{ marginLeft: '10px', marginBottom: "20px" }}>
@@ -115,7 +115,7 @@ function Interview() {
                         button
                         style={{ fontSize: '30px' }} onClick={handleClick}
                     /></Button>
-                    Schedule an Interview
+                    Create an Interview
                 </Typography>
             </div>
 
@@ -402,15 +402,30 @@ function Interview() {
                     </Grid>
                 </Grid>
                 <hr />
+                <Grid container spacing={2} style={{ marginLeft: "1px", marginBottom: "30px", marginTop: "20px" }}>
+                    <Grid xs={4}>
+                        <Button style={{
+                            marginLeft: "80%",
+                            width: "213px", height: "44px", background: " #109CF1",
+                            marginTop: "3%"
+                        }} variant="contained">
+                            Preview
+                        </Button>
+                    </Grid>
+                    <Grid xs={4}>
+                        <Button style={{
+                            marginLeft: "50%",
+                            width: "213px", height: "44px", background: "#068B92",
+                            marginTop: "3%"
+                        }}
+                            component={Link} to='/Preview' variant="contained">
+                            Create
+                        </Button>
+                    </Grid>
+                </Grid>
 
+                <Toolbar />
 
-                <Button style={{
-                    marginLeft: "40%",
-                    width: "213px", height: "44px", background: " #109CF1",
-                    marginTop: "3%"
-                }} variant="contained">
-                    Schedule
-                </Button>
 
             </Box>
 
@@ -418,7 +433,8 @@ function Interview() {
     )
 }
 
-export default Interview
+export default InterviewCreate
+
 
 
 
@@ -484,3 +500,4 @@ const countries = [
         phone: '387',
     },
 ]
+

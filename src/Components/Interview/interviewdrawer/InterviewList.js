@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, Collapse, Container } from "@material-ui/core";
 import axios from 'axios';
 import { makeStyles } from "@material-ui/core/styles";
 import EditIcon from '@mui/icons-material/Edit';
@@ -7,6 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+
 
 
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
 
 }));
-function CdList() {
+function InterviewList() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -108,8 +109,8 @@ function CdList() {
                 </Grid>
 
                 <Grid item xs={2}  >
-                    <Button color="primary" component={Link} to='/CreatCandidate' variant="contained" disableElevation>
-                        Create a candidate
+                    <Button color="primary" component={Link} to='/InterviewCreate' variant="contained" disableElevation>
+                        Create Interview
                     </Button>
                 </Grid>
             </Grid>
@@ -120,13 +121,15 @@ function CdList() {
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell>Name</TableCell>
-                                <TableCell>Latest Job Applied</TableCell>
-                                <TableCell>Status</TableCell>
-                                <TableCell>Sourced from</TableCell>
-                                <TableCell>Phone</TableCell>
-                                <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                <TableCell>Candidate</TableCell>
+                                <TableCell>Owner</TableCell>
+                                <TableCell>Job</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Time</TableCell>
+                                <TableCell>Type</TableCell>
+                                <TableCell>
+                                    Action
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -138,8 +141,11 @@ function CdList() {
                                     <TableCell>{user.website}</TableCell>
                                     <TableCell>{user.company.name}</TableCell>
                                     <TableCell>{user.phone}</TableCell>
-                                    <TableCell><Button variant="text"><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell>{user.username}</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><EditIcon color="primary" /></Button>
+                                        <Button variant="text"><DeleteIcon color="error" /></Button>
+                                    </TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 
@@ -159,13 +165,13 @@ function CdList() {
                         onChangeRowsPerPage={onChangeRowsPerPage}
                     />
                 </TableContainer>
-
+                <Toolbar />
             </Container>
         </>
     )
 }
 
-export default CdList
+export default InterviewList
 
 
 
@@ -264,3 +270,4 @@ const countries = [
 //         phone: '387',
 //     },
 // ]
+

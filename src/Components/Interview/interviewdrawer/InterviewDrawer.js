@@ -4,10 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import MoreIcon from '@material-ui/icons/MoreVert'
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import Formdata from '../Formdata/Formdata';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
-
+import InterviewList from './InterviewList';
 const DrawerWidth = 200
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const CandiDR = () => {
+const InterviewDrawer = () => {
     const classes = useStyles();
     const [opene, setOpene] = useState(false)
     // const [from, setFrom] = useState(false)
@@ -64,35 +63,35 @@ const CandiDR = () => {
 
     const [mobileelment, setMobileelment] = useState(null)
     const [Open, setOpen] = useState(false)
-    const isMobileMenuOpen = Boolean(mobileelment)
-    const openMobileMenu = (event) => {
-        setMobileelment(event.currentTarget)
-    }
-    const CloseMobileMenu = () => {
-        setMobileelment(null)
-    }
+    // const isMobileMenuOpen = Boolean(mobileelment)
+    // const openMobileMenu = (event) => {
+    //     setMobileelment(event.currentTarget)
+    // }
+    // const CloseMobileMenu = () => {
+    //     setMobileelment(null)
+    // }
     // FOR MOBILE RESPONSIVE
-    const MobileMenu = (
-        <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
-            <MenuItem component={Link} onClick={CloseMobileMenu} to="/Formdata">Home</MenuItem>
-            <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >About</MenuItem>
-            <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Login</MenuItem>
-            <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >SignUp</MenuItem>
-            <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Jobs</MenuItem>
-            <MenuItem component={Link} onClick={CloseMobileMenu} to="/setting" >setting</MenuItem>
-            <MenuItem onClick={() => setOpen(true)}  >a</MenuItem>
+    // const MobileMenu = (
+    //     <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
+    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/Formdata">Home</MenuItem>
+    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >About</MenuItem>
+    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Login</MenuItem>
+    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >SignUp</MenuItem>
+    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Jobs</MenuItem>
+    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/setting" >setting</MenuItem>
+    //         <MenuItem onClick={() => setOpen(true)}  >a</MenuItem>
 
-        </Menu>
-    )
+    //     </Menu>
+    // )
 
     return (
         <>
-            <Formdata />
+            <InterviewList />
             <div className={classes.root}>
                 <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
                     <List disablepadding className={classes.drawer}>
                         <Toolbar />
-                        <ListItem button component={Link}  >
+                        <ListItem button component={Link} to="/InterviewList"  >
                             {/* <ListItemText primary="From Date" /> */}
                             <TextField
                                 style={{
@@ -114,7 +113,7 @@ const CandiDR = () => {
                             ))}
                             </TextField>
                         </ListItem>
-                        <ListItem button component={Link} to="/Cdsingleview" >
+                        <ListItem button component={Link} to="/" >
                             <TextField
                                 style={{
                                     width: '249px',
@@ -298,7 +297,8 @@ const CandiDR = () => {
     )
 }
 
-export default CandiDR
+export default InterviewDrawer
+
 
 
 
@@ -339,7 +339,6 @@ const countries = [
         phone: '387',
     },
 ]
-
 
 
 

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -51,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     box: {
         position: "absolute",
         width: "1279px",
-        height: " 900px",
+        height: " auto",
         // height: "106px",
         left: "100px",
         // left: " 958px",
@@ -85,13 +84,13 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
-function Interview() {
+function Preview() {
     const [currency, setCurrency] = React.useState('EUR');
+
     const history = useHistory();
     function handleClick() {
-        history.push("/Cdsingleview");
+        history.push("/InterviewCreate");
     }
-
 
     const clickhandleChange = (e) => {
         setCurrency(e.target.value);
@@ -106,7 +105,6 @@ function Interview() {
         setFormats(newFormats);
     };
 
-
     return (
         <>
             <div style={{ marginLeft: '10px', marginBottom: "20px" }}>
@@ -115,7 +113,7 @@ function Interview() {
                         button
                         style={{ fontSize: '30px' }} onClick={handleClick}
                     /></Button>
-                    Schedule an Interview
+                    Create an Interview
                 </Typography>
             </div>
 
@@ -124,138 +122,101 @@ function Interview() {
                     <Grid xs={4} className={classes.interviiw}>
                         {/* Nmae */}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
-                            <Grid xs={2}>
+                            <Grid xs={3}>
                                 <TextSCHead smtext={" Name*"} />
                             </Grid>
-                            <Grid xs={9}>
-                                <Box
-                                    sx={{
-                                        width: 700,
-                                        maxWidth: '100%',
-                                    }}
-                                >
-                                    <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                </Box>
+                            <Grid xs={8}>
+                                <TextSCHead smtext={"Technical Round"} />
                             </Grid>
                         </Grid>
                         <br />
-                        {/* checkbox */}
+                        {/* checkbox select*/}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
-                            <Grid xs={1}>
-                                <Checkbox />
+                            <Grid xs={3}>
                             </Grid>
-                            <Grid xs={3} marginTop={"10px"}>
-                                <TextSCHead smtext={"In person"} />
-                            </Grid>
-                            <Grid xs={1}>
-                                <Checkbox />
-                            </Grid>
-                            <Grid xs={3} marginTop={"10px"}>
-                                <TextSCHead smtext={" Telephonic"} />
-                            </Grid>
-                            <Grid xs={1}>
-                                <Checkbox />
-                            </Grid>
-                            <Grid xs={3} marginTop={"10px"}>
-                                <TextSCHead smtext={"Video"} />
+                            <Grid xs={8}>
+                                <TextSCHead smtext={"Telephonics"} />
                             </Grid>
                         </Grid>
                         <br />
+
                         {/* Date */}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
-                            <Grid xs={2}>
+                            <Grid xs={3}>
                                 <TextSCHead smtext={" Date*"} />
                             </Grid>
-                            <Grid xs={9}>
+                            <Grid xs={8}>
                                 <Box
                                     sx={{
                                         width: 700,
                                         maxWidth: '100%',
                                     }}
                                 >
-                                    <TextField size="small" fullWidth label="3 November 2021" id="fullWidth" />
+                                    <TextSCHead smtext={"3 November 2021"} />
                                 </Box>
                             </Grid>
                         </Grid>
                         <br />
                         {/* Time* */}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
-                            <Grid xs={2}>
+                            <Grid xs={3}>
                                 <TextSCHead smtext={" Time*"} />
                             </Grid>
-                            <Grid xs={9}>
+                            <Grid xs={8}>
                                 <Box
                                     sx={{
                                         width: 700,
                                         maxWidth: '100%',
                                     }}
                                 >
-                                    <TextField size="small" fullWidth label="10:00 AM" id="fullWidth" />
+                                    <TextSCHead smtext={"10:00 AM"} />
                                 </Box>
                             </Grid>
                         </Grid>
                         <br />
                         {/* Duration */}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
-                            <Grid xs={2}>
-                                <TextSCHead smtext={" Duration"} />
+                            <Grid xs={3}>
+                                <TextSCHead smtext={" End Time"} />
                             </Grid>
-                            <Grid xs={9}>
+                            <Grid xs={8}>
                                 <Box
                                     sx={{
                                         width: 700,
                                         maxWidth: '100%',
                                     }}
                                 >
-                                    <TextField size="small" fullWidth label="45 Minutes" id="fullWidth" />
+                                    <TextSCHead smtext={"10:00 AM"} />
                                 </Box>
                             </Grid>
                         </Grid>
                         <br />
                         {/* Location */}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
-                            <Grid xs={2}>
+                            <Grid xs={3}>
                                 <TextSCHead smtext={" Location"} />
                             </Grid>
-                            <Grid xs={9}>
+                            <Grid xs={8}>
 
-                                <TextField
-                                    style={{
-                                        width: 700,
-                                        maxWidth: '100%',
-                                    }}
-                                    id="Zip Code"
-                                    size='small'
-                                    select
-                                    label="Select Locations"
-                                    value={currency}
-                                    onChange={clickhandleChange}
-                                    SelectProps={{
-                                        native: true,
-                                    }}
-                                >  {countries.map((option) => (
-                                    <option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
-                                </TextField>
+                                <TextSCHead smtext={" College Office, Latur"} />
+
 
                             </Grid>
                         </Grid>
                         <br />
                         {/* Interviewers */}
-                        <Grid container spacing={2} style={{ margin: "px", marginTop: "20px", }}>
-                            <Grid xs={2} >
+                        <Grid container spacing={2} style={{ margin: "px", marginTop: "25px", }}>
+                            <Grid xs={3} >
                                 <TextSCHead smtext={"Interview"} />
                             </Grid>
-                            <Grid xs={9}>
+                            <Grid xs={8}>
                                 <Box
                                     sx={{
                                         width: 700,
                                         maxWidth: '100%',
                                     }}
                                 >
-                                    <TextField size="small" fullWidth label="Search for team memebers..." id="fullWidth" />
+                                    <TextSCHead smtext={" Sameer, Petsy, Rahul"} />
                                 </Box>
                             </Grid>
                         </Grid>
@@ -264,135 +225,91 @@ function Interview() {
                     <hr />
                     <Grid xs={7}>
                         <div className={classes.text}>
-                            <TextSCHead smtext={" Select Email Template"} />
-                            <Autocomplete
-                                multiple
-                                id="checkboxes-tags-demo"
-                                options={top100Films}
-                                disableCloseOnSelect
-                                getOptionLabel={(option) => option.title}
-                                renderOption={(props, option, { selected }) => (
-                                    <li {...props}>
-                                        <Checkbox
-                                            icon={icon}
-                                            checkedIcon={checkedIcon}
-                                            style={{ marginRight: 8 }}
-                                            checked={selected}
-                                        />
-                                        {option.title}
-                                    </li>
-                                )}
-                                style={{ width: 600, marginTop: "10px" }}
-                                size='small'
-                                renderInput={(params) => (
-                                    <TextField {...params} label="Checkboxes" placeholder="Favorites" />
-                                )}
-                            />
+                            {/* Nmae */}
+                            <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                                <Grid xs={3}>
+                                    <TextSCHead smtext={"Select Candidate"} />
+                                </Grid>
+                                <Grid xs={8}>
+                                    <TextSCHead smtext={"Abhineet Sabharwal"} />
+                                </Grid>
+                            </Grid>
                             <br />
-                            <Grid container spacing={2} style={{ marginLeft: "2px", marginTop: "20px", }}>
-                                <Grid xs={1}>
-                                    <TextSCHead smtext={" From:"} />
+                            {/* checkbox select*/}
+                            <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                                <Grid xs={3}>
+                                    <TextSCHead smtext={"Select Job"} />
+                                </Grid>
+                                <Grid xs={8}>
+                                    <TextSCHead smtext={" Aisstant Professor - Mechanical Engineering"} />
+                                </Grid>
+                            </Grid>
+                            <br />
+
+                            {/* Date */}
+                            <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                                <Grid xs={3}>
+                                    <TextSCHead smtext={"Select Template"} />
                                 </Grid>
                                 <Grid xs={8}>
                                     <Box
                                         sx={{
-                                            width: 523,
+                                            width: 700,
                                             maxWidth: '100%',
                                         }}
                                     >
-                                        <TextField size="small" fullWidth label="From" id="fullWidth" />
+                                        <TextSCHead smtext={"Techincal Round Interview Email Template"} />
                                     </Box>
                                 </Grid>
                             </Grid>
-                            <Grid container spacing={2} style={{ marginLeft: "2px", marginTop: "20px", }}>
-                                <Grid xs={1}>
-                                    <TextSCHead smtext={" To:"} />
-                                </Grid>
-                                <Grid xs={8}>
-                                    <Box
-                                        sx={{
-                                            width: 523,
-                                            maxWidth: '100%',
-                                        }}
-                                    >
-                                        <TextField size="small" fullWidth label="To" id="fullWidth" placeholder='Gmail' />
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                            <Grid container spacing={2} style={{ marginLeft: "1px", marginTop: "20px", }}>
-                                <Grid xs={1}>
+                            <br />
+                            {/* Time* */}
+                            <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                                <Grid xs={3}>
                                     <TextSCHead smtext={" Subject:"} />
                                 </Grid>
                                 <Grid xs={8}>
                                     <Box
                                         sx={{
-                                            width: 523,
+                                            width: 700,
                                             maxWidth: '100%',
                                         }}
                                     >
-                                        <TextField size="small" fullWidth label="Subject" id="fullWidth" />
+                                        <TextSCHead smtext={"Hi $candiate_name Your technical round has been scheduled on ..."} />
                                     </Box>
                                 </Grid>
                             </Grid>
-                            <div style={{ marginTop: "50px" }}>
-                                <TextSCHead smtext={" Email Body"} />
-                            </div>
+                            <br />
+                            {/* Duration */}
+                            <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                                <Grid xs={3}>
+                                    <TextSCHead smtext={"Email Body"} />
+                                </Grid>
 
-                            <Box component={Paper} className={classes.email}>
-                                <ToggleButtonGroup
-                                    value={formats}
-                                    onChange={handleFormat}
-                                    aria-label="text formatting"
-                                >
-                                    <ToggleButton value="bold" aria-label="bold">
-                                        <FormatBoldIcon />
-                                    </ToggleButton>
-                                    <ToggleButton value="italic" aria-label="italic">
-                                        <FormatItalicIcon />
-                                    </ToggleButton>
-                                    <ToggleButton value="underlined" aria-label="underlined">
-                                        <FormatUnderlinedIcon />
-                                    </ToggleButton>
-                                    <ToggleButton value="color" aria-label="color" disabled>
-                                        <FormatColorFillIcon />
-                                        <ArrowDropDownIcon />
-                                        {/* <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} /> */}
-                                    </ToggleButton>
-                                    <ToggleButton >
-                                        Android<ArrowDropDownIcon />
-                                    </ToggleButton>
-                                    <ToggleButton  >
-                                        10<ArrowDropDownIcon />
-                                    </ToggleButton>
-                                    <ToggleButton value="left" key="left">
-                                        <FormatAlignLeftIcon />
-                                    </ToggleButton>,
-                                    <ToggleButton value="center" key="center">
-                                        <FormatAlignCenterIcon />
-                                    </ToggleButton>,
-                                    <ToggleButton value="right" key="right">
-                                        <FormatAlignRightIcon />
-                                    </ToggleButton>,
-                                    <ToggleButton value="justify" key="justify">
-                                        <FormatAlignJustifyIcon />
-                                    </ToggleButton>
-                                    <ToggleButton value="android">
-                                        A
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                                <div style={{ marginTop: "10px", marginLeft: "10px" }}>
-                                    <Bottomtext last={"Type your email details here......."} />
+                            </Grid>
+                            <div style={{ marginTop: "20px" }}>
+                                <TextSCHead smtext={"Hi $candidate_name "} />
+                                <TextSCHead smtext={"As per our last call, you have been shortlisted for the next round.The next round is going to be a technical interviewPlease find the details of the "} />
+                                <div style={{ textAlign: "center" }}>
+                                    <TextSCHead smtext={"interview belowLocation: College Office, Latur Time: 10 am - 11 am Date: 26th December 2021 "} />
                                 </div>
-                            </Box>
-                            <Grid container spacing={2} style={{ marginLeft: "1px", marginTop: "50px", }}>
-                                <Grid xs={1}>
+                                <TextSCHead smtext={"Please reach the location 10 minutes earlier for convenience "} />
+
+                            </div>
+                            <br />
+                            {/* Location */}
+                            <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                                <Grid xs={2}>
                                     <TextSCHead smtext={" Attachment:"} />
                                 </Grid>
                                 <Grid xs={8}>
-                                    <Button style={{ width: "330px", marginLeft: "50px", marginBottom: "40px" }} variant="contained">Browse</Button>
+
+                                    <TextSCHead smtext={" None"} />
+
+
                                 </Grid>
                             </Grid>
-
+                            <br />
 
 
                         </div>
@@ -402,15 +319,14 @@ function Interview() {
                     </Grid>
                 </Grid>
                 <hr />
-
-
                 <Button style={{
                     marginLeft: "40%",
-                    width: "213px", height: "44px", background: " #109CF1",
+                    width: "213px", height: "44px", background: "#068B92",
                     marginTop: "3%"
                 }} variant="contained">
-                    Schedule
+                    Create
                 </Button>
+                <Toolbar />
 
             </Box>
 
@@ -418,7 +334,8 @@ function Interview() {
     )
 }
 
-export default Interview
+export default Preview
+
 
 
 
@@ -484,3 +401,4 @@ const countries = [
         phone: '387',
     },
 ]
+

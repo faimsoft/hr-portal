@@ -138,10 +138,8 @@ function CdList() {
                                     <TableCell>{user.website}</TableCell>
                                     <TableCell>{user.company.name}</TableCell>
                                     <TableCell>{user.phone}</TableCell>
-                                    <TableCell>
-                                        <Button variant="text"><EditIcon color="primary" /></Button>
-                                        <Button variant="text"><DeleteIcon color="error" /></Button>
-                                    </TableCell>
+                                    <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
+                                    <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 
@@ -161,7 +159,7 @@ function CdList() {
                         onChangeRowsPerPage={onChangeRowsPerPage}
                     />
                 </TableContainer>
-
+                <Toolbar />
             </Container>
         </>
     )

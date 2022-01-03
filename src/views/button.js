@@ -40,6 +40,15 @@ const useStyles = makeStyles((theme) => ({
         "background": "#068B92",
         "box- shadow": " 0px 2px 4px rgba(58, 87, 232, 0.3)",
         "border- radius": "4px",
+    },
+    filter: {
+        position: "absolute",
+        width: "150px",
+        height: "44px",
+
+        background: "#3A57E8",
+        "box- shadow": "0px 2px 4px rgba(58, 87, 232, 0.3)",
+        "border- radius": "4px"
     }
 
 }))
@@ -69,6 +78,15 @@ export function ExSmButton({ exsmbutton }) {
     const classes = useStyles();
     return (
         <Button variant="contained" className={classes.exsm} disableElevation>{exsmbutton}</Button>
+
+    )
+}
+
+// filter btn
+export function Filters({ filter }) {
+    const classes = useStyles();
+    return (
+        <Button variant="contained" className={classes.filter} disableElevation>{filter}</Button>
 
     )
 }
