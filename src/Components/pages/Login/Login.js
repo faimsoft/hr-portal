@@ -8,6 +8,7 @@ import pic from '../..//Media/images/SignIntexture.jpg'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,9 +41,10 @@ const Login = () => {
             <div className={classes.pagePadding}  >
                 <div>
                     <Box component={Paper} className={classes.pagePadding}>
+                    <Button component={Link} to="/"  align="left" color='primary' fontSize="large"  ><ArrowBackIcon /></Button>
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             <Grid  xs={6} className={classes.loginDesign} >
-                                <Typography variant="h5" color="primary" style={{ fontWeight: 600 }}> Welcome To MI Robotic</Typography>
+                                <Typography variant="h5" color="primary" style={{ fontWeight: 600 }}> Welcome To Edjobster</Typography>
                                 <Typography variant="text" > Enter your Email And Pasword To Sign in</Typography>
                                 <Toolbar />
                                 <Typography variant="text" > Email</Typography>

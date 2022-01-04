@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import {  Checkbox,} from "@material-ui/core";
-// import { borders } from '@mui/system';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,16 +44,28 @@ const SignUp = () => {
     return (
         <>
             <div className={classes.main_div}>
-            
-            <Box sx={{ bgcolor: '#bdbdbd', color: 'primary.contrastText', p: 2 }}>
+            <Box sx={{ bgcolor: ' #d9d9d9', color: 'primary.contrastText', p: 2 }}>
+                    <Button
+                        component={Link}
+                        to="/"
+                        color='primary'
+                        align="left"
+                        style={{
+                            borderRadius: 35,
+                            padding: "18px 36px",
+                            fontSize: "18px",
+                            
+                        }}  >
+                        <ArrowBackIcon />
+                    </Button>
                 <Toolbar/>
-                <Typography  variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}> Welcome To MI Ro</Typography>
-                <Typography  variant="subtitle1" align="center" style={{ fontWeight: 200 }}> A Leading Company in AI and VR</Typography>
+                <Typography  variant="h4" align="center" color="primary" style={{ fontWeight: 600 }}> Welcome To Edjobster</Typography>
+                <Typography  variant="subtitle1" align="center" style={{ fontWeight: 200 }}> A Leading Company </Typography>
                 <Toolbar/>
                 <Toolbar/>
             </Box>
             <div align="center" className={classes.ragisterdiv}>
-            <Box  component={Paper} className={classes.ragisteration}  sx={{ bgcolor: 'success.main', color: 'primary.contrastText', p: 2 }}>
+            <Box  component={Paper} className={classes.ragisteration}  sx={{ bgcolor: 'success.main', color: 'primary.contrastText',boxShadow: 2, p: 2 }}>
                  <Typography  variant="subtitle1" align="center"> Ragister</Typography>
                 <Toolbar/>
                <TextField
@@ -120,8 +132,9 @@ const SignUp = () => {
                         Already have an account ?
                         <Button variant="text" component={Link} to="/Login"> Login</Button>
                 </Typography>
-                <Toolbar/>
             </Box>
+                        <Toolbar />
+                        <Toolbar/>
             </div>
             
             </div>

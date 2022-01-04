@@ -184,7 +184,7 @@ function App() {
           <Route exact path='/Footerforall' component={Footerforall}>
             < Footerforall />
             </Route>
-            <Route exact path='/Dashboard' component={Dashboard}>
+            <Route exact path='/' component={Dashboard}>
             < Dashboard />
             </Route>
             
