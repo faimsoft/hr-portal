@@ -52,6 +52,12 @@ import Preview from "./Components/Interview/interviewdrawer/Preview";
 import AssestmentsDrawer from "./Components/Assestments/Drawer/AssestmentsDrawer";
 import AssestmentList from "./Components/Assestments/AssestmentList";
 import AssestmentsCreat from "./Components/Assestments/AssestmentsCreat";
+// jobs
+import Job from "./Components/Jobs/job/Job";
+import Joblist from "./Components/Jobs/Joblist";
+import Jobcreat from "./Components/Jobs/Jobcreat";
+import JobPreview from "./Components/Jobs/JobPreview";
+import JobView from "./Components/Jobs/JobView";
 // Footer
 import Footerforall from "./Components/Drawer/Drawer_Pages/Footer/Footerforall";
 
@@ -200,6 +206,22 @@ function App() {
           </Route>
           <Route exact path='/AssestmentsCreat' component={AssestmentsCreat}>
             < AssestmentsCreat />
+          </Route>
+          {/* jobs */}
+          <Route exact path='/Job' component={Job}>
+            < Job />
+          </Route>
+          <Route exact path='/Joblist' component={Joblist}>
+            < Joblist />
+          </Route>
+          <Route exact path='/Jobcreat' component={Jobcreat}>
+            < Jobcreat />
+          </Route>
+          <Route exact path='/JobPreview' component={JobPreview}>
+            < JobPreview />
+          </Route>
+          <Route exact path='/JobView' component={JobView}>
+            < JobView />
           </Route>
         </Switch>
 

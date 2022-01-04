@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
-function AssestmentList() {
+function Joblist() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -66,7 +66,7 @@ function AssestmentList() {
     return (
         <>
 
-            <Grid container spacing={2}    >
+            <Grid container spacing={2} style={{ marginLeft: "6%" }}  >
                 <div style={{ flexGrow: 1 }}></div>
                 <Grid item xs={2}  >
                     <TextField
@@ -93,8 +93,8 @@ function AssestmentList() {
                 </Grid>
 
                 <Grid item xs={2} style={{ marginLeft: "10px" }}>
-                    <Button style={{ background: "#068B92" }} component={Link} to='/AssestmentsCreat' variant="contained" disableElevation>
-                        Create Assessment
+                    <Button style={{ background: "#068B92" }} component={Link} to='/Jobcreat' variant="contained" disableElevation>
+                        Create
                     </Button>
                 </Grid>
             </Grid>
@@ -150,7 +150,7 @@ function AssestmentList() {
     )
 }
 
-export default AssestmentList
+export default Joblist
 
 
 
