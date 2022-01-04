@@ -59,41 +59,43 @@ function JobView() {
                             Assistant Professor - Mechanical Engineering
                         </Typography>
                     </Grid>
-                    <Grid item xs={2} component={Link} to='./Interview' >
-                        <LgButton lagbutton={"Schedule Interview"} />
+                    <Grid item xs={2}  >
+                        <HiringStatus select Status={"Job Status"} />
                     </Grid>
                     <Grid item xs={2} onClick={handleBtOpen} >
-
                         <LgButton lagbutton={"Assign to a job"} />
-
+                    </Grid>
+                    <Grid item xs={2} component={Link} to='./' >
+                        <LgButton lagbutton={"Assign a candidate"} />
                     </Grid>
 
-                    <Grid item xs={2}  >
-                        <HiringStatus select Status={"Hiring Status"} />
-                    </Grid>
+
                 </Grid>
                 {/* btn */}
-                <Grid container spacing={2} style={{ marginTop: "20px" }} >
-                    <Grid item xs={2} component={Link} to='./Interview' >
+                <Grid container spacing={2} style={{ marginTop: "20px", marginLeft: "13px" }} >
+                    <Grid item xs={2} component={Link} to='./' >
                         <Job job={"Applied"} />
                     </Grid>
-                    <Grid item xs={2} component={Link} to='./Interview' >
-                        <Job job={"Applied"} />
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Job job={"Shotlisted"} />
 
                     </Grid>
 
-                    <Grid item xs={2} component={Link} to='./Interview' >
-                        <Job job={"Applied"} />
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Job job={"In Review"} />
 
                     </Grid>
-                    <Grid item xs={2} component={Link} to='./Interview' >
-                        <Job job={"Applied"} />
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Job job={"Offered"} />
 
                     </Grid>
-                    <Grid item xs={2} component={Link} to='./Interview' >
-                        <Job job={"Applied"} />
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Job job={"Hired"} />
                         {/* <button>Job</button> */}
-
+                    </Grid>
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Job job={"In Review"} />
+                        {/* <button>Job</button> */}
                     </Grid>
                 </Grid>
 

@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     // job
     job: {
         position: "absolute",
-        width: "200px",
+        width: "170px",
         height: "64px",
 
 
@@ -63,6 +63,25 @@ const useStyles = makeStyles((theme) => ({
         border: "1px solid #109CF1",
         "box- sizing": "border- box",
         "border - radius": "5px",
+    },
+    // job numbers
+    Number: {
+        position: "absolute",
+        width: "41px",
+        height: "56px",
+
+        " font- family": "Inter",
+        "font- style": "normal",
+        "font - weight": "bold",
+        "font - size": "32px",
+        "line - height": "175 %",
+        /* identical to box height, or 56px */
+
+        display: "flex",
+        "align - items": "center",
+        "text - decoration - line": "underline",
+
+        color: " #0066FF",
     }
 
 }))
@@ -206,6 +225,15 @@ export function Job({ job }) {
     const classes = useStyles();
     return (
         <Button variant="contained" className={classes.job} disableElevation>{job}</Button>
+
+    )
+}
+
+// nuber in Job
+export function Number({ number }) {
+    const classes = useStyles();
+    return (
+        <Button variant="contained" className={classes.Number} disableElevation>{number}</Button>
 
     )
 }
