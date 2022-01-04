@@ -17,6 +17,10 @@ import TextField from '@mui/material/TextField';
 import {  MenuItem} from "@material-ui/core";
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Card from '@mui/material/Card';
+import Checkbox from '@mui/material/Checkbox';
+import CircleChecked from '@material-ui/icons/CheckCircleOutline';
+import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,12 +41,12 @@ function getSteps() {
   return [
     "Fill Details",
     "Complete assessment ",
-    "Submit",
+    "Preview/Submit",
    
   ];
 }
 
-function getStepContent(step) {
+function GetStepContent(step) {
   const [sort, setsort] = React.useState('')
   const [minexp, setminexp] = React.useState('')
   const [isJobNature, setisJobNature] = useState('')
@@ -77,7 +81,8 @@ function getStepContent(step) {
     case 0:
       return (
         <>
-          <Grid container spacing={2} >
+          <div style={{marginLeft:"200px"}}>
+            <Grid container spacing={2} >
             <Grid item xs={6} >
               <Typography variant="text" > Job title*</Typography>
               <br />
@@ -264,108 +269,169 @@ function getStepContent(step) {
               <br />
             </Grid>
           </Grid>
-          </>
+          </div>
+      </>
       );
 
     case 1:
       return (
         <>
-          <h2>222222222222222222222</h2>
-          <TextField
-            id="email"
-            label="E-mail"
-            variant="outlined"
-            placeholder="Enter Your E-mail Address"
-            fullWidth
-            margin="normal"
-            name="emailAddress"
-          />
-          <TextField
-            id="phone-number"
-            label="Phone Number"
-            variant="outlined"
-            placeholder="Enter Your Phone Number"
-            fullWidth
-            margin="normal"
-            name="phoneNumber"
-          />
-          <TextField
-            id="alternate-phone"
-            label="Alternate Phone"
-            variant="outlined"
-            placeholder="Enter Your Alternate Phone"
-            fullWidth
-            margin="normal"
-            name="alternatePhone"
-          />
+          <div >
+            <Card sx={{ maxWidth: '50%', padding: 2, marginLeft:30 }}>
+            <Typography variant="text" component="div" gutterBottom>
+             Do you have At least 5 years of experience?
+            </Typography>
+            <Checkbox
+              icon={<CircleUnchecked />}
+              checkedIcon={<CircleChecked />}
+            />yes
+            <br />
+            <Checkbox
+              icon={<CircleUnchecked />}
+              checkedIcon={<CircleChecked />} 
+              /> No
+              <br />
+              <Button variant="contained" color="primary">Submit</Button>
+
+          </Card>
+            <Toolbar />
+            <Card sx={{ maxWidth: '50%', padding: 2, marginLeft:30 }}>
+             <Checkbox   /> Exercise 1 
+             <Checkbox   /> Exercise 1
+              <Checkbox /> Exercise 1
+              <br />
+             <Checkbox   /> Exercise 1
+             <Checkbox   /> Exercise 1
+              <Checkbox /> Exercise 1
+              <br />
+              <Button variant="contained" color="primary">Submit</Button>
+            </Card>
+            <Toolbar/>
+          </div>
         </>
       );
     case 2:
       return (
         <>
-          <h2>333333333333333333333333333</h2>
-          <TextField
-            id="address1"
-            label="Address 1"
-            variant="outlined"
-            placeholder="Enter Your Address 1"
-            fullWidth
-            margin="normal"
-            name="address1"
-          />
-          <TextField
-            id="address2"
-            label="Address 2"
-            variant="outlined"
-            placeholder="Enter Your Address 2"
-            fullWidth
-            margin="normal"
-            name="address2"
-          />
-          <TextField
-            id="country"
-            label="Country"
-            variant="outlined"
-            placeholder="Enter Your Country Name"
-            fullWidth
-            margin="normal"
-            name="country"
-          />
-        </>
+          <div style={{marginLeft:"200px"}} >
+             
+          <Grid container spacing={2}   >
+            <Grid item xs={5} >
+              <Typography variant="h6" > Job title*</Typography>
+              <br />
+              <Typography varient='h6'>Assistant Professor - Mechanical Engineering</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Department*</Typography>
+              <br />
+              <Typography varient='h6'>Mechanical</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Team Members Involved</Typography>
+              <br />
+              <Typography varient='h6'>Petsi, Avinash</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Job Nature*</Typography>
+              <br />
+              <Typography varient='h6'>In Campus</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Major/ Speciality</Typography>
+              <br />
+              <Typography varient='h6'>Mechanical</Typography>
+              
+            </Grid>
+            <Grid item xs={5} align='Left'>
+              <Typography variant="h6" > Number of Vacancies*</Typography>
+              <br />
+              <Typography varient='text'>3</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Job Owner*</Typography>
+              <br />
+              <Typography varient='text'>Sameer</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Type*</Typography>
+              <br />
+              <Typography varient='text'>Full-time</Typography>
+              <br />
+              <br />
+              <Typography variant="h6" > Education*</Typography>
+              <br />
+              <Typography varient='text'>M.Tech</Typography>
+                <br/>
+              <br />
+              <br />
+                <Grid container spacing={2}>
+                  <Grid item xs={4}>
+                    <Typography variant="h6" > Work Ex. min. (Years)*</Typography>
+                    <br />
+                    <Typography varient='text'>5</Typography>
+                    <br />
+                    <br/>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Typography variant="h6" > Work Ex. max.(Years)</Typography>
+                    <br />
+                    <Typography varient='text'>8</Typography>
+                  </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={2}></Grid>
+          </Grid>
+          <Grid container spacing={1} >
+            <Grid item xs={2} >
+              <br />
+              <Typography variant="h6" > Salary Minimum</Typography>
+              <br />
+              <Typography varient='text'>52000</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <br />
+              <Typography variant="h6" > Salary Max</Typography>
+              <br />
+              <Typography varient='text'>72000</Typography>
+            </Grid>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={2} style={{ marginTop: "10px" }}>
+              <Typography variant="h6" > Currency</Typography>
+              <br />
+              <Typography variant="text" > INR</Typography>
+            </Grid>
+            <Grid item xs={2} style={{ marginTop: "10px" }}>
+              <Typography variant="h6" > Salary Type</Typography>
+              <br />
+              <Typography variant="text" > Monthly</Typography>
+            </Grid>
+          </Grid>
+          <Toolbar/>
+          <Grid container spacing={2}>
+            <Grid item xs={5} >
+              <Typography variant="text" > Country</Typography>
+              <br />
+              <Typography variant="text" > India</Typography>
+            </Grid>
+            <Grid item xs={5}>
+              <Typography variant="text" >City </Typography>
+              <br />
+              <Typography variant="text" > Jalna</Typography>
+              <br />
+              <br />
+            </Grid>
+            <Grid item xs={2}></Grid>
+          </Grid>
+          <br/>
+          <div >
+              <Button variant="contained" style={{width:"200px",marginLeft:"200px"}} color="primary">Apply</Button>
+          </div>
+          <Toolbar/>
+          </div>
+          </>
       );
-    case 3:
-      return (
-        <>
-          <h4>444444444444444444</h4>
-          <TextField
-            id="cardNumber"
-            label="Card Number"
-            variant="outlined"
-            placeholder="Enter Your Card Number"
-            fullWidth
-            margin="normal"
-            name="cardNumber"
-          />
-          <TextField
-            id="cardMonth"
-            label="Card Month"
-            variant="outlined"
-            placeholder="Enter Your Card Month"
-            fullWidth
-            margin="normal"
-            name="cardMonth"
-          />
-          <TextField
-            id="cardYear"
-            label="Card Year"
-            variant="outlined"
-            placeholder="Enter Your Card Year"
-            fullWidth
-            margin="normal"
-            name="cardYear"
-          />
-        </>
-      );
+   
+    
     default:
       return "unknown step";
   }
@@ -453,7 +519,7 @@ const CandidateApply = () => {
         </Typography>
       ) : (
           <>
-          <form>{getStepContent(activeStep)}</form>
+          <form>{GetStepContent(activeStep)}</form>
           <Button
             className={classes.button}
             disabled={activeStep === 0}
