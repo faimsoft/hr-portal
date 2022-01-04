@@ -238,8 +238,8 @@ function App() {
             <Route exact path='/JobView' component={JobView}>
               < JobView />
             </Route>
-            <Route exact path='/Dashboard' component={Dashboard}>
-              < Dashboard />
+            <Route exact path='/' component={Dashboard}>
+            < Dashboard />
             </Route>
           </div>
         </Switch>
