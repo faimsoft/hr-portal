@@ -118,7 +118,7 @@ function Preview() {
             </div>
 
             <Box component={Paper} className={classes.box}>
-                <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>
+                <Grid container spacing={2} style={{ marginTop: "20px", }}>
                     <Grid xs={4} className={classes.interviiw}>
                         {/* Nmae */}
                         <Grid container spacing={2} style={{ marginLeft: "px", marginTop: "20px", }}>

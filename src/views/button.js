@@ -8,6 +8,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     lg: {
         position: "absolute",
@@ -49,6 +50,19 @@ const useStyles = makeStyles((theme) => ({
         background: "#3A57E8",
         "box- shadow": "0px 2px 4px rgba(58, 87, 232, 0.3)",
         "border- radius": "4px"
+    },
+    // job
+    job: {
+        position: "absolute",
+        width: "200px",
+        height: "64px",
+
+
+
+        background: "#FFFFFF",
+        border: "1px solid #109CF1",
+        "box- sizing": "border- box",
+        "border - radius": "5px",
     }
 
 }))
@@ -185,4 +199,13 @@ export function HiringStatus({ Status }) {
             </StyledMenu>
         </div>
     );
+}
+
+// job btn
+export function Job({ job }) {
+    const classes = useStyles();
+    return (
+        <Button variant="contained" className={classes.job} disableElevation>{job}</Button>
+
+    )
 }

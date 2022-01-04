@@ -9,28 +9,42 @@ import { AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Draw
 const useStyles = makeStyles((theme) => ({
 
     root: {
-        "font-family": 'Inter',
-        "font-style": 'normal',
-        "font-weight": 'bold',
-        "font-size": '20px',
-        "line-height": '175%',
-        /* identical to box height, or 35px */
+        // fontfamily: 'Inter',
+        // fontstyle: 'normal',
+        // fontweight: 'bold',
+        // fontsize: '20px',
+        // lineheight: '175%',
 
-        display: "flex",
-        "align-items": 'center',
-        color: '#000000'
-    },
-    para: {
+        // /* identical to box height, or 35px */
+
+        // display: "flex",
+        // alignitems: 'center',
+        // color: '#000000'
+
         "font- family": "Inter",
-        "  font- style": "normal",
-        "font - weight": " bold",
-        "font - weight": " 700px",
-        "font - size": "20px",
+        "font- style": "normal",
+        "font - weight": "bold",
+        "font - size": "15px",
         "line - height": "175 %",
         "font-weight": '400',
         /* identical to box height, or 35px */
-        display: "flex",
+
+        "display": "flex",
         "align - items": "center",
+
+        "color": "#red",
+    },
+    para: {
+        fontfamily: "Inter",
+        fontstyle: "normal",
+        fontweight: " bold",
+        fontweight: " 700px",
+        fontsize: "20px",
+        lineheight: "175 %",
+        fontweight: '400',
+        /* identical to box height, or 35px */
+        display: "flex",
+        alignitems: "center",
         color: "#000000",
     },
     sm: {
@@ -135,14 +149,36 @@ const useStyles = makeStyles((theme) => ({
         color: "#919191",
     },
     para: {
-        "font- family": "Inter",
-        " font- style": "normal",
-        "font - weight": "normal",
+        fontfamily: "Inter",
+        fontstyle: "normal",
+        fontweight: "normal",
         fontSize: "15px",
-        "line - height": "175 %",
+        lineheight: "175 %",
         /* or 28px */
         color: "#000000"
 
+    },
+    Job: {
+
+        /* or 26px */
+        fontFamily: "Inter",
+        fontstyle: "normal",
+        fontWeight: "bold",
+        fontSize: "20px",
+        lineHeight: "175%",
+
+        color: "#000000",
+    },
+    Jobsm: {
+        "font- family": "Inter",
+        "font- style": "normal",
+        "font - weight": "normal",
+        "font - size": "13px",
+        "line - height": "175 %",
+        /* identical to box height, or 23px */
+
+
+        color: "#7D7D7D",
     }
 
 
@@ -166,7 +202,7 @@ export function TextHead2({ text2 }) {
 export function TextHead3({ text3 }) {
     const classes = useStyles();
     return (
-        <Typography variant="h3" className={classes.root}>{text3}</Typography>
+        <Typography variant="h6" className={classes.root}>{text3}</Typography>
     )
 }
 
@@ -280,3 +316,21 @@ export function Bottomtext({ last }) {
     )
 }
 
+// job
+export function Job({ job }) {
+    const classes = useStyles();
+
+    return (
+        <ListItemText className={classes.Job} >{job}</ListItemText>
+
+    )
+}
+
+export function Jobsm({ text }) {
+    const classes = useStyles();
+
+    return (
+        <ListItemText className={classes.Jobsm} >{text}</ListItemText>
+
+    )
+}

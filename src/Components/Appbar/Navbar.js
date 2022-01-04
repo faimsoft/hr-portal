@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Typography, AppBar, Toolbar, Button, IconButton, Menu, MenuItem} from "@material-ui/core";
+import { Typography, AppBar, Toolbar, Button, IconButton, Menu, MenuItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import MoreIcon from '@material-ui/icons/MoreVert'
@@ -64,9 +64,10 @@ const Navbar = () => {
           <Toolbar>
             <Typography variant="h6"  style={{ flexGrow: 1 , fontWeight: 600 }} > Edjobster</Typography>
             <div className={classes.sectionDesktop}>
+              <Button color="inherit" component={Link} to='/Job'>Jobs</Button>
               <Button color="inherit" component={Link} to='/CandiDR'>Candidates</Button>
               <Button color="inherit" component={Link} to='/About'>Interviews</Button>
-              <Button color="inherit" component={Link} to='/CarerSiteMain'>Assessments</Button>
+              <Button color="inherit" component={Link} to='/AssestmentsDrawer'>Assessments</Button>
               <Button color="inherit" component={Link} to='/CareerSite'>Settings</Button>
               <Button color="inherit" component={Link} to='/Login'>Log in</Button>
             </div>

@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
-import { Toolbar, ListItemText, Drawer, List, ListItem, } from "@material-ui/core";
+import { Typography, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
+import MoreIcon from '@material-ui/icons/MoreVert'
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
-import AssestmentList from '../AssestmentList';
+// import AssestmentList from '../AssestmentList';
+import Joblist from '../Joblist';
+const DrawerWidth = 200
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,9 +41,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AssestmentsDrawer = () => {
+const Job = () => {
     const classes = useStyles();
-
+    const [opene, setOpene] = useState(false)
+    // const [from, setFrom] = useState(false)
+    // const [date, setDate] = useState(false)
+    // const [experience, setExperience] = useState(false)
+    // const [job, setJob] = useState(false)
+    // const [skills, setSkills] = useState(false)
+    // const [education, setEducation] = useState(false)
+    // const [hiring, setHiring] = useState(false)
 
 
     const [currency, setCurrency] = React.useState('EUR');
@@ -51,12 +62,13 @@ const AssestmentsDrawer = () => {
 
 
 
+    const [mobileelment, setMobileelment] = useState(null)
     const [Open, setOpen] = useState(false)
 
 
     return (
         <>
-            <AssestmentList />
+            <Joblist />
             <div className={classes.root}>
                 <Drawer open={Open} onClose={() => setOpen(false)} variant="permanent">
                     <List disablepadding className={classes.drawer}>
@@ -267,7 +279,7 @@ const AssestmentsDrawer = () => {
     )
 }
 
-export default AssestmentsDrawer
+export default Job
 
 
 
