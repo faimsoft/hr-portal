@@ -47,8 +47,8 @@ const Aproval = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell align="left" ><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell color="primary"  align="left" > Name</TableCell>
+                                <TableCell align="left" ><Button variant="text"><Checkbox {...label} /></Button>Name </TableCell>
+                                    {/* <TableCell color="primary"  align="left" > </TableCell> */}
                                     <TableCell align="left"> Email </TableCell>
                                     <TableCell align="left"> phone </TableCell>
                                     <TableCell align="left"> Department </TableCell>
@@ -57,8 +57,8 @@ const Aproval = () => {
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3"  align="left">Google firlds</TableCell>
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button> Google firlds</TableCell>
+                                    {/* <TableCell variant="h3"  align="left"></TableCell> */}
                                     <TableCell variant="h3" align="left" >aaqil@123</TableCell>
                                     <TableCell variant="h3" align="left" >9876543210</TableCell>
                                     <TableCell variant="h3" align="left" >Commerce Department</TableCell>

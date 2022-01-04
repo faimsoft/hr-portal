@@ -28,14 +28,14 @@ const CreateStage = () => {
         <div  align="center"   >
             <Sidebar/>
             <Box align='center' component={Paper}>
-                <Typography  variant="h4" align="center"> Add New Stage</Typography>
+                <Typography  variant="h4" align="center" style={{ fontWeight: 600 }}> Add New Stage</Typography>
                 <br/>
                 <TextField id="outlined-basic" svariant="outlined" size="small"  placeholder='Type the name'   className={classes.formsize}/>                        
                  <Toolbar />
             </Box>
             <Box>
                 <br />
-                <Typography variant="h4" align="center"> Add a Status</Typography>
+                <Typography variant="h4" align="center" style={{ fontWeight: 600 }}> Add a Status</Typography>
                 <br />
                 <Typography variant="text" align="left"> In Review</Typography>
                 <br />

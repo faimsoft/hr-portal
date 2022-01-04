@@ -117,7 +117,7 @@ const UserList = () => {
                         <MenuItem value={30}>Thirty</MenuItem>
                        </Select>
                     </FormControl >
-                    <Button variant="contained" size="medium" className={classes.createbtn} component={Link} to="/CreateUser"> Create </Button>
+                    <Button variant="contained" size="medium" color='primary' className={classes.createbtn} component={Link} to="/CreateUser"> Create </Button>
                     <hr />
                      </Box>
                     <Box component={Paper}>

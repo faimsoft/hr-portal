@@ -1,40 +1,21 @@
 import React from 'react'
-import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, Paper, Button, ListItemText, } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import { makeStyles } from "@material-ui/core/styles";
-import { TextSCHead } from '../../views/text';
 import { Job } from '../../views/text';
 import { Jobsm } from '../../views/text';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
-import { Bottomtext } from '../../views/text';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
-// Lable
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
 
 
 
 
 
-// email icon
-import FormatBoldIcon from '@mui/icons-material/FormatBold';
-import FormatItalicIcon from '@mui/icons-material/FormatItalic';
-import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
-import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
-import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
-import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
-import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
-// import Divider from '@mui/material/Divider';
+
+
 
 // icon
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -47,14 +28,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 const useStyles = makeStyles((theme) => ({
 
-    // root: {
-    //     position: 'absolute',
-    //     width: '1268px',
-    //     height: '0px',
-    //     left: '69px',
-    //     top: '190px',
-    //     // marginTop: '100px',
-    // },
+
     box: {
         position: "absolute",
         width: "1279px",
@@ -135,7 +109,7 @@ function JobPreview() {
 
 
                 <Grid item xs={1}  >
-                    <Button style={{ width: "119px" }} component={Link} to='/' variant="contained" disableElevation>
+                    <Button style={{ width: "119px" }} component={Link} to='/CarerSiteMain' variant="contained" disableElevation>
                         Publish
                     </Button>
                 </Grid>

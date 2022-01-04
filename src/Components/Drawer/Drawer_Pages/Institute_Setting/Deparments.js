@@ -56,15 +56,19 @@ const Deparments = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell color="primary" >Department Name</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><Checkbox {...label} /></Button>
+                                        Department Name
+                                    </TableCell>
                                 <TableCell align="center"> Action </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >science</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><Checkbox {...label} /></Button>
+                                        science
+                                    </TableCell>
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>

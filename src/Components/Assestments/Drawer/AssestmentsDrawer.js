@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { Typography, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse } from "@material-ui/core";
+import { Toolbar, ListItemText, Drawer, List, ListItem, } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
-import MoreIcon from '@material-ui/icons/MoreVert'
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
 import AssestmentList from '../AssestmentList';
-const DrawerWidth = 200
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,14 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AssestmentsDrawer = () => {
     const classes = useStyles();
-    const [opene, setOpene] = useState(false)
-    // const [from, setFrom] = useState(false)
-    // const [date, setDate] = useState(false)
-    // const [experience, setExperience] = useState(false)
-    // const [job, setJob] = useState(false)
-    // const [skills, setSkills] = useState(false)
-    // const [education, setEducation] = useState(false)
-    // const [hiring, setHiring] = useState(false)
+
 
 
     const [currency, setCurrency] = React.useState('EUR');
@@ -61,28 +51,8 @@ const AssestmentsDrawer = () => {
 
 
 
-    const [mobileelment, setMobileelment] = useState(null)
     const [Open, setOpen] = useState(false)
-    // const isMobileMenuOpen = Boolean(mobileelment)
-    // const openMobileMenu = (event) => {
-    //     setMobileelment(event.currentTarget)
-    // }
-    // const CloseMobileMenu = () => {
-    //     setMobileelment(null)
-    // }
-    // FOR MOBILE RESPONSIVE
-    // const MobileMenu = (
-    //     <Menu anchorEl={mobileelment} id="mobile-menu" keepMounted open={isMobileMenuOpen}>
-    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/Formdata">Home</MenuItem>
-    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/About" >About</MenuItem>
-    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/Login">Login</MenuItem>
-    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/SignUp" >SignUp</MenuItem>
-    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/Jobs" >Jobs</MenuItem>
-    //         <MenuItem component={Link} onClick={CloseMobileMenu} to="/setting" >setting</MenuItem>
-    //         <MenuItem onClick={() => setOpen(true)}  >a</MenuItem>
 
-    //     </Menu>
-    // )
 
     return (
         <>

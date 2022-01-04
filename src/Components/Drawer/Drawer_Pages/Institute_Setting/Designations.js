@@ -63,15 +63,17 @@ const Designations = () => {
                     <Table >
                         <TableHead>
                             <TableRow>
-                                <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                <TableCell>Designation</TableCell>
+                                    <TableCell>
+                                        <Button variant="text"><Checkbox {...label} /></Button>
+                                        Designation
+                                    </TableCell>
                                 <TableCell align="center">Action</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
-                                    <TableCell variant="h3" >Professer</TableCell>
+                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button>Professer</TableCell>
+                                    {/* <TableCell variant="h3" ></TableCell> */}
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>

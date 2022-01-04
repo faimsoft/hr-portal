@@ -14,8 +14,9 @@ import { Typography } from '@material-ui/core';
 const Footerforall = () => {
     return (
         <div align='center'>
-            <hr />
+            {/* <hr /> */}
             <Box component={Paper}>
+                <hr />
                 <Grid container spacing={2}>
                     <Grid item xs={8}>
                         <Button variant="text">Copyright © 2021 faimsoft</Button>
