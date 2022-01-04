@@ -14,6 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { LgButton } from '../../views/button';
 import { HiringStatus } from '../../views/button'
 import { Job } from '../../views/button';
+// number
+import { Number } from '../../views/button';
 
 
 // icon
@@ -95,6 +97,33 @@ function JobView() {
                     </Grid>
                     <Grid item xs={2} component={Link} to='./' >
                         <Job job={"In Review"} />
+                        {/* <button>Job</button> */}
+                    </Grid>
+                </Grid>
+                {/* number */}
+                <Grid container spacing={2} style={{ marginTop: "20px", marginLeft: "13px" }} >
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Number number={"50"} />
+                    </Grid>
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Number number={"50"} />
+
+                    </Grid>
+
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Number number={"50"} />
+
+                    </Grid>
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Number number={"50"} />
+
+                    </Grid>
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Number number={"50"} />
+                        {/* <button>Job</button> */}
+                    </Grid>
+                    <Grid item xs={2} component={Link} to='./' >
+                        <Number number={"50"} />
                         {/* <button>Job</button> */}
                     </Grid>
                 </Grid>

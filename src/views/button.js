@@ -233,7 +233,7 @@ export function Job({ job }) {
 export function Number({ number }) {
     const classes = useStyles();
     return (
-        <Button variant="contained" className={classes.Number} disableElevation>{number}</Button>
+        <Typography className={classes.Number} >{number}</Typography>
 
     )
 }
