@@ -108,7 +108,7 @@ function JobPreview() {
                 </Grid>
 
 
-                <Grid item xs={1}  >
+                <Grid item xs={1} style={{ marginLeft: "15px" }} >
                     <Button style={{ width: "119px" }} component={Link} to='/CarerSiteMain' variant="contained" disableElevation>
                         Publish
                     </Button>

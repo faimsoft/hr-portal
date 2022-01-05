@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  
   Stepper,
   Step,
   StepLabel,
@@ -11,9 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import { TextSCHead } from '../../views/text';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
-import { Bottomtext } from '../../views/text';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 // email icon
@@ -38,6 +35,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
+import Autocomplete from '@mui/material/Autocomplete';
 
 
 

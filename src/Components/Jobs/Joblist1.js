@@ -8,10 +8,16 @@ import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { useHistory } from "react-router-dom";
+// modal
+import { Modal } from '@material-ui/core';
+
 
 
 // icon
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// text
+import { TextFrmkHead } from '../../views/text';
+
 
 
 
@@ -41,12 +47,44 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
-function Joblist() {
+
+
+// dot modal style
+const style = {
+    position: 'absolute',
+    top: '32%',
+    left: '79%',
+    transform: 'translate(-50%, -50%)',
+    width: 150,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 2,
+};
+// btn modal style
+const modal = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 872,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 5,
+}
+
+function Joblist1() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+    //  button modal
+    const [btopen, setBtOpen] = useState(false);
+    const handleBtOpen = () => setBtOpen(true);
+    const handleBtClose = () => setBtOpen(false);
 
 
     const loadUsers = async () => {
@@ -73,23 +111,23 @@ function Joblist() {
 
     const history = useHistory();
     function handleClick() {
-        history.push("/Job");
+        history.push("/JobView");
     }
 
     return (
         <>
 
             <Grid container spacing={2}    >
-                <Grid item xs={6} style={{ marginLeft: "365px" }} >
-                    {/* <Typography variant="h5">
+                <Grid item xs={6} style={{ marginLeft: "180px" }} >
+                    <Typography variant="h5">
                         <Button variant="text" ><ArrowBackIcon color="primary"
                             button
                             style={{ fontSize: '30px' }} onClick={handleClick}
                         /></Button>
                         Assistant Professor - Mechanical Engineering
-                    </Typography> */}
+                    </Typography>
                 </Grid>
-                <Grid item xs={2} style={{ marginLeft: "" }} >
+                <Grid item xs={2} style={{ marginLeft: "65px" }} >
                     <TextField
                         style={{
                             width: '249px',
@@ -113,49 +151,12 @@ function Joblist() {
 
                 </Grid>
 
-                <Grid item xs={1} >
-                    <Button style={{ background: "#068B92" }} component={Link} to='/Jobcreat' variant="contained" disableElevation>
-                        Create
+                <Grid item xs={2} style={{ marginLeft: "10px" }}>
+                    <Button style={{ background: "#109CF1" }} component={Link} onClick={handleBtOpen} variant="contained" disableElevation>
+                        Assign a candidate
                     </Button>
                 </Grid>
             </Grid>
-
-
-            {/* 
-            < Grid container spacing={2}   >
-                <Grid item xs={8}  >
-
-                </Grid>
-                <Grid item xs={2} style={{ marginLeft: "10px" }}  >
-                    <TextField
-                        style={{
-                            width: '249px',
-
-                        }}
-                        id="Zip Code"
-                        select
-                        size='small'
-                        label="Sort New to Old"
-                        value={currency}
-                        onChange={clickhandleChange}
-                        SelectProps={{
-                            native: true,
-                        }}
-                    >  {countries.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                    </TextField>
-
-                </Grid>
-
-                <Grid item xs={2} >
-                    <Button style={{ background: "#068B92" }} component={Link} to='/Jobcreat' variant="contained" disableElevation>
-                        Create
-                    </Button>
-                </Grid>
-            </Grid > */}
             <Box className={classes.root} >
 
                 <TableContainer component={Paper}  >
@@ -204,11 +205,64 @@ function Joblist() {
                 </TableContainer>
                 <Toolbar />
             </Box>
+
+
+            {/* button modal */}
+            <Modal
+                open={btopen}
+                onClose={handleBtClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={modal} >
+                    <div >
+                        {/* <TextHead3 text3={'Hiring Status'} /> */}
+                        <Typography variant="h4" style={{ textAlign: "center", }}>
+                            Assign a candidate to this job
+                        </Typography>
+                    </div>
+                    <Grid container spacing={2} style={{ marginTop: "40px", paddingRight: "15px" }}  >
+                        <Grid item xs={3}  >
+                            <TextFrmkHead frmtext={'Search for Candidate'} />
+                        </Grid>
+                        <Grid item xs={8}  >
+                            <Box>
+                                <TextField size='small' fullWidth label="Type job title ..." id="fullWidth" />
+                            </Box>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={2} style={{ marginTop: "20px", paddingRight: "15px" }}  >
+                        <Grid item xs={3}  >
+                            <TextFrmkHead frmtext={'Hiring Stage'} />
+                        </Grid>
+                        <Grid item xs={8}  >
+                            <Box>
+                                <TextField size='small' fullWidth label="Choose the hiring stage" id="fullWidth" />
+                            </Box>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={2} style={{ marginTop: "20px", paddingRight: "15px" }}  >
+                        <Grid item xs={3}  >
+                            <TextFrmkHead frmtext={'Notes'} />
+                        </Grid>
+                        <Grid item xs={8}  >
+                            <Box>
+                                <TextField size='small' fullWidth id="fullWidth" />
+                            </Box>
+                        </Grid>
+                    </Grid>
+                    <div style={{ marginLeft: "43%", marginTop: "50px", width: "259px" }}>
+                        <Button style={{ width: "259px" }} variant="contained" color="primary">Add</Button>
+                    </div>
+
+
+                </Box>
+            </Modal>
         </>
     )
 }
 
-export default Joblist
+export default Joblist1
 
 
 
