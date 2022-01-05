@@ -66,7 +66,7 @@ const Navbar = () => {
             <div className={classes.sectionDesktop}>
               <Button color="inherit" component={Link} to='/Job'>Jobs</Button>
               <Button color="inherit" component={Link} to='/CandiDR'>Candidates</Button>
-              <Button color="inherit" component={Link} to='/About'>Interviews</Button>
+              <Button color="inherit" component={Link} to='/InterviewDrawer'>Interviews</Button>
               <Button color="inherit" component={Link} to='/AssestmentsDrawer'>Assessments</Button>
               <Button color="inherit" component={Link} to='/CareerSite'>Settings</Button>
               <Button color="inherit" component={Link} to='/Login'>Log in</Button>
