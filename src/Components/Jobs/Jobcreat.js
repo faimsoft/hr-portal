@@ -1,13 +1,11 @@
 import React from 'react'
-import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, Paper, Button, Container } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import { TextSCHead } from '../../views/text';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
-import { Bottomtext } from '../../views/text';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
@@ -132,7 +130,7 @@ function Jobcreat() {
                     </Typography>
                 </Grid>
 
-                <Grid item xs={1}  >
+                <Grid item xs={1} style={{ marginLeft: "10px" }} >
                     <Button style={{ width: "119px", }} color="primary" component={Link} to='/' variant="contained" disableElevation>
                         Save
                     </Button>

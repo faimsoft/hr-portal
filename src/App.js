@@ -58,6 +58,8 @@ import Joblist from "./Components/Jobs/Joblist";
 import Jobcreat from "./Components/Jobs/Jobcreat";
 import JobPreview from "./Components/Jobs/JobPreview";
 import JobView from "./Components/Jobs/JobView";
+import Joblist1 from "./Components/Jobs/Joblist1";
+import Joblistdraw from "./Components/Jobs/Joblistdraw";
 // Footer
 import Footerforall from "./Components/Drawer/Drawer_Pages/Footer/Footerforall";
 // dashboard
@@ -238,8 +240,15 @@ function App() {
             <Route exact path='/JobView' component={JobView}>
               < JobView />
             </Route>
+            <Route exact path='/Joblist1' component={Joblist1}>
+              < Joblist1 />
+            </Route>
+            <Route exact path='/Joblistdraw' component={Joblistdraw}>
+              < Joblistdraw />
+            </Route>
+            {/* Dashboard */}
             <Route exact path='/' component={Dashboard}>
-            < Dashboard />
+              < Dashboard />
             </Route>
           </div>
         </Switch>

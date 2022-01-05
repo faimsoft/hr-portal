@@ -69,18 +69,18 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         width: "41px",
         height: "56px",
-
-        " font- family": "Inter",
-        "font- style": "normal",
-        "font - weight": "bold",
-        "font - size": "32px",
-        "line - height": "175 %",
+        marginLeft: "50px",
+        fontFamily: "Inter",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "32px",
+        lineHeight: "175 %",
         /* identical to box height, or 56px */
 
         display: "flex",
-        "align - items": "center",
-        "text - decoration - line": "underline",
-
+        alignItems: "center",
+        // "text - decoration - line": "",
+        textDecorationLine: "underline",
         color: " #0066FF",
     }
 
