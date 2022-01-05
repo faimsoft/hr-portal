@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { TablePagination, Paper, Table, Box, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, Toolbar, Button, } from "@material-ui/core";
 import axios from 'axios';
 import { makeStyles } from "@material-ui/core/styles";
 import EditIcon from '@mui/icons-material/Edit';
@@ -15,10 +15,17 @@ import Grid from '@mui/material/Grid';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-
-        width: "75vw",
-        paddingTop: theme.spacing(5),
-
+        position: "absolute",
+        width: "1279px",
+        height: " 900px",
+        // height: "106px",
+        left: "200px",
+        // left: " 958px",
+        background: "#F9F9F9;",
+        border: "1px solid #D5D5D5",
+        " box- sizing": "border- box",
+        "border - radius": "5px",
+        marginTop: "20px",
     },
     Create: {
         paddingLeft: theme.spacing(),
@@ -58,9 +65,9 @@ function CdList() {
     return (
         <>
 
-            <Grid container spacing={2}    >
-                <div style={{ flexGrow: 1 }}></div>
-                <Grid item xs={2}  >
+            <Grid container spacing={2}   >
+                <div style={{ flexGrow: 1, }}></div>
+                <Grid item xs={2}   >
                     <TextField
                         style={{
                             width: '249px',
@@ -107,15 +114,15 @@ function CdList() {
 
                 </Grid>
 
-                <Grid item xs={2}  >
+                <Grid item xs={2}   >
                     <Button color="primary" component={Link} to='/CreatCandidate' variant="contained" disableElevation>
                         Create a candidate
                     </Button>
                 </Grid>
             </Grid>
-            <Container className={classes.root} >
+            <Box className={classes.root} >
 
-                <TableContainer component={Paper} >
+                <TableContainer component={Paper}  >
                     <Table >
                         <TableHead>
                             <TableRow>
@@ -138,8 +145,8 @@ function CdList() {
                                     <TableCell>{user.website}</TableCell>
                                     <TableCell>{user.company.name}</TableCell>
                                     <TableCell>{user.phone}</TableCell>
-                                    <TableCell><Button variant="text"><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text"><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
+                                    <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 
@@ -159,8 +166,8 @@ function CdList() {
                         onChangeRowsPerPage={onChangeRowsPerPage}
                     />
                 </TableContainer>
-
-            </Container>
+                <Toolbar />
+            </Box>
         </>
     )
 }

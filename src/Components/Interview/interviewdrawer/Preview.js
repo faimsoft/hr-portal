@@ -1,37 +1,24 @@
 import React from 'react'
-import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, Paper, Toolbar, Button, } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import { TextSCHead } from '../../../views/text';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
-import { Bottomtext } from '../../../views/text';
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
 
 
-// email icon
-import FormatBoldIcon from '@mui/icons-material/FormatBold';
-import FormatItalicIcon from '@mui/icons-material/FormatItalic';
-import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
-import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
-import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
-import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
-import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+
+
 // import Divider from '@mui/material/Divider';
 
 // icon
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 // check box
-import Checkbox from '@mui/material/Checkbox';
 
 
 
@@ -107,7 +94,7 @@ function Preview() {
 
     return (
         <>
-            <div style={{ marginLeft: '10px', marginBottom: "20px" }}>
+            <div style={{ marginLeft: '80px', marginBottom: "20px" }}>
                 <Typography variant="h5">
                     <Button variant="text" ><ArrowBackIcon color="primary"
                         button
@@ -323,7 +310,7 @@ function Preview() {
                     marginLeft: "40%",
                     width: "213px", height: "44px", background: "#068B92",
                     marginTop: "3%"
-                }} variant="contained">
+                }} component={Link} to='/InterviewCreate' variant="contained">
                     Create
                 </Button>
                 <Toolbar />

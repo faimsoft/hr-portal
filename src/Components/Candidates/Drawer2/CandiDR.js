@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { Typography, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse } from "@material-ui/core";
+import { Toolbar, Menu, MenuItem, ListItemText, Drawer, List, ListItem, } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
-import MoreIcon from '@material-ui/icons/MoreVert'
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import Formdata from '../Formdata/Formdata';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
@@ -44,13 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const CandiDR = () => {
     const classes = useStyles();
     const [opene, setOpene] = useState(false)
-    // const [from, setFrom] = useState(false)
-    // const [date, setDate] = useState(false)
-    // const [experience, setExperience] = useState(false)
-    // const [job, setJob] = useState(false)
-    // const [skills, setSkills] = useState(false)
-    // const [education, setEducation] = useState(false)
-    // const [hiring, setHiring] = useState(false)
+
 
 
     const [currency, setCurrency] = React.useState('EUR');
@@ -261,27 +253,6 @@ const CandiDR = () => {
                             ))}
                             </TextField>
                         </ListItem>
-
-                        {/* <ListItem button onClick={() => setOpene(!opene)}>
-                            <ListItemText primary="Sourceed from" />
-                            {opene ? <ExpandLess /> : <ExpandMore />}
-                        </ListItem>
-                        <Collapse in={opene}>
-                            <List disablePadding>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button >
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                            </List>
-                        </Collapse> */}
                         <ListItem >
                             <ListItemText className={classes.nestedItem} >
                                 <Filters filter={"Apply Filters"} />
