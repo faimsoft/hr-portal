@@ -158,6 +158,9 @@ const Sidebar = () => {
                     </ListItem>
                     <ListItem button component={Link} to='./Footerforall'>
                       <ListItemText primary="Footerfor all" />
+              </ListItem>
+              <ListItem button component={Link} to='./Emailvarification'>
+                      <ListItemText primary="Email Varification" />
                     </ListItem>
                   </List>
                 </Drawer>

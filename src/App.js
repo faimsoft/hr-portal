@@ -68,7 +68,8 @@ import Dashboard from './Components/Dashboard/Dashboard'
 import CarerSiteMain from './Components/CareerSite/CarerSiteMain'
 import SingleJobView from './Components/CareerSite/SingleJobView'
 import CandidateApply from './Components/CareerSite/CandidateApply'
-
+// Email varification
+import Emailvarification from './Components/EmailVarification/Emailvarification'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100vw",
@@ -85,6 +86,9 @@ function App() {
           <Route exact path='/Login' component={Login}>
             <Login />
           </Route>
+          <Route exact path='/Emailvarification' component={Emailvarification}>
+              < Emailvarification />
+            </Route>
           <Route exact path='/SignUp' component={SignUp}>
             <SignUp />
           </Route>
@@ -246,6 +250,7 @@ function App() {
             <Route exact path='/Joblistdraw' component={Joblistdraw}>
               < Joblistdraw />
             </Route>
+            
             {/* Dashboard */}
             <Route exact path='/' component={Dashboard}>
               < Dashboard />

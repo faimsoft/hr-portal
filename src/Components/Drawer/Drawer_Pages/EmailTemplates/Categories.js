@@ -34,15 +34,14 @@ const useStyles = makeStyles((theme) => ({
 const Categories = () => {
                const classes = useStyles();
     const [users, setUsers] = useState([]);
-    
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [openModal, setOpenModal] = React.useState(false);
     const handleOpen = () => setOpenModal(true);
-  const handleClose = () => setOpenModal(false);
+    const handleClose = () => setOpenModal(false);
+ 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-
+    
     const onChangePage = (event, nextPage) => {
         setPage(nextPage);
     }
@@ -78,14 +77,15 @@ const Categories = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button>Name</TableCell>
-                                {/* <TableCell color="primary" > </TableCell> */}
                                 <TableCell align="center"> Action </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                                 <TableRow >
-                                    <TableCell><Button variant="text"><Checkbox {...label} /></Button>Interview Mails</TableCell>
-                                    {/* <TableCell variant="h3" ></TableCell> */}
+                                    <TableCell>
+                                        <Button variant="text"><Checkbox {...label} /></Button>Aaqil
+                                        
+                                    </TableCell>
                                     <TableCell align="center">
                                         <Button variant="text" ><EditIcon color="primary" /></Button>
                                         <Button variant="text"><DeleteIcon color="error" /></Button>
@@ -121,12 +121,19 @@ const Categories = () => {
           <Typography id="modal-modal-description" sx={{ mt: 2 }} align="center">
             <TextField
                 id="outlined-size-small"
-                    size="small"
-                                placeholder="Type the name...."
-                                style={{ width: 250 }}
-                            />
+                size="small"
+                placeholder="Type the name...."
+                style={{ width: 250 }}
+            />
                             <Toolbar/>
-            <Button color="primary" component={Link}  variant="contained" disableElevation align="center">Add </Button>
+                            <Button
+                                color="primary"
+                                variant="contained"
+                                disableElevation
+                                align="center"
+                            >
+                            Add
+                            </Button>
           </Typography>
         </Box>
       </Modal>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {useHistory} from 'react-router-dom'
 import {Toolbar, Typography} from "@material-ui/core"
 import Grid from '@mui/material/Grid';
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,8 +35,31 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Login = () => {
-         const classes = useStyles();
-
+    const classes = useStyles();
+    const [username, setusername] = useState("")
+    const [password, setpassword] = useState("")
+    const history = useHistory();
+    useEffect(() => {
+        if (localStorage.getItem('user-info')) {
+            history.push("/login")
+        }
+    },[])
+   async  function login() 
+    {
+        let item = { username, password };
+        let result = await fetch("http://fooddelicious.in/accounts/sign-in/", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(item)
+        });
+       console.warn('result',result)
+       result = await result.json();
+       localStorage.setItem ("user-info",JSON.stringify(result))
+       history.push("/")
+    }
     return (
         < >
             <div className={classes.pagePadding}  >
@@ -49,16 +73,16 @@ const Login = () => {
                                 <Toolbar />
                                 <Typography variant="text" > Email</Typography>
                                 <br />
-                                <TextField id="outlined-basic" svariant="outlined" size="small"  className={classes.signinBtn}/>
+                                <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} onChange={(e) => setusername(e.target.value)}/>
                                 <br />
                                 <br />
-                                <Typography variant="text" > Password</Typography>
+                                <Typography variant="text"> Password</Typography>
                                 <br/>
-                                <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} />
+                                <TextField  type="password" id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} onChange={(e) => setpassword(e.target.value)}/>
                                 <br/>
                                 <br/>
                                 <br/>
-                                <Button variant="contained"  className={classes.signinBtn} >
+                                <Button variant="contained"  className={classes.signinBtn} onClick={login}>
                                   SIGN IN  
                                 </Button>
                                 <br />
@@ -66,7 +90,6 @@ const Login = () => {
                                     Don't have an account?
                                     <Button variant="text" component={Link} to="/SignUp">Sign Up</Button>
                                 </Typography>
-                                
                             </Grid>
                             <Grid xs={6}  >
                                 <img

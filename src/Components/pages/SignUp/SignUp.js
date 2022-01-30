@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {Box,Typography} from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from '@mui/material/Paper';
@@ -8,7 +8,10 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import {  Checkbox,} from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
+import {useHistory} from 'react-router-dom'
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const useStyles = makeStyles((theme) => ({
    main_div:{
@@ -39,7 +42,52 @@ const useStyles = makeStyles((theme) => ({
 
 const SignUp = () => {
              const classes = useStyles();
-                const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+            const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+            const [first_name, setfirst_name] = useState("")
+            const [last_name, setlast_name] = useState("")
+            const [email, setemail] = useState("")
+            const [mobile, setmobile] = useState("")
+            const [password, setpassword] = useState("")
+            const [Country, setCountry] = React.useState('');
+            const [State, setState] = React.useState('');
+            const [City, setCity] = React.useState('');
+    
+                const history = useHistory();
+    
+    const SelectCountry = (event) => {
+    setCountry(event.target.value);
+    };
+    const SelectState = (event) => {
+    setState(event.target.value);
+    };
+    const SelectCity = (event) => {
+    setCity(event.target.value);
+    };
+
+//      useEffect(() => {
+//         if (localStorage.getItem('user-info')) {
+//             history.push("/SignUp")
+//         }
+//     },[])
+  async  function ragister() 
+    {
+       let item = { first_name, last_name, email, mobile, password };
+       console.warn(item)
+        let result = await fetch("http://fooddelicious.in/accounts/sign-up/", {
+            method: 'POST',
+            body: JSON.stringify(item),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+        })
+       console.warn('result',result)
+       result = await result.json();
+       localStorage.setItem ("user-info",JSON.stringify(result))
+    //    history.push("/")
+    } 
+
+    
 
     return (
         <>
@@ -74,6 +122,8 @@ const SignUp = () => {
                 label="First Name"
                 type="text"
                 size="small"
+                onChange={(e) => setfirst_name(e.target.value)}
+                value={first_name}
                 />
                 <br/>
                 <br/>
@@ -84,6 +134,8 @@ const SignUp = () => {
                 label="Last Name"
                 type="text"
                 size="small"
+                 value={last_name}
+                onChange={(e) => setlast_name(e.target.value)}
                 />
                 <br/>
                 <br/>
@@ -94,6 +146,9 @@ const SignUp = () => {
                 label="Email"
                 type="text"
                 size="small"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
+                
                 />
                 <br/>
                 <br/>
@@ -101,23 +156,113 @@ const SignUp = () => {
                 <TextField
                 className={classes.textField}
                 id="outlined-password-input"
-                label="Password"
-                type="password"
-                size="small"
-                />
-                <br/>
-                <br/>
-                <br/>
-                <TextField
-                className={classes.textField}
-                id="outlined-password-input"
-                label="Confirm Password"
+                label="Mobile Number"
                 type="text"
                 size="small"
+                value={mobile}
+                onChange={(e) => setmobile(e.target.value)}
                 />
                 <br/>
-
-                <Toolbar/>
+                <br/>
+                <br/>
+                <TextField
+                className={classes.textField}
+                id="outlined-password-input"
+                label="Company Name"
+                type="text"
+                size="small"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                />
+                <br/>
+                <br/>
+                <br/>
+                <TextField
+                className={classes.textField}
+                id="outlined-password-input"
+                label="Address"
+                type="text"
+                size="small"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                />
+                <br/>
+                <br/>
+                <br/>
+                <TextField
+                className={classes.textField}
+                id="outlined-password-input"
+                label="Landmark"
+                type="text"
+                size="small"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                />
+                <br/>
+                <br/>
+                <br/>
+                <TextField
+                className={classes.textField}
+                id="outlined-password-input"
+                label="Pin Code"
+                type="text"
+                size="small"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                />
+                        {/* dropdown */}
+                        <div align='left'>
+                            <br/>
+                            <br/>
+                        <FormControl sx={{m:1, minWidth: 275 }}>
+                        <Select
+                          value={Country}
+                          onChange={SelectCountry}
+                          size="small" 
+                          displayEmpty
+                        >
+                        <MenuItem value="">
+                        <em>Country</em>
+                        </MenuItem>
+                        <MenuItem value={10}>India</MenuItem>
+                        <MenuItem value={20}>Nepal</MenuItem>
+                        <MenuItem value={30}>USA</MenuItem>
+                        </Select>
+                            </FormControl>
+                            <br />
+                            <FormControl sx={{m:1, minWidth: 130 }}>
+                        <Select
+                          value={State}
+                          onChange={SelectState}
+                          size="small" 
+                          displayEmpty
+                        >
+                        <MenuItem value="">
+                        <em>State</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Maharashtra</MenuItem>
+                        <MenuItem value={20}>Bangal</MenuItem>
+                        <MenuItem value={30}>Delhi</MenuItem>
+                        </Select>
+                            </FormControl>
+                            <FormControl sx={{m:1, minWidth: 130 }}>
+                        <Select
+                          value={City}
+                          onChange={SelectCity}
+                          size="small" 
+                          displayEmpty
+                        >
+                        <MenuItem value="">
+                        <em>City</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Aurangabad</MenuItem>
+                        <MenuItem value={20}>Jalna</MenuItem>
+                        <MenuItem value={30}>Ambad</MenuItem>
+                        </Select>
+                      </FormControl>
+                          </div>
+                        {/* Dropdown */}
+                {/* <Toolbar/> */}
                 <Typography variant="text" >
                         <Checkbox {...label} />
                         I agree the 
@@ -125,12 +270,12 @@ const SignUp = () => {
                 </Typography>
                 <br/>
                 <br/>
-                <Button variant="contained"  className={classes.LoginBtn} >Sign in </Button>
+                <Button variant="contained"  className={classes.LoginBtn}  onClick={ragister} >Sign Up </Button>
                 <br/>
                 <br/>
                 <Typography variant="text" >
                         Already have an account ?
-                        <Button variant="text" component={Link} to="/Login"> Login</Button>
+                        <Button variant="text" component={Link} to="/Login" > Login</Button>
                 </Typography>
             </Box>
                         <Toolbar />
@@ -139,8 +284,7 @@ const SignUp = () => {
             
             </div>
         </>
-        // <Box sx={{ bgcolor: 'secondary.main' }}>
-        // </Box>
+        
     )
 }
 
