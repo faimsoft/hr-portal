@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
-import Autocomplete from '@mui/material/Autocomplete';
+import { Typography, Paper, Button, } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -15,19 +14,7 @@ import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
 
-        // width: "75vw",
-
-
-    },
-    small: {
-        // paddingLeft: theme.spacing(2),
-
-    },
-    // root: {
-    //     paddingTop: theme.spacing(5),
-    // },
     Create: {
         display: "none",
         [theme.breakpoints.up("md")]: {
@@ -70,7 +57,7 @@ export default function StateTextFields() {
                     </div>
                 </Grid>
                 <Grid item xs={2}  >
-                    <Button color="primary" component={Link} to='/CdList' variant="contained" disableElevation>
+                    <Button color="primary" component={Link} to='/CandiDR' variant="contained" disableElevation>
                         Create
                     </Button>
                 </Grid>

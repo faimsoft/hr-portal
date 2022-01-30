@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, Paper, Toolbar, Button, } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import { makeStyles } from "@material-ui/core/styles";
@@ -109,7 +109,7 @@ function InterviewCreate() {
 
     return (
         <>
-            <div style={{ marginLeft: '10px', marginBottom: "20px" }}>
+            <div style={{ marginLeft: '80px', marginBottom: "20px" }}>
                 <Typography variant="h5">
                     <Button variant="text" ><ArrowBackIcon color="primary"
                         button
@@ -408,7 +408,7 @@ function InterviewCreate() {
                             marginLeft: "80%",
                             width: "213px", height: "44px", background: " #109CF1",
                             marginTop: "3%"
-                        }} variant="contained">
+                        }} component={Link} to='/Preview' variant="contained">
                             Preview
                         </Button>
                     </Grid>
@@ -418,7 +418,7 @@ function InterviewCreate() {
                             width: "213px", height: "44px", background: "#068B92",
                             marginTop: "3%"
                         }}
-                            component={Link} to='/Preview' variant="contained">
+                            variant="contained">
                             Create
                         </Button>
                     </Grid>

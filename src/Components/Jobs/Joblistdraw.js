@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { Filters } from "../../views/button";
-// import AssestmentList from '../AssestmentList';
 import Joblist1 from './Joblist1';
 const DrawerWidth = 200
 
@@ -65,7 +64,6 @@ const Joblistdraw = () => {
                     <List disablepadding className={classes.drawer}>
                         <Toolbar />
                         <ListItem button component={Link} to="/"  >
-                            {/* <ListItemText primary="From Date" /> */}
                             <TextField
                                 style={{
                                     width: '249px',
@@ -233,27 +231,6 @@ const Joblistdraw = () => {
                             ))}
                             </TextField>
                         </ListItem>
-
-                        {/* <ListItem button onClick={() => setOpene(!opene)}>
-                            <ListItemText primary="Sourceed from" />
-                            {opene ? <ExpandLess /> : <ExpandMore />}
-                        </ListItem>
-                        <Collapse in={opene}>
-                            <List disablePadding>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button>
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                                <ListItem className={classes.nestedItem} button >
-                                    <ListItemText >list one</ListItemText>
-                                </ListItem>
-                            </List>
-                        </Collapse> */}
                         <ListItem >
                             <ListItemText className={classes.nestedItem} >
                                 <Filters filter={"Apply Filters"} />

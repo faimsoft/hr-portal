@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Modal } from '@material-ui/core';
 
 
 
@@ -23,7 +22,6 @@ import { Job } from '../../views/button';
 import { Number } from '../../views/button';
 // text
 import { TextSCHead } from '../../views/text';
-import { TextFrmkHead } from '../../views/text';
 import { Note } from '../../views/text';
 import { Bottomtext } from '../../views/text';
 
