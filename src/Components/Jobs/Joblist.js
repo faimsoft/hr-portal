@@ -45,17 +45,19 @@ function Joblist() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
-    const loadUsers = async () => {
-        const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-        setUsers(res.data);
-    };
-    useEffect(() => {
-        loadUsers();
-    }, [])
+    // const loadUsers = async () => {
+    //     const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    //     setUsers(res.data);
+    // };
+    // useEffect(() => {
+    //     loadUsers();
+    //     console.warn(setUsers);
+    // }, [])
+
 
     const onChangePage = (event, nextPage) => {
         setPage(nextPage);
@@ -74,6 +76,43 @@ function Joblist() {
     const history = useHistory();
     function handleClick() {
         history.push("/Job");
+    }
+
+    // api
+    useEffect(() => {
+        getList()
+
+    }, [])
+    // console.warn(users)
+    // console
+
+    function getList() {
+        fetch("https://jsonplaceholder.typicode.com/users").then((result) => {
+            result.json().then((resp) => {
+                setUsers(resp)
+                // console.warn("result", resp)
+
+            })
+        })
+
+    }
+
+    // delet
+    function deleteUser(id) {
+        // alert(id)
+        fetch(` https://jsonplaceholder.typicode.com/users/${id}`, {
+            method: 'DELETE'
+        }).then((result) => {
+            result.json().then((resp) => {
+                console.warn(resp)
+                getList()
+
+            })
+        })
+
+    }
+    function editUser(name) {
+        alert(name)
     }
 
     return (
@@ -163,6 +202,7 @@ function Joblist() {
                         <TableHead>
                             <TableRow>
                                 <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
+                                <TableCell>ID</TableCell>
                                 <TableCell>Name</TableCell>
                                 <TableCell>Latest Job Applied</TableCell>
                                 <TableCell>Status</TableCell>
@@ -176,13 +216,14 @@ function Joblist() {
                             {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => (
                                 <TableRow >
                                     <TableCell><Button variant="text"><Checkbox {...label} /></Button></TableCell>
+                                    <TableCell >{user.id}</TableCell>
                                     <TableCell variant="h3">{user.name}</TableCell>
                                     <TableCell>{user.email}</TableCell>
                                     <TableCell>{user.website}</TableCell>
                                     <TableCell>{user.company.name}</TableCell>
                                     <TableCell>{user.phone}</TableCell>
-                                    <TableCell><Button variant="text" ><EditIcon color="primary" /></Button></TableCell>
-                                    <TableCell><Button variant="text" ><DeleteIcon color="error" /></Button></TableCell>
+                                    <TableCell><Button variant="text" onClick={() => editUser(user.name)} ><EditIcon color="primary" /></Button></TableCell>
+                                    <TableCell><Button variant="text" onClick={() => deleteUser(user.id)}  ><DeleteIcon color="error" /></Button></TableCell>
                                     {/* <TableCell>Sameer</TableCell> */}
                                 </TableRow>
 

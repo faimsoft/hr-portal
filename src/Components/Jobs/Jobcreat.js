@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Stepper,
     Step,
     StepLabel,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, FormControl, InputLabel, BootstrapInput, TablePagination, Paper, TCheckbox, AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse, Container } from "@material-ui/core";
+import { Typography, Paper, TCheckbox, AppBar, Toolbar, Button, Container } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Box from '@mui/material/Box';
 import { TextSCHead } from '../../views/text';
@@ -13,6 +13,10 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+// select
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 // email icon
 import FormatBoldIcon from '@mui/icons-material/FormatBold';
 import FormatItalicIcon from '@mui/icons-material/FormatItalic';
@@ -36,6 +40,7 @@ import FormGroup from '@mui/material/FormGroup';
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import Autocomplete from '@mui/material/Autocomplete';
+import { LgButton } from "../../views/button";
 
 
 
@@ -124,6 +129,73 @@ function GetStepContent(step) {
         setFormats(newFormats);
     };
 
+
+    // data
+    const [datas, setDatas] = useState('');
+
+    // api try
+    const [job, setJob] = useState("")
+    const [vacancies, setVacancies] = useState("")
+    const [department, setDepartment] = useState("")
+    const [owner, setOwner] = useState("")
+    const [members, setMembers] = useState("")
+    const [type, setType] = useState("")
+    const [nature, setNature] = useState("")
+    const [education, setEducation] = useState("")
+    const [major, setMajor] = useState("")
+    const [min, setMin] = useState("")
+    const [max, setMax] = useState("")
+    const [salary, setSalary] = useState("")
+    // select
+    const [age, setage] = useState("")
+
+    // save
+    // function saveUser() {
+    //     console.warn(job, vacancies, department, owner, members, type, nature, education, major, min, max, salary)
+    // }
+    const onClickUserSubmit = (e) => {
+        e.preventDefault();
+        let user = {
+            job,
+            vacancies,
+            department,
+            owner,
+            members,
+            type,
+            nature,
+            education,
+            major,
+            min,
+            max,
+            salary
+            // password
+        }
+        setDatas([...datas, user])
+        setJob('');
+        setVacancies('');
+        setDepartment('');
+        setOwner('');
+        setMembers('');
+        setType('');
+        setNature('');
+        setEducation('');
+        setMajor('');
+        setMin('');
+        setMax('');
+        setSalary('');
+
+        // setPassword('');
+        console.warn('user', user)
+
+    };
+
+
+    useEffect(() => {
+        localStorage.setItem('datas', JSON.stringify(datas));
+    }, [datas])
+
+
+
     switch (step) {
         case 0:
             return (
@@ -134,264 +206,294 @@ function GetStepContent(step) {
                         <Box component={Paper} className={classes.box}>
                             <Container style={{ marginLeft: "20%", }}>
                                 <div style={{ marginTop: "8%", }}>
-                                    <Grid container spacing={2} >
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={" Job title*"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                    <form >
+                                        <Grid container spacing={2} >
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={" Job title*"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+
+                                                    }}
+                                                    autoComplete="off"
+
+                                                >
+                                                    <TextField value={job} onChange={(e) => setJob(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Number of Vacancies*"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                    autoComplete="off"
+
+                                                >
+                                                    <TextField value={vacancies} onChange={(e) => setVacancies(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Number of Vacancies*"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                        {/*  */}
+                                        <Grid container spacing={2} style={{ marginTop: "30px" }}>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Department* "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={department} onChange={(e) => setDepartment(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={" Job Owner* "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+
+                                                    }}
+
+                                                >
+
+                                                    <TextField value={owner} onChange={(e) => setOwner(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                    {/*  */}
-                                    <Grid container spacing={2} style={{ marginTop: "30px" }}>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Department* "} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                        {/*  */}
+                                        <Grid container spacing={2} style={{ marginTop: "30px" }}>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Team Members Involved"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={members} onChange={(e) => setMembers(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Type*"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <FormControl fullWidth>
+                                                        {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
+                                                        <Select
+                                                            id="fullWidth"
+                                                            label="Age"
+                                                        // value={age}
+                                                        // onChange={handleChange}
+                                                        >
+                                                            <MenuItem value={10}>Ten</MenuItem>
+                                                            <MenuItem value={20}>Twenty</MenuItem>
+                                                            <MenuItem value={30}>Thirty</MenuItem>
+                                                        </Select>
+                                                    </FormControl>
+                                                    {/* <TextField value={type} onChange={(e) => setType(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" /> */}
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={" Job Owner* "} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                        {/*  */}
+                                        <Grid container spacing={2} style={{ marginTop: "30px" }}>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Job Nature*"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={nature} onChange={(e) => setNature(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Education* "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={education} onChange={(e) => setEducation(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                    {/*  */}
-                                    <Grid container spacing={2} style={{ marginTop: "30px" }}>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Team Members Involved"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                        {/*  */}
+                                        <Grid container spacing={2} style={{ marginTop: "30px" }}>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Major/ Speciality"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={major} onChange={(e) => setMajor(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={2}>
+                                                <TextSCHead smtext={"Work Ex. min. (Years)* "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 190,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={min} onChange={(e) => setMin(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={2}>
+                                                <TextSCHead smtext={"Work Ex. max.(Years) "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 190,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={max} onChange={(e) => setMax(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Type*"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                        {/*  */}
+                                        <Grid container spacing={2} style={{ marginTop: "30px" }}>
+                                            <Grid xs={2}>
+                                                <TextSCHead smtext={"Salary Minimum"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 190,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField value={salary} onChange={(e) => setSalary(e.target.value)} size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={3}>
+                                                <TextSCHead smtext={"Salary Max "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 190,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={2}>
+                                                <TextSCHead smtext={"Currency "} />
+                                                <Box
+                                                    sx={{
+                                                        width: 190,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={2}>
+                                                <TextSCHead smtext={"Salary Type"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 190,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                    {/*  */}
-                                    <Grid container spacing={2} style={{ marginTop: "30px" }}>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Job Nature*"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
+                                        {/*  */}
+                                        <Grid container spacing={2} style={{ marginTop: "30px" }}>
+                                            <Grid xs={5}>
+                                                <TextSCHead smtext={"Country"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
+                                            <Grid xs={5}>
+
+                                                <TextSCHead smtext={"City"} />
+                                                <Box
+                                                    sx={{
+                                                        width: 400,
+                                                        maxWidth: '100%',
+                                                    }}
+                                                >
+                                                    <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Education* "} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
+                                        {/* Email */}
+                                        <div style={{ marginTop: "20px", }}>
+                                            <TextSCHead smtext={"Job Description"} />
+                                            <Box component={Paper} className={classes.email} style={{ width: "50%" }}>
+                                                <ToggleButtonGroup
+                                                    value={formats}
+                                                    onChange={handleFormat}
+                                                    aria-label="text formatting"
+                                                >
+                                                    <ToggleButton value="bold" aria-label="bold">
+                                                        <FormatBoldIcon />
+                                                    </ToggleButton>
+                                                    <ToggleButton value="italic" aria-label="italic">
+                                                        <FormatItalicIcon />
+                                                    </ToggleButton>
+                                                    <ToggleButton value="underlined" aria-label="underlined">
+                                                        <FormatUnderlinedIcon />
+                                                    </ToggleButton>
+                                                    <ToggleButton value="color" aria-label="color" disabled>
+                                                        <FormatColorFillIcon />
+                                                        <ArrowDropDownIcon />
+                                                        {/* <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} /> */}
+                                                    </ToggleButton>
+                                                    <ToggleButton >
+                                                        Android<ArrowDropDownIcon />
+                                                    </ToggleButton>
+                                                    <ToggleButton  >
+                                                        10<ArrowDropDownIcon />
+                                                    </ToggleButton>
+                                                    <ToggleButton value="left" key="left">
+                                                        <FormatAlignLeftIcon />
+                                                    </ToggleButton>,
+                                                    <ToggleButton value="center" key="center">
+                                                        <FormatAlignCenterIcon />
+                                                    </ToggleButton>,
+                                                    <ToggleButton value="right" key="right">
+                                                        <FormatAlignRightIcon />
+                                                    </ToggleButton>,
+                                                    <ToggleButton value="justify" key="justify">
+                                                        <FormatAlignJustifyIcon />
+                                                    </ToggleButton>
+                                                    <ToggleButton value="android">
+                                                        A
+                                                    </ToggleButton>
+                                                </ToggleButtonGroup>
+                                                <br />
+                                                <TextField className={classes.email} style={{ height: "100px", width: "100%" }} />
                                             </Box>
-                                        </Grid>
-                                    </Grid>
-                                    {/*  */}
-                                    <Grid container spacing={2} style={{ marginTop: "30px" }}>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Major/ Speciality"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                        <Grid xs={2}>
-                                            <TextSCHead smtext={"Work Ex. min. (Years)* "} />
-                                            <Box
-                                                sx={{
-                                                    width: 190,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                        <Grid xs={2}>
-                                            <TextSCHead smtext={"Work Ex. max.(Years) "} />
-                                            <Box
-                                                sx={{
-                                                    width: 190,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                    </Grid>
-                                    {/*  */}
-                                    <Grid container spacing={2} style={{ marginTop: "30px" }}>
-                                        <Grid xs={2}>
-                                            <TextSCHead smtext={"Salary Minimum"} />
-                                            <Box
-                                                sx={{
-                                                    width: 190,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                        <Grid xs={3}>
-                                            <TextSCHead smtext={"Salary Max "} />
-                                            <Box
-                                                sx={{
-                                                    width: 190,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                        <Grid xs={2}>
-                                            <TextSCHead smtext={"Currency "} />
-                                            <Box
-                                                sx={{
-                                                    width: 190,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                        <Grid xs={2}>
-                                            <TextSCHead smtext={"Salary Type"} />
-                                            <Box
-                                                sx={{
-                                                    width: 190,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                    </Grid>
-                                    {/*  */}
-                                    <Grid container spacing={2} style={{ marginTop: "30px" }}>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"Country"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                        <Grid xs={5}>
-                                            <TextSCHead smtext={"City"} />
-                                            <Box
-                                                sx={{
-                                                    width: 400,
-                                                    maxWidth: '100%',
-                                                }}
-                                            >
-                                                <TextField size="small" fullWidth label="Type interview name..." id="fullWidth" />
-                                            </Box>
-                                        </Grid>
-                                    </Grid>
-                                    {/* Email */}
-                                    <div style={{ marginTop: "20px", }}>
-                                        <TextSCHead smtext={"Job Description"} />
-                                        <Box component={Paper} className={classes.email}>
-                                            <ToggleButtonGroup
-                                                value={formats}
-                                                onChange={handleFormat}
-                                                aria-label="text formatting"
-                                            >
-                                                <ToggleButton value="bold" aria-label="bold">
-                                                    <FormatBoldIcon />
-                                                </ToggleButton>
-                                                <ToggleButton value="italic" aria-label="italic">
-                                                    <FormatItalicIcon />
-                                                </ToggleButton>
-                                                <ToggleButton value="underlined" aria-label="underlined">
-                                                    <FormatUnderlinedIcon />
-                                                </ToggleButton>
-                                                <ToggleButton value="color" aria-label="color" disabled>
-                                                    <FormatColorFillIcon />
-                                                    <ArrowDropDownIcon />
-                                                    {/* <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} /> */}
-                                                </ToggleButton>
-                                                <ToggleButton >
-                                                    Android<ArrowDropDownIcon />
-                                                </ToggleButton>
-                                                <ToggleButton  >
-                                                    10<ArrowDropDownIcon />
-                                                </ToggleButton>
-                                                <ToggleButton value="left" key="left">
-                                                    <FormatAlignLeftIcon />
-                                                </ToggleButton>,
-                                                <ToggleButton value="center" key="center">
-                                                    <FormatAlignCenterIcon />
-                                                </ToggleButton>,
-                                                <ToggleButton value="right" key="right">
-                                                    <FormatAlignRightIcon />
-                                                </ToggleButton>,
-                                                <ToggleButton value="justify" key="justify">
-                                                    <FormatAlignJustifyIcon />
-                                                </ToggleButton>
-                                                <ToggleButton value="android">
-                                                    A
-                                                </ToggleButton>
-                                            </ToggleButtonGroup>
-                                            <br />
-                                            <TextField className={classes.email} style={{ height: "100px", width: "50%" }} />
-                                        </Box>
-                                    </div>
+                                        </div>
+                                        <div style={{ marginTop: "20px", marginLeft: "250px" }}>
+                                            <Button style={{ width: "119px", marginBottom: "30px" }} onClick={onClickUserSubmit} variant="contained" color="primary" disableElevation>
+                                                Publish
+                                            </Button>
+                                        </div>
+                                    </form>
 
                                 </div>
+
                             </Container>
 
                         </Box>
@@ -687,3 +789,11 @@ const top100Films = [
     },
 ];
 export default Jobcreat;
+
+
+
+
+
+
+
+// new function

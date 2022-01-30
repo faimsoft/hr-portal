@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
 import Joblist from '../Joblist';
-const DrawerWidth = 200
 
 
 
@@ -44,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Job = () => {
     const classes = useStyles();
-    const [opene, setOpene] = useState(false)
 
 
 
@@ -72,7 +70,6 @@ const Job = () => {
                             <TextField
                                 style={{
                                     width: '249px',
-
                                 }}
                                 id="Zip Code"
                                 select

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography, } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Button, IconButton, Menu, MenuItem, ListItemText, Drawer, List, ListItem, Collapse } from "@material-ui/core";
+import { ListItemText, } from "@material-ui/core";
 
 
 
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
     para: {
         fontfamily: "Inter",
         fontstyle: "normal",
-        fontweight: " bold",
-        fontweight: " 700px",
+        "font - weight": " bold",
+        // fontweight: " 700px",
         fontsize: "20px",
         lineheight: "175 %",
         fontweight: '400',
