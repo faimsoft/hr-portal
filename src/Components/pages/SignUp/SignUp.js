@@ -12,7 +12,7 @@ import {useHistory} from 'react-router-dom'
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import {signUpApi,apiPostSecure} from '../../../utility/apicopy'
 const useStyles = makeStyles((theme) => ({
    main_div:{
        margin:10,
@@ -40,53 +40,53 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
+/**
+ * * sofojd
+ * ! snknnd
+ * ? odicd
+ * todo:coments
+ */
+
 const SignUp = () => {
-             const classes = useStyles();
-            const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-            const [first_name, setfirst_name] = useState("")
-            const [last_name, setlast_name] = useState("")
-            const [email, setemail] = useState("")
-            const [mobile, setmobile] = useState("")
-            const [password, setpassword] = useState("")
-            const [Country, setCountry] = React.useState('');
-            const [State, setState] = React.useState('');
-            const [City, setCity] = React.useState('');
+    const classes = useStyles();
+    const history = useHistory();
     
-                const history = useHistory();
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const [first_name, setfirst_name] = useState("")
+    const [last_name, setlast_name] = useState("")
+    const [email, setemail] = useState("")
+    const [mobile, setmobile] = useState("")
+    const [company, setcompany] = useState("")
+    const [landmark, setlandmark] = useState("")
+    const [address, setaddress] = useState("")
+    const [pincode, setpincode] = useState("")
+    const [Country, setCountry] = React.useState('');
+    const [State, setState] = React.useState('');
+    const [City, setCity] = React.useState('');
+    
     
     const SelectCountry = (event) => {
-    setCountry(event.target.value);
+        setCountry(event.target.value);
     };
     const SelectState = (event) => {
-    setState(event.target.value);
+        setState(event.target.value);
     };
     const SelectCity = (event) => {
-    setCity(event.target.value);
+        setCity(event.target.value);
     };
 
-//      useEffect(() => {
-//         if (localStorage.getItem('user-info')) {
-//             history.push("/SignUp")
-//         }
-//     },[])
-  async  function ragister() 
-    {
-       let item = { first_name, last_name, email, mobile, password };
-       console.warn(item)
-        let result = await fetch("http://fooddelicious.in/accounts/sign-up/", {
-            method: 'POST',
-            body: JSON.stringify(item),
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-        })
-       console.warn('result',result)
-       result = await result.json();
-       localStorage.setItem ("user-info",JSON.stringify(result))
-    //    history.push("/")
-    } 
+    
 
+    function ragister() {
+       
+        
+        const data = { first_name, last_name, email, mobile, company, landmark, address, pincode }
+        apiPostSecure(data, (response) => {
+            
+        }
+        )
+       
+    }
     
 
     return (
@@ -171,8 +171,8 @@ const SignUp = () => {
                 label="Company Name"
                 type="text"
                 size="small"
-                value={password}
-                onChange={(e) => setpassword(e.target.value)}
+                value={company}
+                onChange={(e) => setcompany(e.target.value)}
                 />
                 <br/>
                 <br/>
@@ -183,8 +183,8 @@ const SignUp = () => {
                 label="Address"
                 type="text"
                 size="small"
-                value={password}
-                onChange={(e) => setpassword(e.target.value)}
+                value={landmark}
+                onChange={(e) => setlandmark(e.target.value)}
                 />
                 <br/>
                 <br/>
@@ -195,8 +195,8 @@ const SignUp = () => {
                 label="Landmark"
                 type="text"
                 size="small"
-                value={password}
-                onChange={(e) => setpassword(e.target.value)}
+                value={address}
+                onChange={(e) => setaddress(e.target.value)}
                 />
                 <br/>
                 <br/>
@@ -207,8 +207,8 @@ const SignUp = () => {
                 label="Pin Code"
                 type="text"
                 size="small"
-                value={password}
-                onChange={(e) => setpassword(e.target.value)}
+                value={pincode}
+                onChange={(e) => setpincode(e.target.value)}
                 />
                         {/* dropdown */}
                         <div align='left'>
