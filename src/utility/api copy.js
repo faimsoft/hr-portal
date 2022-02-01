@@ -3,8 +3,9 @@ import { isAuthenticated, getAccessToken } from './session'
 
 // export const baseUrl = "http://localhost:8080/";
 
-export const baseUrl = "https://glass-api.mirobotic.tech/";
+export const baseUrl = "http://192.168.1.197:8080/";
 export const zoomUrl = "https://api.zoom.us/v2";
+
 
 const zoomToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjVNUHV4ZTR5UVYtYldHclFYU1N1ZUEiLCJleHAiOjE2NDg3NTEzOTksImlhdCI6MTY0MTI3NjgxOH0.yyppd6thcgti7NhfMYx3jUJiU1RpJr-Dipa3hTx4914"
 
@@ -20,6 +21,9 @@ export const memeberActivateApi = "accounts/activate-member/";
 export const memberDeleteApi = "accounts/delete-member/";
 export const verifyTokenApi = "accounts/verify-token/";
 export const activateAccountApi = "accounts/activate/";
+
+//countries
+export const apicountries = "common/data/";
 
 
 export const routs = {
@@ -243,6 +247,7 @@ export function apiPutSecure(api, data, response, error) {
       console.log(err.config);
     });
 }
+
 
 export default getRouts;
 

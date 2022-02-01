@@ -86,7 +86,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
 function Interview() {
-    // const [currency, setCurrency] = React.useState('EUR');
+    const [currency, setCurrency] = React.useState('EUR');
     const history = useHistory();
     function handleClick() {
         history.push("/Cdsingleview");
