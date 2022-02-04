@@ -1,9 +1,9 @@
 import { useEffect, useState, React } from "react";
 import { useLocation, useHistory, Redirect, Link } from 'react-router-dom'
-import {progressDialog, alertDialog} from "utils/diloag"
+import { progressDialog, alertDialog } from "utils/diloag"
 
 // Soft UI Dashboard React components
-import {activateAccountApi, verifyTokenApi, apiCallUnsecureGet, apiPostUnsecure} from "utils/api"
+import { activateAccountApi, verifyTokenApi, apiCallUnsecureGet, apiPostUnsecure } from "utils/api"
 
 import validator from 'validator'
 import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
@@ -16,15 +16,15 @@ import curved9 from "assets/images/curved-images/curved-6.jpg";
 import CoverLayout from "../components/CoverLayout";
 
 function useQueryParams() {
-    const params = new URLSearchParams(
-      window ? window.location.search : {}
-    );
+  const params = new URLSearchParams(
+    window ? window.location.search : {}
+  );
 
-    return new Proxy(params, {
-        get(target, prop) {
-            return target.get(prop)
-        },
-    });
+  return new Proxy(params, {
+    get(target, prop) {
+      return target.get(prop)
+    },
+  });
 }
 
 function SignIn() {
@@ -54,7 +54,7 @@ function SignIn() {
 
   function showError(msg) {
     setError(msg);
-    setTimeout( () => {setError('')}, 3000);
+    setTimeout(() => { setError('') }, 3000);
   }
 
 
@@ -66,33 +66,33 @@ function SignIn() {
   async function login() {
     showProgress('Please wait!');
 
-    if(password.trim() === "") {
+    if (password.trim() === "") {
       showError('Enter password')
       return
     }
 
-    if(confPassword.trim() === "") {
+    if (confPassword.trim() === "") {
       showError('Confim password')
       return
     }
 
-    if(confPassword !== password) {
+    if (confPassword !== password) {
       showError('Password not matching!')
       return
     }
-    
+
     const data = { token, password }
 
     apiPostUnsecure(activateAccountApi, data,
       (response) => {
         hideProgress();
         setShowAlertTitle('Account activated!');
-     },
-     (errorMsg) => {
+      },
+      (errorMsg) => {
         hideProgress();
         showError(errorMsg);
-     }
-   )
+      }
+    )
 
   }
 
@@ -100,18 +100,18 @@ function SignIn() {
 
   function getContent(user) {
 
-    if(user === null) {
-        return (
-          <SuiBox mt={3} textAlign="center">
-            <SuiTypography mt={3} variant="button" fontWeight="regular" textColor="error" textAlign="center">
-              Invaid Link
-            </SuiTypography>
+    if (user === null) {
+      return (
+        <SuiBox mt={3} textAlign="center">
+          <SuiTypography mt={3} variant="button" fontWeight="regular" textColor="error" textAlign="center">
+            Invaid Link
+          </SuiTypography>
         </SuiBox>
-        )
+      )
     }
 
     return (
-    <SuiBox component="form" role="form">
+      <SuiBox component="form" role="form">
         <SuiBox>
           <SuiTypography variant="button" fontWeight="bold" textTransform="capitalize">
             Welcome {user.first_name} {user.last_name}!
@@ -125,7 +125,7 @@ function SignIn() {
         <SuiBox mb={2}>
           <SuiBox mb={1} ml={0.5}>
             <SuiTypography component="label" variant="caption" fontWeight="bold">
-            Password
+              Password
             </SuiTypography>
           </SuiBox>
           <SuiInput type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -153,27 +153,27 @@ function SignIn() {
   }
 
   const verifyTokenFromServer = async () => {
-    if(token == null) {
+    if (token == null) {
       return
     }
     showProgress('Please wait!');
     console.log('verifyToken');
     apiCallUnsecureGet(`${verifyTokenApi}?token=${token}`,
-    (response) => {
+      (response) => {
         hideProgress()
         setVerifyToken(false);
         setUserState(response.user);
-    },
-    (errorMsg) => {
+      },
+      (errorMsg) => {
         hideProgress()
         setVerifyToken(false);
       }
     )
-}
+  }
 
-useEffect(() => {
-  verifyTokenFromServer();
-}, [verifyToken])
+  useEffect(() => {
+    verifyTokenFromServer();
+  }, [verifyToken])
 
   return (
     <CoverLayout
@@ -182,7 +182,7 @@ useEffect(() => {
       image={curved9}
     >
       {progressDialog(progressTitle)}
-      {alertDialog(false, showAlertTitle, "you can login into your account now.", onAlertOk, () => {})}
+      {alertDialog(false, showAlertTitle, "you can login into your account now.", onAlertOk, () => { })}
       {getContent(userSate)}
     </CoverLayout>
   );

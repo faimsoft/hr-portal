@@ -3,14 +3,15 @@ import { isAuthenticated, getAccessToken } from './session'
 
 // export const baseUrl = "http://localhost:8080/";
 
-export const baseUrl = "http://192.168.1.197:8080/";
+export const baseUrl = "http://34.125.49.10:8080/";
 export const zoomUrl = "https://api.zoom.us/v2";
 
 
 const zoomToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjVNUHV4ZTR5UVYtYldHclFYU1N1ZUEiLCJleHAiOjE2NDg3NTEzOTksImlhdCI6MTY0MTI3NjgxOH0.yyppd6thcgti7NhfMYx3jUJiU1RpJr-Dipa3hTx4914"
 
-export const signInApi = "accounts/sign-in/";
-export const signUpApi = "accounts/sign-up/";
+export const signInApi = "account/sign-in/";
+export const signUpApi = "account/sign-up/";
+
 export const profileApi = "accounts/profile/";
 export const profileUpdateApi = "accounts/update-account/";
 export const resetPasswordApi = "accounts/reset-password/";
@@ -27,14 +28,14 @@ export const apicountries = "common/data/";
 
 
 export const routs = {
-  signin: `${baseUrl}accounts/sign-in/`,
-  signup: `${baseUrl}accounts/sign-up/`,
+  signin: `${baseUrl}account/sign-in/`,
+  signup: `${baseUrl}account/sign-up/`,
 }
 
 export function getRouts() {
   return {
-    signin: `${baseUrl}accounts/sign-in/`,
-    signup: `${baseUrl}accounts/sign-up/`,
+    signin: `${baseUrl}account/sign-in/`,
+    signup: `${baseUrl}account/sign-up/`,
     profile: `${baseUrl}accounts/profile/`,
   }
 }

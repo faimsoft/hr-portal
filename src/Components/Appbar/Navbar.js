@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
   const classes = useStyles();
   const [mobileelment, setMobileelment] = useState(null)
-  const [Open, setOpen] = useState(false)
   const isMobileMenuOpen = Boolean(mobileelment)
   const openMobileMenu = (event) => {
     setMobileelment(event.currentTarget)
@@ -62,7 +61,7 @@ const Navbar = () => {
 
         <AppBar color="primary" position="fixed" className={classes.appBar}>
           <Toolbar>
-            <Typography variant="h6"  style={{ flexGrow: 1 , fontWeight: 600 }} > Edjobster</Typography>
+            <Typography variant="h6" style={{ flexGrow: 1, fontWeight: 600 }} > Edjobster</Typography>
             <div className={classes.sectionDesktop}>
               <Button color="inherit" component={Link} to='/Job'>Jobs</Button>
               <Button color="inherit" component={Link} to='/CandiDR'>Candidates</Button>

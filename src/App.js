@@ -87,8 +87,8 @@ function App() {
             <Login />
           </Route>
           <Route exact path='/Emailvarification' component={Emailvarification}>
-              < Emailvarification />
-            </Route>
+            < Emailvarification />
+          </Route>
           <Route exact path='/SignUp' component={SignUp}>
             <SignUp />
           </Route>
@@ -250,7 +250,6 @@ function App() {
             <Route exact path='/Joblistdraw' component={Joblistdraw}>
               < Joblistdraw />
             </Route>
-            
             {/* Dashboard */}
             <Route exact path='/' component={Dashboard}>
               < Dashboard />

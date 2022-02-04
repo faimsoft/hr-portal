@@ -9,9 +9,15 @@ import { Link } from 'react-router-dom';
 import { Checkbox, } from "@material-ui/core";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useHistory } from 'react-router-dom'
+import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { signUpApi, apiPostUnsecure, apicountries, } from '../../../utility/apicopy'
+import { saveUser } from '../../../utility/session';
+// alert npm 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const useStyles = makeStyles((theme) => ({
     main_div: {
@@ -40,43 +46,93 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
+/**
+ * * sofojd
+ * ! snknnd
+ * ? odicd
+ * todo:coments
+ */
+
 const SignUp = () => {
     const classes = useStyles();
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    const [first_name, setfirst_name] = useState("")
-    const [last_name, setlast_name] = useState("")
-    const [email, setemail] = useState("")
-    const [mobile, setmobile] = useState("")
-    const [password, setpassword] = useState("")
-    const [Country, setCountry] = React.useState('');
-    const [State, setState] = useState('');
-    const [countries, setCountries] = useState('');
-    const [states, setStates] = useState('');
-    const [City, setCity] = useState('');
-
-
     const history = useHistory();
 
-    const SelectCountry = (event) => {
-        setCountry(event.target.value);
-    };
-    const SelectState = (event) => {
-        setState(event.target.value);
-    };
-    const SelectCity = (event) => {
-        setCity(event.target.value);
-    };
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const [first_name, setFirst_name] = useState("")
+    const [last_name, setLast_name] = useState("")
+    const [email, setEmail] = useState("")
+    const [mobile, setMobile] = useState("")
+    const [company, setCompany] = useState("")
+    const [pincode, setPincode] = useState("")
+    const [address, setAddress] = useState("")
+    const [landmark, setLandmark] = useState("")
+    // countries
+    const [countries, setCountries] = useState([]);
+    const [cities, setCities] = useState([]);
+    const [states, setStates] = useState([]);
+    const [loadDatas, setLoadDatas] = useState(true)
 
-    //      useEffect(() => {
-    //         if (localStorage.getItem('user-info')) {
-    //             history.push("/SignUp")
-    //         }
-    //     },[])
+
+
+
+
     async function ragister() {
-        const data = { first_name, last_name, email, mobile, password };
+        if (first_name.trim() === "") {
+            // alert('Enter FirstName');
+            toast.warn("Enter FirstName!", {
+                position: "top-center"
+            })
+            return
+        }
+        if (last_name.trim() === "") {
+            toast.warn("last_name", {
+                position: "top-center"
+            })
+            return
+        }
+        if (email.trim() === "") {
+            toast.warn("Entet Email", {
+                position: 'top-center'
+            })
+        }
+        if (mobile.trim() === "") {
+            toast.warn("Enter Mobile ", {
+                position: "top-center"
+            })
+        }
+        if (company.trim() === "") {
+            toast.warn("Enter Company", {
+                position: 'top-center'
+            })
+        }
+        if (landmark.trim() === "") {
+            toast.warn("Enter Landmark", {
+                position: 'top-center'
+            })
+        }
 
-        //    history.push("/")
+
+        const data = { first_name, last_name, email, mobile, company, pincode, address, landmark }
+        console.warn('data', data)
+
+        apiPostUnsecure(signUpApi, data, apicountries,
+            (response) => {
+                saveUser(response)
+                history.push('/JobView');
+
+
+            },
+            (errorMsg) => {
+                setLoadDatas(false)
+                toast.error(errorMsg, {
+                    position: 'top-center'
+                })
+            }
+        )
+
     }
+
+
 
 
 
@@ -93,7 +149,6 @@ const SignUp = () => {
                             borderRadius: 35,
                             padding: "18px 36px",
                             fontSize: "18px",
-
                         }}  >
                         <ArrowBackIcon />
                     </Button>
@@ -113,7 +168,7 @@ const SignUp = () => {
                             label="First Name"
                             type="text"
                             size="small"
-                            onChange={(e) => setfirst_name(e.target.value)}
+                            onChange={(e) => setFirst_name(e.target.value)}
                             value={first_name}
                         />
                         <br />
@@ -126,7 +181,7 @@ const SignUp = () => {
                             type="text"
                             size="small"
                             value={last_name}
-                            onChange={(e) => setlast_name(e.target.value)}
+                            onChange={(e) => setLast_name(e.target.value)}
                         />
                         <br />
                         <br />
@@ -135,10 +190,10 @@ const SignUp = () => {
                             className={classes.textField}
                             id="outlined-password-input"
                             label="Email"
-                            type="text"
+                            type="email"
                             size="small"
                             value={email}
-                            onChange={(e) => setemail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
 
                         />
                         <br />
@@ -151,7 +206,7 @@ const SignUp = () => {
                             type="text"
                             size="small"
                             value={mobile}
-                            onChange={(e) => setmobile(e.target.value)}
+                            onChange={(e) => setMobile(e.target.value)}
                         />
                         <br />
                         <br />
@@ -162,32 +217,8 @@ const SignUp = () => {
                             label="Company Name"
                             type="text"
                             size="small"
-                            value={password}
-                            onChange={(e) => setpassword(e.target.value)}
-                        />
-                        <br />
-                        <br />
-                        <br />
-                        <TextField
-                            className={classes.textField}
-                            id="outlined-password-input"
-                            label="Address"
-                            type="text"
-                            size="small"
-                            value={password}
-                            onChange={(e) => setpassword(e.target.value)}
-                        />
-                        <br />
-                        <br />
-                        <br />
-                        <TextField
-                            className={classes.textField}
-                            id="outlined-password-input"
-                            label="Landmark"
-                            type="text"
-                            size="small"
-                            value={password}
-                            onChange={(e) => setpassword(e.target.value)}
+                            value={company}
+                            onChange={(e) => setCompany(e.target.value)}
                         />
                         <br />
                         <br />
@@ -198,59 +229,104 @@ const SignUp = () => {
                             label="Pin Code"
                             type="text"
                             size="small"
-                            value={password}
-                            onChange={(e) => setpassword(e.target.value)}
+                            value={pincode}
+                            onChange={(e) => setPincode(e.target.value)}
+                        />
+                        <br />
+                        <br />
+                        <br />
+                        <TextField
+                            className={classes.textField}
+                            id="outlined-password-input"
+                            label="Address"
+                            type="text"
+                            size="small"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                        />
+                        <br />
+                        <br />
+                        <br />
+                        <TextField
+                            className={classes.textField}
+                            id="outlined-password-input"
+                            label="Landmark"
+                            type="text"
+                            size="small"
+                            value={landmark}
+                            onChange={(e) => setLandmark(e.target.value)}
                         />
                         {/* dropdown */}
                         <div align='left'>
                             <br />
                             <br />
-                            <FormControl sx={{ m: 1, minWidth: 275 }}>
-                                <Select
-                                    value={Country}
-                                    onChange={SelectCountry}
-                                    size="small"
-                                    displayEmpty
-                                >
-                                    <MenuItem value="">
-                                        <em>Country</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>India</MenuItem>
-                                    <MenuItem value={20}>Nepal</MenuItem>
-                                    <MenuItem value={30}>USA</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <TextField
+                                style={{
+                                    width: '275px',
+
+                                }}
+                                id="Zip Code"
+                                select
+                                size='small'
+                                value={countries}
+                                // onChange={clickhandleChange}
+                                SelectProps={{
+                                    native: true,
+                                }}
+                            >  {countries.map((option) => (
+                                <option key={option.id} value={option.name}>
+                                    {option.name}
+                                </option>
+                            ))}
+                            </TextField>
                             <br />
-                            <FormControl sx={{ m: 1, minWidth: 130 }}>
-                                <Select
-                                    value={State}
-                                    onChange={SelectState}
-                                    size="small"
-                                    displayEmpty
-                                >
-                                    <MenuItem value="">
-                                        <em>State</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>Maharashtra</MenuItem>
-                                    <MenuItem value={20}>Bangal</MenuItem>
-                                    <MenuItem value={30}>Delhi</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <FormControl sx={{ m: 1, minWidth: 130 }}>
-                                <Select
-                                    value={City}
-                                    onChange={SelectCity}
-                                    size="small"
-                                    displayEmpty
-                                >
-                                    <MenuItem value="">
-                                        <em>City</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>Aurangabad</MenuItem>
-                                    <MenuItem value={20}>Jalna</MenuItem>
-                                    <MenuItem value={30}>Ambad</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <br />
+                            <Grid container spacing={2}   >
+                                <Grid item xs={6}  >
+
+                                    <TextField
+                                        style={{
+                                            width: '130px',
+
+                                        }}
+                                        id="Zip Code"
+                                        select
+                                        size='small'
+                                        value={cities}
+                                        // onChange={clickhandleChange}
+                                        SelectProps={{
+                                            native: true,
+                                        }}
+                                    >  {countries.map((option) => (
+                                        <option key={option.id} value={option.name}>
+                                            {option.name}
+                                        </option>
+                                    ))}
+                                    </TextField>
+                                </Grid>
+                                <Grid item xs={4}  >
+
+                                    <TextField
+                                        style={{
+                                            width: '130px',
+
+                                        }}
+                                        id="Zip Code"
+                                        select
+                                        size='small'
+                                        value={countries}
+                                        // onChange={clickhandleChange}
+                                        SelectProps={{
+                                            native: true,
+                                        }}
+                                    >  {states.map((option) => (
+                                        <option key={option.id} value={option.name}>
+                                            {option.name}
+                                        </option>
+                                    ))}
+                                    </TextField>
+                                </Grid>
+                            </Grid>
                         </div>
                         {/* Dropdown */}
                         {/* <Toolbar/> */}
@@ -261,7 +337,7 @@ const SignUp = () => {
                         </Typography>
                         <br />
                         <br />
-                        <Button variant="contained" className={classes.LoginBtn} onClick={ragister} >Sign Up </Button>
+                        <Button variant="contained" className={classes.LoginBtn} onClick={() => ragister()} >Sign Up </Button>
                         <br />
                         <br />
                         <Typography variant="text" >
@@ -271,6 +347,8 @@ const SignUp = () => {
                     </Box>
                     <Toolbar />
                     <Toolbar />
+                    {/* / alert container*/}
+                    <ToastContainer />
                 </div>
 
             </div>
