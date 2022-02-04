@@ -115,15 +115,13 @@ const SignUp = () => {
         const data = { first_name, last_name, email, mobile, company, pincode, address, landmark }
         console.warn('data', data)
 
-        apiPostUnsecure(signUpApi, data, apicountries,
+        apiPostUnsecure(signUpApi, data,
             (response) => {
                 saveUser(response)
                 history.push('/JobView');
 
-
             },
             (errorMsg) => {
-                setLoadDatas(false)
                 toast.error(errorMsg, {
                     position: 'top-center'
                 })
@@ -131,7 +129,6 @@ const SignUp = () => {
         )
 
     }
-
 
 
 
@@ -319,7 +316,7 @@ const SignUp = () => {
                                         SelectProps={{
                                             native: true,
                                         }}
-                                    >  {states.map((option) => (
+                                    >  {countries.map((option) => (
                                         <option key={option.id} value={option.name}>
                                             {option.name}
                                         </option>
