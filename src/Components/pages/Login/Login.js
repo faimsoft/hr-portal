@@ -42,8 +42,9 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
     const classes = useStyles();
 
-    const [username, setusername] = useState("")
-    const [password, setpassword] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState('')
     const history = useHistory();
     // useEffect(() => {
     //     if (localStorage.getItem('user-info')) {
@@ -51,6 +52,14 @@ const Login = () => {
     //     }
     // },[])
     async function login() {
+        if (username.trim() === "") {
+            setError('Enter UserName')
+            return
+        }
+        if (password.trim() === "") {
+            setError('Enter Right PassWord')
+            return
+        }
 
         const data = { username, password };
         console.warn(data)
@@ -61,12 +70,9 @@ const Login = () => {
 
             },
             (errorMsg) => {
-                toast.error(errorMsg, {
-                    position: 'top-center'
-                })
+                setError(errorMsg)
             }
         )
-        history.push("/")
     }
     return (
         < >
@@ -81,18 +87,23 @@ const Login = () => {
                                 <Toolbar />
                                 <Typography variant="text" > Email</Typography>
                                 <br />
-                                <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} onChange={(e) => setusername(e.target.value)} />
+                                <TextField id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} onChange={(e) => setUsername(e.target.value)} />
                                 <br />
                                 <br />
                                 <Typography variant="text"> Password</Typography>
                                 <br />
-                                <TextField type="password" id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} onChange={(e) => setpassword(e.target.value)} />
+                                <TextField type="password" id="outlined-basic" svariant="outlined" size="small" className={classes.signinBtn} onChange={(e) => setPassword(e.target.value)} />
                                 <br />
+                                <br />
+                                <Typography variant="text" color='error' align="center" >
+                                    {error}
+                                </Typography>
                                 <br />
                                 <br />
                                 <Button variant="contained" className={classes.signinBtn} onClick={login}>
                                     SIGN IN
                                 </Button>
+                                <br />
                                 <br />
                                 <Typography variant="text" >
                                     Don't have an account?

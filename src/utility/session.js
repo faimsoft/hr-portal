@@ -7,11 +7,11 @@ export function getAccessToken() {
 export function isAuthenticated() {
     const access = sessionStorage.getItem('access', null);
     console.log(`access >> ${access}`);
-    
-    if(access != null) {
+
+    if (access != null) {
         return true
     }
-    
+
     return false
 }
 
@@ -19,22 +19,25 @@ export default isAuthenticated;
 
 export function saveUser(result) {
     sessionStorage.setItem('refresh', result.refresh)
-    sessionStorage.setItem('access',result.access)
+    sessionStorage.setItem('access', result.access)
     sessionStorage.setItem('first_name', result.account.first_name)
     sessionStorage.setItem('last_name', result.account.last_name)
+    sessionStorage.setItem('email', result.account.email)
     sessionStorage.setItem('mobile', result.account.mobile)
-    sessionStorage.setItem('email',result.account.email)
-    sessionStorage.setItem('company',result.account.company)
-    sessionStorage.setItem('role',result.account.role)
+    sessionStorage.setItem('company', result.account.company)
+    sessionStorage.setItem('pincode', result.account.pincode)
+    sessionStorage.setItem('address', result.account.address)
+    sessionStorage.setItem('landmark', result.account.landmark)
+    sessionStorage.setItem('role', result.account.role)
 }
 
 export function updateUser(result) {
     sessionStorage.setItem('first_name', result.account.first_name)
     sessionStorage.setItem('last_name', result.account.last_name)
     sessionStorage.setItem('mobile', result.account.mobile)
-    sessionStorage.setItem('email',result.account.email)
-    sessionStorage.setItem('company',result.account.company)
-    sessionStorage.setItem('role',result.account.role)
+    sessionStorage.setItem('email', result.account.email)
+    sessionStorage.setItem('company', result.account.company)
+    sessionStorage.setItem('role', result.account.role)
 }
 
 export function logout() {
@@ -50,7 +53,7 @@ export function logout() {
     console.log(`clear storage:`)
 }
 
-export function getUser(){
+export function getUser() {
     return {
         access: sessionStorage.getItem('access', null),
         firstName: sessionStorage.getItem('first_name', null),

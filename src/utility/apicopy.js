@@ -7,7 +7,7 @@ export const baseUrl = "http://34.125.49.10:8080/";
 export const zoomUrl = "https://api.zoom.us/v2";
 
 
-const zoomToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjVNUHV4ZTR5UVYtYldHclFYU1N1ZUEiLCJleHAiOjE2NDg3NTEzOTksImlhdCI6MTY0MTI3NjgxOH0.yyppd6thcgti7NhfMYx3jUJiU1RpJr-Dipa3hTx4914"
+const zoomToken = "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0MTcxMDYwLCJqdGkiOiI1ZDgwNzg2ZjBlZjM0OTQwOTZhZTgzOTZkMDg2YTEzMyIsInVzZXJfaWQiOjh9.TEsgzClSLKGf9CC-L7zx7qX-kyMU_AtXiqcJbcpGSaI"
 
 export const signInApi = "account/sign-in/";
 export const signUpApi = "account/sign-up/";

@@ -66,6 +66,7 @@ const SignUp = () => {
     const [pincode, setPincode] = useState("")
     const [address, setAddress] = useState("")
     const [landmark, setLandmark] = useState("")
+    const [error, setError] = useState('')
     // countries
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
@@ -79,36 +80,47 @@ const SignUp = () => {
     async function ragister() {
         if (first_name.trim() === "") {
             // alert('Enter FirstName');
-            toast.warn("Enter FirstName!", {
-                position: "top-center"
-            })
+            // toast.warn("Enter FirstName!", {
+            //     position: "top-center"
+            // })
+            setError("Enter First Name!")
             return
         }
         if (last_name.trim() === "") {
-            toast.warn("last_name", {
-                position: "top-center"
-            })
+            // toast.warn("last_name", {
+            //     position: "top-center"
+            // })
+            setError("Enter Last Name!")
+
             return
         }
         if (email.trim() === "") {
-            toast.warn("Entet Email", {
-                position: 'top-center'
-            })
+            // toast.warn("Entet Email", {
+            //     position: 'top-center'
+            // })
+            setError("Entet Email")
+
         }
         if (mobile.trim() === "") {
-            toast.warn("Enter Mobile ", {
-                position: "top-center"
-            })
+            // toast.warn("Enter Mobile ", {
+            //     position: "top-center"
+            // })
+            setError("Enter Mobile")
+
         }
         if (company.trim() === "") {
-            toast.warn("Enter Company", {
-                position: 'top-center'
-            })
+            // toast.warn("Enter Company", {
+            //     position: 'top-center'
+            // })
+            setError("Enter Company")
+
         }
         if (landmark.trim() === "") {
-            toast.warn("Enter Landmark", {
-                position: 'top-center'
-            })
+            // toast.warn("Enter Landmark", {
+            //     position: 'top-center'
+            // })
+            setError("Enter Landmark")
+
         }
 
 
@@ -122,9 +134,10 @@ const SignUp = () => {
 
             },
             (errorMsg) => {
-                toast.error(errorMsg, {
-                    position: 'top-center'
-                })
+                // toast.error(errorMsg, {
+                //     position: 'top-center'
+                // })
+                setError(errorMsg)
             }
         )
 
@@ -165,8 +178,8 @@ const SignUp = () => {
                             label="First Name"
                             type="text"
                             size="small"
-                            onChange={(e) => setFirst_name(e.target.value)}
                             value={first_name}
+                            onChange={(e) => setFirst_name(e.target.value)}
                         />
                         <br />
                         <br />
@@ -191,7 +204,6 @@ const SignUp = () => {
                             size="small"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-
                         />
                         <br />
                         <br />
@@ -327,6 +339,12 @@ const SignUp = () => {
                         </div>
                         {/* Dropdown */}
                         {/* <Toolbar/> */}
+                        <br />
+                        <Typography variant="text" color='error' >
+                            {error}
+                        </Typography>
+                        <br />
+                        <br />
                         <Typography variant="text" >
                             <Checkbox {...label} />
                             I agree the
