@@ -35,8 +35,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 // check box
 import Checkbox from '@mui/material/Checkbox';
 
-
-
+import {isAuthenticated} from '../../../utils/session'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -87,6 +86,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
 function InterviewCreate() {
+
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+    }
+
     const [currency, setCurrency] = React.useState('EUR');
 
     const history = useHistory();

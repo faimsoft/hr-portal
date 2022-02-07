@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import { Toolbar, Menu, MenuItem, ListItemText, Drawer, List, ListItem, } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from 'react-router-dom';
 import Formdata from '../Formdata/Formdata';
 import TextField from '@mui/material/TextField';
 import { Filters } from '../../../views/button';
 import axios from 'axios';
 //import api
-import { apicountries, apiCallUnsecureGet } from '../../../utility/apicopy';
+import { apicountries, apiCallUnsecureGet } from '../../../utils/api';
+import { isAuthenticated } from '../../../utils/session'
 
 
 const DrawerWidth = 200
@@ -44,13 +46,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CandiDR = () => {
+
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+    }
+
     const classes = useStyles();
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
     const [states, setStates] = useState([]);
     const [loadData, setLoadData] = useState(true)
-
-
 
     const [currency, setCurrency] = React.useState('EUR');
 

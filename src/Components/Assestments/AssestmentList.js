@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import { TablePagination, Paper, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Checkbox, Toolbar, Button, Box } from "@material-ui/core";
 import axios from 'axios';
 import { makeStyles } from "@material-ui/core/styles";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-
-
-
-
-
+import { isAuthenticated } from '../../utils/session'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 function AssestmentList() {
+
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+    }
+
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);

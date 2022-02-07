@@ -8,6 +8,8 @@ import {
   Box,
   Toolbar
 } from "@material-ui/core";
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -18,7 +20,7 @@ import Card from '@mui/material/Card';
 import Checkbox from '@mui/material/Checkbox';
 import CircleChecked from '@material-ui/icons/CheckCircleOutline';
 import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
-
+import { isAuthenticated } from '../../utils/session'
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -45,6 +47,11 @@ function getSteps() {
 
 function GetStepContent(step) {
   // const [sort, setsort] = React.useState('')
+
+  if(!isAuthenticated()) {
+    return <Redirect to='/Login'  />
+  }
+
   const [minexp, setminexp] = React.useState('')
   const [isJobNature, setisJobNature] = useState('')
   const [IsSpecility, setIsSpecility] = useState('')

@@ -1,4 +1,6 @@
 import React from 'react'
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import Box from '@mui/material/Box';
 import { Paper,Toolbar} from "@material-ui/core";
 import Grid from '@mui/material/Grid';
@@ -11,6 +13,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateRangePicker from '@mui/lab/DateRangePicker';
 import { makeStyles } from "@material-ui/core/styles";
+import { isAuthenticated } from '../../utils/session'
 
 
 function HomeIcon(props) {
@@ -29,8 +32,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Dashboard = () => {
+    
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+    }
+
     const classes = useStyles();
-  const [value, setValue] = React.useState([null, null]);
+    const [value, setValue] = React.useState([null, null]);
 
     return (
         <>

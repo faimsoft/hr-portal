@@ -1,4 +1,6 @@
 import React from 'react'
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -14,7 +16,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import WorkIcon from '@mui/icons-material/Work';
-import { Link } from 'react-router-dom';
+import { isAuthenticated } from '../../utils/session'
 
 const useStyles = makeStyles((theme) => ({
     logostyle: {
@@ -36,10 +38,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 const CarerSiteMain = () => {
-        const classes = useStyles();
-    const [sort, setsort] = React.useState('')
     
-
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+    }
+    
+    const classes = useStyles();
+    const [sort, setsort] = React.useState('')
     
     const sortby = (event) => {
     setsort(event.target.value);

@@ -1,4 +1,6 @@
 import React from 'react'
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import { Typography, Paper, Toolbar, Button, ListItemText, List, ListItem, } from "@material-ui/core";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Box from '@mui/material/Box';
@@ -10,20 +12,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Grid from '@mui/material/Grid';
 // import { Bottomtext } from '../../../views/text';
-import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
 import Divider from '@mui/material/Divider';
 import { Question1 } from './Question';
+import { isAuthenticated } from '../../utils/session'
 
 // Question
 import Question from './Question';
-
-
-
-
-
-
-
 // import Divider from '@mui/material/Divider';
 
 // icon
@@ -31,9 +25,6 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 // check box
 import Checkbox from '@mui/material/Checkbox';
-
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -84,6 +75,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
 function AssestmentsCreat() {
+
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+      }
+
     const [currency, setCurrency] = React.useState('EUR');
 
     const history = useHistory();

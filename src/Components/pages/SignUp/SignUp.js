@@ -13,8 +13,8 @@ import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { signUpApi, apiPostUnsecure, apicountries, } from '../../../utility/apicopy'
-import { saveUser } from '../../../utility/session';
+import { signUpApi, apiPostUnsecure, apicountries, } from '../../../utils/api'
+import { saveUser } from '../../../utils/session';
 // alert npm 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

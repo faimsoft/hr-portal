@@ -12,11 +12,6 @@ import { TextFrmkHead } from '../../views/text';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 
-
-
-
-
-
 const useStyles = makeStyles((theme) => ({
     root: {
         position: "absolute",

@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory, Redirect, useLocation, Link } from 'react-router-dom'
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Typography, Paper, Button, } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Grid from '@mui/material/Grid';
-import { useHistory } from "react-router-dom";
-
-
-
-
-
+import { isAuthenticated } from '../../../utils/session'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -25,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function StateTextFields() {
+
+    if(!isAuthenticated()) {
+        return <Redirect to='/Login'  />
+      }
 
     const classes = useStyles();
     const history = useHistory();
