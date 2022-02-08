@@ -122,9 +122,7 @@ function CdList() {
                         </option>
                     ))}
                     </TextField>
-
                 </Grid>
-
                 <Grid item xs={2}   >
                     <Button color="primary" component={Link} to='/CreatCandidate' variant="contained" disableElevation>
                         Create a candidate

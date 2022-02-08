@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StateTextFields() {
 
-    if(!isAuthenticated()) {
-        return <Redirect to='/Login'  />
-      }
+    if (!isAuthenticated()) {
+        return <Redirect to='/Login' />
+    }
 
     const classes = useStyles();
     const history = useHistory();
