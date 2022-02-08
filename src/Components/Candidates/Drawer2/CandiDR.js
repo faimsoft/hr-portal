@@ -47,8 +47,8 @@ const useStyles = makeStyles((theme) => ({
 
 const CandiDR = () => {
 
-    if(!isAuthenticated()) {
-        return <Redirect to='/Login'  />
+    if (!isAuthenticated()) {
+        return <Redirect to='/Login' />
     }
 
     const classes = useStyles();

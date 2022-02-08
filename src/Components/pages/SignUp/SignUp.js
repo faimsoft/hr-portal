@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { signUpApi, apiPostUnsecure, apicountries, } from '../../../utils/api'
+import { signUpApi, apiPostSecure, apicountries, apiCallUnsecureGet } from '../../../utils/api'
 import { saveUser } from '../../../utils/session';
 // alert npm 
 import { ToastContainer, toast } from 'react-toastify';
@@ -71,7 +71,7 @@ const SignUp = () => {
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
     const [states, setStates] = useState([]);
-    const [loadDatas, setLoadDatas] = useState(true)
+    const [loadData, setLoadData] = useState(true)
 
 
 
@@ -124,10 +124,10 @@ const SignUp = () => {
         }
 
 
-        const data = { first_name, last_name, email, mobile, company, pincode, address, landmark }
+        const data = { first_name, last_name, email, mobile, company, pincode, address, landmark, countries, states, cities }
         console.warn('data', data)
 
-        apiPostUnsecure(signUpApi, data,
+        apiPostSecure(signUpApi, data,
             (response) => {
                 saveUser(response)
                 history.push('/JobView');
@@ -140,8 +140,30 @@ const SignUp = () => {
                 setError(errorMsg)
             }
         )
+    }
+
+    const loadcountrie = () => {
+        apiCallUnsecureGet(apicountries,
+            (response) => {
+                setLoadData(false);
+                setCountries(response.countries);
+                setStates(response.states);
+                setCities(response.cities);
+            },
+            (errorMsg) => {
+                setLoadData(false);
+                alert(errorMsg)
+            }
+        )
 
     }
+
+    useEffect(() => {
+        loadcountrie()
+    }, [loadData])
+
+
+
 
 
 
@@ -276,6 +298,7 @@ const SignUp = () => {
                                 }}
                                 id="Zip Code"
                                 select
+                                label="Countries"
                                 size='small'
                                 value={countries}
                                 // onChange={clickhandleChange}
@@ -299,14 +322,15 @@ const SignUp = () => {
 
                                         }}
                                         id="Zip Code"
+                                        label="States"
                                         select
                                         size='small'
-                                        value={cities}
+                                        value={states}
                                         // onChange={clickhandleChange}
                                         SelectProps={{
                                             native: true,
                                         }}
-                                    >  {countries.map((option) => (
+                                    >  {states.map((option) => (
                                         <option key={option.id} value={option.name}>
                                             {option.name}
                                         </option>
@@ -322,13 +346,14 @@ const SignUp = () => {
                                         }}
                                         id="Zip Code"
                                         select
+                                        label="Cities"
                                         size='small'
-                                        value={countries}
+                                        value={cities}
                                         // onChange={clickhandleChange}
                                         SelectProps={{
                                             native: true,
                                         }}
-                                    >  {countries.map((option) => (
+                                    >  {cities.map((option) => (
                                         <option key={option.id} value={option.name}>
                                             {option.name}
                                         </option>
