@@ -21,7 +21,6 @@
         "custom": "ignore"
       }
     ],
-    "react/jsx-curly-spacing": [2, "never"],
     "react/prop-types": "off",
     "prettier/prettier": "off",
     "no-const-assign": "off",
@@ -32,7 +31,9 @@
     "camelcase": "off",
     "react-hooks/rules-of-hooks": "off",
     "import/no-named-as-default": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "jsx-a11y/alt-text": "off",
+    "react/jsx-curly-spacing": "off"
   },
   "settings": { "import/resolver": { "node": { "paths": ["src"] } } }
 }
