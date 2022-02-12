@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { signUpApi, apiPostSecure, apicountries, apiCallUnsecureGet } from '../../../utils/api'
+import { signUpApi, apiPostUnsecure, apicountries, apiCallUnsecureGet } from '../../../utils/api'
 import { saveUser } from '../../../utils/session';
 // alert npm 
 import { ToastContainer, toast } from 'react-toastify';
@@ -73,6 +73,9 @@ const SignUp = () => {
     const [states, setStates] = useState([]);
     const [loadData, setLoadData] = useState(true)
 
+    const role = "A";
+
+
 
 
 
@@ -124,14 +127,13 @@ const SignUp = () => {
         }
 
 
-        const data = { first_name, last_name, email, mobile, company, pincode, address, landmark, countries, states, cities }
+        const data = { first_name, last_name, email, mobile, company, pincode, address, landmark, role, countries, states, cities }
         console.warn('data', data)
 
-        apiPostSecure(signUpApi, data,
+        apiPostUnsecure(signUpApi, data,
             (response) => {
                 saveUser(response)
                 history.push('/JobView');
-
             },
             (errorMsg) => {
                 // toast.error(errorMsg, {
@@ -191,7 +193,7 @@ const SignUp = () => {
                     <Toolbar />
                 </Box>
                 <div align="center" className={classes.ragisterdiv}>
-                    <Box component={Paper} className={classes.ragisteration} sx={{ bgcolor: 'success.main', color: 'primary.contrastText', boxShadow: 2, p: 2 }}>
+                    <Box component={Paper} className={classes.ragisteration} sx={{ bgcolor: 'success.main', color: 'primary.contrastText', boxShadow: 2, p: 2 }} role="form">
                         <Typography variant="subtitle1" align="center"> Ragister</Typography>
                         <Toolbar />
                         <TextField
