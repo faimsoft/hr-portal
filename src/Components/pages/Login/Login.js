@@ -46,18 +46,15 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState('')
     const history = useHistory();
-    // useEffect(() => {
-    //     if (localStorage.getItem('user-info')) {
-    //         history.push("/login")
-    //     }
-    // },[])
+
     async function login() {
+
         if (username.trim() === "") {
-            setError('Enter UserName')
+            setError('Enter email')
             return
         }
         if (password.trim() === "") {
-            setError('Enter Right PassWord')
+            setError('Enter passWord')
             return
         }
 
@@ -75,7 +72,6 @@ const Login = () => {
         )
     }
     return (
-        < >
             <div className={classes.pagePadding}  >
                 <div>
                     <Box component={Paper} className={classes.pagePadding}>
@@ -122,8 +118,6 @@ const Login = () => {
                     <ToastContainer />
                 </div>
             </div>
-        </>
-
     )
 }
 
